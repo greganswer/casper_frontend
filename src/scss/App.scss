@@ -14,8 +14,16 @@ $body-bg-color: #eee;
  */
 @import "~font-awesome/css/font-awesome.css";
 @import "materialize-css/sass/materialize";
+@import "material-icons/css/material-icons";
+
+/**
+ * COMPONENTS
+ */
 @import "Header";
 
+/**
+ * APP STYLES
+ */
 body {
   display: flex;
   min-height: 100vh;
