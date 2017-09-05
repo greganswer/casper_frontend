@@ -1,3 +1,27 @@
+// NOTE: Order is important
+
+/**
+ * COLORS
+ */
+$roboto-font-path: "~materialize-css/dist/fonts/roboto/";
+@import "materialize-css/sass/components/color";
+$primary-color-name: 'cyan';
+$primary-color: color($primary-color-name, 'accent-4');
+$body-bg-color: #eee;
+
+/**
+ * VENDOR IMPORTS
+ */
+@import "~font-awesome/css/font-awesome.css";
+@import "materialize-css/sass/materialize";
+@import "Header";
+
 body {
-  color: red;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
