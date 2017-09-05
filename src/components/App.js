@@ -3,6 +3,8 @@ import '../css/App.css';
 import 'materialize-css/dist/js/materialize';
 import $ from 'jquery/dist/jquery';
 import Header from './Header';
+import ChatButton from './Chat/Button';
+import ChatWindow from './Chat/Window';
 
 $(function() {
   var $carousel;
@@ -22,6 +24,12 @@ $(function() {
 
 export default class App extends Component {
   render() {
-    return <Header />;
+    return (
+      <div>
+        <Header />
+        <ChatWindow />
+        <ChatButton />
+      </div>
+    );
   }
 }

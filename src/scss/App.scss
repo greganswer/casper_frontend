@@ -5,8 +5,8 @@
  */
 $roboto-font-path: "~materialize-css/dist/fonts/roboto/";
 @import "materialize-css/sass/components/color";
-$primary-color-name: 'cyan';
-$primary-color: color($primary-color-name, 'accent-4');
+$primary-color-name: 'indigo';
+$primary-color: color($primary-color-name, 'darken-3');
 $body-bg-color: #eee;
 
 /**
@@ -14,12 +14,12 @@ $body-bg-color: #eee;
  */
 @import "~font-awesome/css/font-awesome.css";
 @import "materialize-css/sass/materialize";
-@import "material-icons/css/material-icons";
 
 /**
  * COMPONENTS
  */
 @import "Header";
+@import "Chat";
 
 /**
  * APP STYLES

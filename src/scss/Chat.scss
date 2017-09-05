@@ -1,0 +1,78 @@
+@import "materialize-css/sass/materialize";
+
+.Chat__Button {
+}
+
+.Chat__Window {
+  @extend .z-depth-4;
+  width: 85%;
+  max-width: 320px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+
+  .material-icons {
+    cursor: pointer;
+  }
+}
+
+.Chat__Window__Header {
+  background: #6a1b9a;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 5px 5px 0 0;
+}
+
+.Chat__Window__Main {
+  padding: 20px;
+  background: white;
+  max-height: 500px;
+  /*overflow-y: scroll;*/
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.Chat__Window__BotMessage,
+.Chat__Window__UserMessage {
+  padding: 7px 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 5px;
+  max-width: 80%;
+}
+
+.Chat__Window__BotMessage {
+  background: #ccc;
+}
+
+.Chat__Window__UserMessage {
+  background: #283593;
+  color: white;
+  float: right;
+  clear: both;
+}
+
+.Chat__Window__Footer {
+  border-radius: 0 0 5px 5px;
+  padding: 15px;
+  background: #cfd8dc;
+}
+
+.Chat__Window__Input {
+  @extend .browser-default;
+  resize: none;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, .2);
+  padding: 10px;
+  background: white;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px -1px purple;
+  }
+}
