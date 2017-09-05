@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import Main from './Main';
 import Footer from './Footer';
 
 export default class Window extends Component {
@@ -16,6 +17,7 @@ export default class Window extends Component {
     return (
       <div className="Chat__Window">
         <Header />
+        <Main />
         <Footer />
       </div>
     );
