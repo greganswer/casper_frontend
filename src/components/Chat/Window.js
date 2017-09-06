@@ -17,13 +17,13 @@ export default class Window extends Component {
         {
           id: 1,
           alt: 'Lovely face',
+          text: 'Get Started',
           image:
             'https://i.pinimg.com/736x/b5/a6/3b/b5a63b0da8d66df3dd10f269be70ea88--always-smile-face-oil.jpg',
-          text: 'Get Started',
         },
-        { id: 2, text: 'More Info' },
-        { id: 3, text: 'Look at this' },
-        { id: 4, text: 'Other options' },
+        { id: 2, text: 'Send Location', icon: 'map-marker' },
+        { id: 3, text: 'More Info' },
+        { id: 4, text: 'Other options', icon: 'ellipsis-v', iconClass: 'red' },
       ],
       messages: [
         { id: 1, owner: 'bot', text: 'Hello there and welcome to Casper. I am CasperBot' },

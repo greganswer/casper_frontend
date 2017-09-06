@@ -25,9 +25,13 @@ export default class QuickReply extends Component {
    * @return {ReactElement|null}
    */
   renderImage() {
-    return this.props.image && this.props.alt
-      ? <img src={this.props.image} alt={this.props.alt} />
-      : null;
+    if (this.props.image && this.props.alt) {
+      return <img src={this.props.image} alt={this.props.alt} />;
+    } else if (this.props.icon) {
+      return <i className={`fa fa-${this.props.icon} ${this.props.iconClass}`} />;
+    } else {
+      return null;
+    }
   }
 
   /**

@@ -25,7 +25,7 @@ export default class Message extends Component {
    * @return {ReactElement} The image element
    */
   renderImage() {
-    if (!this.props.image) {
+    if (!this.props.image && !this.props.alt) {
       return null;
     }
     return (
