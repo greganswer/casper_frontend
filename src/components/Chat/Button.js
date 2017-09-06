@@ -4,12 +4,11 @@ export default class Button extends Component {
   constructor(props) {
     super(props);
     this.state = { visible: true };
-
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    this.setState({ visible: false });
+    this.props.onChatWindowOpen();
   }
 
   render() {

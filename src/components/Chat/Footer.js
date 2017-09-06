@@ -13,13 +13,13 @@ export default class Footer extends Component {
     return (
       <div className="Chat__Window__Footer">
         <Textarea
-          type="text"
-          name="message"
-          rows="1"
-          placeholder="Type here and hit enter to chat"
           autoComplete="off"
           className=" Chat__Window__Input"
+          maxRows={4}
+          name="message"
           onKeyPress={this.handleKeyPress}
+          placeholder="Type here and hit enter to chat"
+          type="text"
         />
       </div>
     );

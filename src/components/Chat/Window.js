@@ -7,6 +7,11 @@ export default class Window extends Component {
   constructor(props) {
     super(props);
     this.state = { visible: true };
+    this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
+  }
+
+  handleChatWindowClose() {
+    this.setState({ visible: false });
   }
 
   render() {
@@ -16,7 +21,7 @@ export default class Window extends Component {
 
     return (
       <div className="Chat__Window">
-        <Header />
+        <Header onChatWindowClose={this.handleChatWindowClose} />
         <Main />
         <Footer />
       </div>

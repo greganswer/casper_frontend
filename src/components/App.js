@@ -3,16 +3,19 @@ import '../css/App.css';
 import '../libs/materialize';
 
 import Header from './Header';
-import ChatButton from './Chat/Button';
-import ChatWindow from './Chat/Window';
+import Chat from './Chat';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { visible: true };
+  }
+
   render() {
     return (
       <div>
         <Header />
-        <ChatWindow />
-        <ChatButton />
+        <Chat />
       </div>
     );
   }

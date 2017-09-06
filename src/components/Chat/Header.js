@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Header extends Component {
   handleChatWindowClose(e) {
-    // TODO: Close Chat Window
+    this.props.onChatWindowClose();
   }
 
   render() {
