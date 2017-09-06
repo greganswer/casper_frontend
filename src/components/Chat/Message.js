@@ -1,11 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Message extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return ();
-  }
+function capitalize(s) {
+  return s && s[0].toUpperCase() + s.slice(1);
 }
+
+const Message = props => {
+  const className = `Chat__Window__${capitalize(props.owner)}Message`;
+
+  return (
+    <div className="Chat__Window__MessageWrapper">
+      <div className={className}>
+        {props.value}
+      </div>
+    </div>
+  );
+};
+
+export default Message;

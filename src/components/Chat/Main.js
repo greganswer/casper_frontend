@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import Message from './Message';
 
-export default class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { term: '' };
-  }
+const Main = props => {
+  const messages = props.messages.map(message => {
+    return <Message key={message.id} {...message} />;
+  });
 
-  render() {
-    return <div className="Chat__Window__Main">Test</div>;
-  }
-}
+  return (
+    <div className="Chat__Window__Main">
+      {messages}
+    </div>
+  );
+};
+
+export default Main;
