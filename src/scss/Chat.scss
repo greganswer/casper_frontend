@@ -51,10 +51,16 @@ $user-primary-color: #283593;
   }
 }
 
+.Chat__Window__Image,
+.Chat__Window__BotMessage,
+.Chat__Window__UserMessage,
+.Chat__Window__QuickReply {
+  margin: 3px 0;
+}
+
 .Chat__Window__Image {
   width: 100%;
   display: block;
-  margin: 5px 0;
   border-radius: 20px 20px 20px 0;
 }
 
@@ -64,7 +70,6 @@ $user-primary-color: #283593;
   padding: 10px;
   border-radius: 20px 20px 20px 0;
   display: inline-block;
-  margin: 5px 0;
   max-width: 80%;
   word-wrap: break-word;
 }
@@ -100,7 +105,7 @@ $user-primary-color: #283593;
     float: left;
     margin: 0 8px 0 -12px;
     border-radius: 50%;
-    border: 2px solid $user-primary-color;
+    border: 3px solid $user-primary-color;
     position: relative;
     top: -1px;
     left: -1px;
@@ -109,15 +114,15 @@ $user-primary-color: #283593;
   }
   .fa {
     border-radius: 500px;
-    padding: 5px;
+    padding: 4px;
     position: relative;
     left: -13px;
     background: $user-primary-color;
     color: white;
     font-size: 1.2em;
     display: inline-block;
-    width: 34px;
-    border: 2px solid $user-primary-color;
+    width: 30px;
+    border: 3px solid $user-primary-color;
   }
 }
 
