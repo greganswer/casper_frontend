@@ -4,6 +4,11 @@ import Main from './Main';
 import Footer from './Footer';
 
 export default class Window extends Component {
+  /**
+   * Initialize this component
+   * @param  {Object} props The properties that are passed in
+   * @return null
+   */
   constructor(props) {
     super(props);
     this.state = {

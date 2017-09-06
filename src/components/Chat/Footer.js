@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import Textarea from 'react-textarea-autosize';
 
 export default class Footer extends Component {
+  /**
+   * Initialize this component
+   * @param  {Object} props The properties that are passed in
+   * @return null
+   */
   constructor(props) {
     super(props);
     this.state = { term: '' };
@@ -15,7 +20,6 @@ export default class Footer extends Component {
    */
   handleKeyPress(e) {
     if (e.key === 'Enter') {
-      // TODO: Add the message to Chat__Window__Main
       // TODO: Send message to NLP provider
       this.props.onUserInput(e.target.value);
       e.target.value = null;

@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 export default class Message extends Component {
+  /**
+   * Initialize this component
+   * @param  {Object} props The properties that are passed in
+   * @return null
+   */
   constructor(props) {
     super(props);
     this.state = { term: '' };

@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 
 export default class Header extends Component {
+  /**
+   * Close the Chat window
+   * @return null
+   */
   handleChatWindowClose(e) {
     this.props.onChatWindowClose();
   }
 
+  /**
+   * Render this component
+   * @return {ReactElement}
+   */
   render() {
     return (
       <div className="Chat__Window__Header">

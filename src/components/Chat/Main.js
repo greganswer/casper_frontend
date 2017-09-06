@@ -9,7 +9,6 @@ export default class Main extends Component {
    */
   isFirstFromOwner(index) {
     const messages = this.props.messages;
-
     return !messages[index - 1] || messages[index - 1].owner !== messages[index].owner;
   }
 
@@ -25,6 +24,10 @@ export default class Main extends Component {
     });
   }
 
+  /**
+   * Scroll to the bottom of the window on update
+   * @return {[type]} [description]
+   */
   componentDidUpdate() {
     let main = document.querySelector('.Chat__Window__Main');
     main.scrollTop = main.scrollHeight;

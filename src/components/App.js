@@ -7,6 +7,11 @@ import Chat from './Chat';
 import Footer from './Footer';
 
 export default class App extends Component {
+  /**
+   * Initialize this component
+   * @param  {Object} props The properties that are passed in
+   * @return null
+   */
   constructor(props) {
     super(props);
     this.state = { visible: true };
