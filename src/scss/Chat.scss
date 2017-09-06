@@ -28,7 +28,7 @@
   padding: 20px;
   background: white;
   max-height: 500px;
-  /*overflow-y: scroll;*/
+  overflow-y: scroll;
 
   &:after {
     content: "";
@@ -45,15 +45,19 @@
 
 .Chat__Window__Image {
   width: 100%;
+  display: block;
+  margin: 5px 0;
+  border-radius: 20px 20px 20px 0;
 }
 
 .Chat__Window__BotMessage,
 .Chat__Window__UserMessage {
-  padding: 7px 10px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 20px 20px 20px 0;
   display: inline-block;
-  margin-top: 5px;
+  margin: 5px 0;
   max-width: 80%;
+  word-wrap: break-word;
 }
 
 .Chat__Window__BotMessage {
@@ -61,6 +65,7 @@
 }
 
 .Chat__Window__UserMessage {
+  border-radius: 20px 20px 0 20px;
   background: #283593;
   color: white;
   float: right;

@@ -25,6 +25,11 @@ export default class Main extends Component {
     });
   }
 
+  componentDidUpdate() {
+    let main = document.querySelector('.Chat__Window__Main');
+    main.scrollTop = main.scrollHeight;
+  }
+
   /**
    * Render this component
    * @return {ReactElement}

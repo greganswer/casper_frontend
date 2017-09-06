@@ -4,6 +4,7 @@ import '../libs/materialize';
 
 import Header from './Header';
 import Chat from './Chat';
+import Footer from './Footer';
 
 export default class App extends Component {
   constructor(props) {
@@ -11,11 +12,18 @@ export default class App extends Component {
     this.state = { visible: true };
   }
 
+  /**
+   * Render this component
+   * @return {ReactElement}
+   */
   render() {
     return (
       <div>
         <Header />
-        <Chat />
+        <main>
+          <Chat />
+        </main>
+        <Footer />
       </div>
     );
   }

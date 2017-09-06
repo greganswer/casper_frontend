@@ -20,11 +20,13 @@ $body-bg-color: #eee;
  */
 @import "Header";
 @import "Chat";
+@import "Footer";
 
 /**
  * APP STYLES
  */
-body {
+body,
+[data-reactroot] {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
