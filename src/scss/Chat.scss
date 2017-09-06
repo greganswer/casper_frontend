@@ -38,6 +38,13 @@
 }
 
 .Chat__Window__MessageWrapper {
+  &.first-from-owner {
+    margin-top: 1em;
+  }
+}
+
+.Chat__Window__Image {
+  width: 100%;
 }
 
 .Chat__Window__BotMessage,

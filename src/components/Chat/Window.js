@@ -16,14 +16,26 @@ export default class Window extends Component {
 
   getMessages() {
     return [
-      { id: 1, owner: 'bot', type: 'text', value: 'Hello there!' },
       {
-        id: 2,
+        id: 1,
         owner: 'bot',
         type: 'text',
-        value: 'Welcome to Casper. I am CasperBot. How may I assist you?',
+        value: 'Hello there and welcome to Casper. I am CasperBot',
       },
-      { id: 3, owner: 'user', type: 'text', value: 'Hello CasperBot' },
+      // {
+      //   id: 2,
+      //   owner: 'bot',
+      //   type: 'image',
+      //   value:
+      //     'http://heydoyou.com/wp-content/uploads/2016/04/e59f99c255a2cb8499d57924f1f1dae7.jpg',
+      // },
+      {
+        id: 3,
+        owner: 'bot',
+        type: 'text',
+        value: 'How may I assist you today?',
+      },
+      { id: 4, owner: 'user', type: 'text', value: 'Hello CasperBot' },
     ];
   }
 

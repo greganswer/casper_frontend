@@ -5,6 +5,7 @@ export default class Footer extends Component {
   handleKeyPress(e) {
     if (e.key === 'Enter') {
       // TODO: Add the message to Chat__Window__Main
+      // TODO: Send message to NLP provider
       e.target.value = null;
     }
   }
