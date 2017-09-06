@@ -25,19 +25,51 @@ export default class Message extends Component {
    * @return {ReactElement} The image element
    */
   renderImage() {
-    return <img src={this.props.value} alt={this.props.alt} className="Chat__Window__Image" />;
+    if (!this.props.image) {
+      return null;
+    }
+    return (
+      <img
+        src={this.props.image}
+        alt={this.props.alt}
+        className="Chat__Window__Image materialboxed"
+      />
+    );
   }
 
   /**
    * Render some text in the chat window
-   * @return {ReactElement} The text element
+   * @return {ReactElement|null} The text element or null
    */
   renderText() {
-    const className = `Chat__Window__${this.capitalize(this.props.owner)}Message`;
+    if (!this.props.text) {
+      return null;
+    }
+    return this.props.owner === 'bot' ? this.renderBotText() : this.renderUserText();
+  }
 
+  /**
+   * Render the Bot's text in the chat window
+   * NOTE: This method can display HTML. Program discretion is advised.
+   * @return {ReactElement} The text element
+   */
+  renderBotText() {
     return (
-      <div className={className}>
-        {this.props.value}
+      <div
+        className="Chat__Window__BotMessage"
+        dangerouslySetInnerHTML={{ __html: this.props.text }}
+      />
+    );
+  }
+
+  /**
+   * Render the User's text in the chat window
+   * @return {ReactElement} The text element
+   */
+  renderUserText() {
+    return (
+      <div className="Chat__Window__UserMessage">
+        {this.props.text}
       </div>
     );
   }
@@ -51,7 +83,8 @@ export default class Message extends Component {
 
     return (
       <div className={`Chat__Window__MessageWrapper ${wrapperClass}`}>
-        {this.props.type === 'text' ? this.renderText() : this.renderImage()}
+        {this.renderImage()}
+        {this.renderText()}
       </div>
     );
   }

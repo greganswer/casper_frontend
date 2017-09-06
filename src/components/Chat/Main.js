@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Message from './Message';
+import QuickReply from './QuickReply';
 
 export default class Main extends Component {
   /**
@@ -25,6 +26,27 @@ export default class Main extends Component {
   }
 
   /**
+   * Render an array of QuickReply Elements
+   * @return {Array}
+   */
+  renderQuickReplies() {
+    const replies = this.props.quickReplies.map((quickReply, index) => {
+      return (
+        <QuickReply key={quickReply.id} onUserInput={this.props.onUserInput} {...quickReply} />
+      );
+    });
+
+    if (!replies) {
+      return null;
+    }
+    return (
+      <div className="Chat__Window__QuickReplies__Wrapper">
+        {replies}
+      </div>
+    );
+  }
+
+  /**
    * Scroll to the bottom of the window on update
    * @return {[type]} [description]
    */
@@ -41,6 +63,7 @@ export default class Main extends Component {
     return (
       <div className="Chat__Window__Main">
         {this.renderMessages()}
+        {this.renderQuickReplies()}
       </div>
     );
   }

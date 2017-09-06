@@ -13,27 +13,35 @@ export default class Window extends Component {
     super(props);
     this.state = {
       visible: true,
-      messages: [
+      quickReplies: [
         {
           id: 1,
-          owner: 'bot',
-          type: 'text',
-          value: 'Hello there and welcome to Casper. I am CasperBot',
+          alt: 'Lovely face',
+          image:
+            'https://i.pinimg.com/736x/b5/a6/3b/b5a63b0da8d66df3dd10f269be70ea88--always-smile-face-oil.jpg',
+          text: 'Get Started',
         },
+        { id: 2, text: 'More Info' },
+        { id: 3, text: 'Look at this' },
+        { id: 4, text: 'Other options' },
+      ],
+      messages: [
+        { id: 1, owner: 'bot', text: 'Hello there and welcome to Casper. I am CasperBot' },
         {
           id: 2,
           owner: 'bot',
-          type: 'image',
-          value:
-            'http://heydoyou.com/wp-content/uploads/2016/04/e59f99c255a2cb8499d57924f1f1dae7.jpg',
+          text:
+            'I was built a very talented developer named <a href="http://greganswer.com">Greg Answer</a> who loves his Casper mattress.',
         },
         {
           id: 3,
           owner: 'bot',
-          type: 'text',
-          value: 'How may I assist you today?',
+          image:
+            'http://heydoyou.com/wp-content/uploads/2016/04/e59f99c255a2cb8499d57924f1f1dae7.jpg',
         },
-        { id: 4, owner: 'user', type: 'text', value: 'Hello CasperBot' },
+        { id: 4, owner: 'user', text: 'Hello CasperBot' },
+        { id: 5, owner: 'bot', text: 'Hello my friend!' },
+        { id: 6, owner: 'bot', text: 'How may I assist you today?' },
       ],
     };
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
@@ -49,14 +57,14 @@ export default class Window extends Component {
   }
 
   /**
-   * Handle the user's input
+   * Handle the user's input and empty the quickReplies
    * @param  {String} The user's input
    * @return null
    */
   handleUserInput(input) {
     let messages = this.state.messages;
     messages.push(this.processUserInput(input));
-    this.setState({ messages });
+    this.setState({ messages, quickReplies: [] });
   }
 
   /**
@@ -68,7 +76,7 @@ export default class Window extends Component {
    */
   processUserInput(input) {
     const id = this.state.messages.length + 1;
-    return { id: id, owner: 'user', type: 'text', value: input };
+    return { id: id, owner: 'user', type: 'text', text: input };
   }
 
   /**
@@ -83,7 +91,11 @@ export default class Window extends Component {
     return (
       <div className="Chat__Window">
         <Header onChatWindowClose={this.handleChatWindowClose} />
-        <Main messages={this.state.messages} />
+        <Main
+          messages={this.state.messages}
+          quickReplies={this.state.quickReplies}
+          onUserInput={this.handleUserInput}
+        />
         <Footer onUserInput={this.handleUserInput} />
       </div>
     );

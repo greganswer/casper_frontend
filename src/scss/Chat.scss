@@ -27,9 +27,11 @@
 .Chat__Window__Main {
   padding: 20px;
   background: white;
-  height: 50vh;
+  min-height: 20vh;
+  max-height: 50vh;
   overflow-y: scroll;
   width: 100%;
+  white-space: nowrap;
 
   &:after {
     content: "";
@@ -39,6 +41,9 @@
 }
 
 .Chat__Window__MessageWrapper {
+  clear: both;
+  white-space: pre-wrap;
+
   &.first-from-owner {
     margin-top: 1em;
   }
@@ -52,7 +57,8 @@
 }
 
 .Chat__Window__BotMessage,
-.Chat__Window__UserMessage {
+.Chat__Window__UserMessage,
+.Chat__Window__QuickReply {
   padding: 10px;
   border-radius: 20px 20px 20px 0;
   display: inline-block;
@@ -63,14 +69,47 @@
 
 .Chat__Window__BotMessage {
   background: #ccc;
+  a {
+    text-decoration: underline;
+  }
 }
 
 .Chat__Window__UserMessage {
-  border-radius: 20px 20px 0 20px;
   background: #283593;
   color: white;
+  border-radius: 20px 20px 0 20px;
   float: right;
   clear: both;
+}
+
+.Chat__Window__QuickReply {
+  @extend .z-depth-1;
+  height: 34px;
+  line-height: 30px;
+  padding: 0 12px;
+  border-radius: 20px;
+  margin: 0 5px;
+  background: none;
+  border: 2px solid #283593;
+  color: #283593;
+  cursor: pointer;
+
+  > img {
+    float: left;
+    margin: 0 8px 0 -12px;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    position: relative;
+    left: 1px;
+    top: 1.2px;
+  }
+}
+
+.Chat__Window__QuickReplies__Wrapper {
+  text-align: center;
+  margin-top: 2em;
+  overflow-x: scroll;
 }
 
 .Chat__Window__Footer {
