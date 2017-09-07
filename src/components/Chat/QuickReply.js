@@ -1,5 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
+/**
+ * A QuickReply allows users to click a button instead of type text
+ * @type {React.Component}
+ */
 export default class QuickReply extends Component {
   /**
    * Initialize this component
@@ -35,7 +39,7 @@ export default class QuickReply extends Component {
 
   /**
    * Send the string message or null
-   * @return {String|null}
+   * @return {string|null}
    */
   renderText() {
     return this.props.text ? this.props.text : null;
@@ -43,14 +47,23 @@ export default class QuickReply extends Component {
 
   /**
    * Render this component
-   * @return {ReactElement}
+   * @return {React.Element}
    */
   render() {
     return (
-      <div className="Chat__Window__QuickReply" onClick={ this.handleClick }>
+      <button className="Chat__Window__QuickReply" onClick={ this.handleClick }>
         {this.renderImage()}
         {this.renderText()}
-      </div>
+      </button>
     );
   }
 }
+
+QuickReply.propTypes = {
+  alt: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  iconClass: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  onUserInput: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+};

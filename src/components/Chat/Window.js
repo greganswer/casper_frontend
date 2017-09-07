@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import quickReplies from '../../services/quickReplies';
-import messages from '../../services/messages';
+import getMessages from '../../services/messages';
 
+/**
+ * The Chat Window
+ * @type {React.Component}
+ */
 export default class Window extends Component {
   /**
    * Initialize this component
@@ -17,7 +21,7 @@ export default class Window extends Component {
       visible: this.props.isWindowOpen,
       isBotTyping: true,
       quickReplies: quickReplies(),
-      messages: messages(),
+      messages: getMessages(),
     };
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
@@ -42,7 +46,7 @@ export default class Window extends Component {
 
   /**
    * Handle the user's input and empty the quickReplies
-   * @param  {String} The user's input
+   * @param  {string} input The user's input
    * @return {void}
    */
   handleUserInput(input) {
@@ -55,7 +59,7 @@ export default class Window extends Component {
    * Process the user's input
    * NOTE: this is temporary until the chatbot API is complete
    * TODO: Finish chatbot API
-   * @param  {String} The user's input
+   * @param  {string} input The user's input
    * @return {void}
    */
   processUserInput(input) {
@@ -66,7 +70,7 @@ export default class Window extends Component {
 
   /**
    * Render this component
-   * @return {ReactElement}
+   * @return {React.Element}
    */
   render() {
     if (!this.state.visible) {
@@ -87,3 +91,7 @@ export default class Window extends Component {
     );
   }
 }
+
+Window.propTypes = {
+  isWindowOpen: PropTypes.bool.isRequired,
+};

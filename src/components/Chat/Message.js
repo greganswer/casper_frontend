@@ -1,18 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
+/**
+ * The Chat message
+ * @type {React.Component}
+ */
 export default class Message extends Component {
   /**
-   * Capitalize the first letter
-   * @param  {String} s The string to capitalize
-   * @return {String} The capitalized string
-   */
-  capitalize(s) {
-    return s && s[0].toUpperCase() + s.slice(1);
-  }
-
-  /**
    * Render an image in the chat window
-   * @return {ReactElement} The image element
+   * @return {React.Element} The image element
    */
   renderImage() {
     if (!this.props.image && !this.props.alt) {
@@ -43,7 +38,7 @@ export default class Message extends Component {
   /**
    * Render the Bot's text in the chat window
    * NOTE: This method can display HTML. Program discretion is advised.
-   * @return {ReactElement} The text element
+   * @return {React.Element} The text element
    */
   renderBotText() {
     return (
@@ -56,7 +51,7 @@ export default class Message extends Component {
 
   /**
    * Render the User's text in the chat window
-   * @return {ReactElement} The text element
+   * @return {React.Element} The text element
    */
   renderUserText() {
     return (
@@ -68,7 +63,7 @@ export default class Message extends Component {
 
   /**
    * Render this component
-   * @return {ReactElement}
+   * @return {React.Element}
    */
   render() {
     const wrapperClass = this.props.isFirstFromOwner ? 'first-from-owner' : '';
@@ -81,3 +76,11 @@ export default class Message extends Component {
     );
   }
 }
+
+Message.propTypes = {
+  alt: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  isFirstFromOwner: PropTypes.bool.isRequired,
+  owner: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};

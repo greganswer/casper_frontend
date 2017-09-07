@@ -17,16 +17,15 @@ export default class Button extends Component {
 
   /**
    * Open the chat window on click
-   * @param {Event} _ thing
    * @return {void}
    */
-  handleClick(_) {
+  handleClick() {
     this.props.onChatWindowOpen();
   }
 
   /**
    * Render this component
-   * @return {ReactElement}
+   * @return {React.Element}
    */
   render() {
     return (

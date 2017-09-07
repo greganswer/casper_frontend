@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import Button from './Button';
 import Window from './Window';
 
+/**
+ * The Chat container component
+ * @type {React.Component}
+ */
 export default class Chat extends Component {
   /**
    * Initialize this component
@@ -11,7 +15,7 @@ export default class Chat extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = { isWindowOpen: false };
+    this.state = { isWindowOpen: true };
     this.handleWindowOpen = this.handleWindowOpen.bind(this);
     this.handleWindowClose = this.handleWindowClose.bind(this);
   }
@@ -34,7 +38,7 @@ export default class Chat extends Component {
 
   /**
    * Render this component
-   * @return {ReactElement}
+   * @return {React.Element}
    */
   render() {
     return (

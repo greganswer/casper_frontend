@@ -1,11 +1,12 @@
 import React from 'react';
 
 /**
- * Render this component
- * @return {ReactElement}
+ * Footer for the app
+ * @param {Array} props The properties passed in
+ * @return {React.Element}
  */
-const Footer = props => (
-  <footer className="page-footer indigo darken-3">
+const Footer = props =>
+  (<footer className="page-footer indigo darken-3">
     <div className="container">
       <div className="row">
         <div className="col m12 l6">
@@ -85,7 +86,6 @@ const Footer = props => (
         </ul>
       </div>
     </div>
-  </footer>
-);
+  </footer>);
 
 export default Footer;

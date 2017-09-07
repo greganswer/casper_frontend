@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Textarea from 'react-textarea-autosize';
 
 /**
@@ -31,7 +31,7 @@ export default class Footer extends Component {
 
   /**
    * Render this component
-   * @return {ReactElement}
+   * @return {React.Element}
    */
   render() {
     return (
@@ -49,3 +49,7 @@ export default class Footer extends Component {
     );
   }
 }
+
+Footer.propTypes = {
+  onUserInput: PropTypes.func.isRequired,
+};

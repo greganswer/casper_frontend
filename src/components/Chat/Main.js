@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import $ from 'jquery/dist/jquery';
 import Message from './Message';
 import QuickReply from './QuickReply';
@@ -32,8 +32,8 @@ export default class Main extends Component {
 
   /**
    * Is this the first message from the owner (user or bot)?
-   * @param  {Number} index The Current index in the array
-   * @return {Boolean}
+   * @param  {int} index The Current index in the array
+   * @return {boolean}
    */
   isFirstFromOwner(index) {
     const messages = this.props.messages;
@@ -53,7 +53,7 @@ export default class Main extends Component {
 
   /**
    * Render the bot typing indicator if the bot is "typing"
-   * @return {ReactElement} The typing indicator
+   * @return {React.Element} The typing indicator
    */
   renderTypingIndicator() {
     if (!this.props.isBotTyping) {
@@ -93,7 +93,7 @@ export default class Main extends Component {
 
   /**
    * Render this component
-   * @return {ReactElement}
+   * @return {React.Element}
    */
   render() {
     return (
@@ -105,3 +105,10 @@ export default class Main extends Component {
     );
   }
 }
+
+Main.propTypes = {
+  isBotTyping: PropTypes.bool.isRequired,
+  messages: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onUserInput: PropTypes.func.isRequired,
+  quickReplies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

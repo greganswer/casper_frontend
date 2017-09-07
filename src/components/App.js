@@ -6,11 +6,15 @@ import Header from './Header';
 import Chat from './Chat';
 import Footer from './Footer';
 
+/**
+ * The entire React app
+ * @type {React.Component}
+ */
 export default class App extends Component {
   /**
    * Initialize this component
+   * @constructor
    * @param  {Object} props The properties that are passed in
-   * @return {void}
    */
   constructor(props) {
     super(props);
@@ -19,7 +23,7 @@ export default class App extends Component {
 
   /**
    * Render this component
-   * @return {ReactElement}
+   * @return {React.Element}
    */
   render() {
     return (
