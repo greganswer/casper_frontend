@@ -61,14 +61,14 @@ $user-primary-color: #283593;
 .Chat__Window__Image {
   width: 100%;
   display: block;
-  border-radius: 20px 20px 20px 0;
+  border-radius: 20px 20px 20px 5px;
 }
 
 .Chat__Window__BotMessage,
 .Chat__Window__UserMessage,
 .Chat__Window__QuickReply {
   padding: 10px;
-  border-radius: 20px 20px 20px 0;
+  border-radius: 20px 20px 20px 5px;
   display: inline-block;
   max-width: 80%;
   word-wrap: break-word;
@@ -84,7 +84,7 @@ $user-primary-color: #283593;
 .Chat__Window__UserMessage {
   background: $user-primary-color;
   color: white;
-  border-radius: 20px 20px 0 20px;
+  border-radius: 20px 20px 5px 20px;
   float: right;
   clear: both;
 }

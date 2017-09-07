@@ -13,6 +13,7 @@ export default class Window extends Component {
     super(props);
     this.state = {
       visible: true,
+      isBotTyping: false,
       quickReplies: [
         {
           id: 1,
