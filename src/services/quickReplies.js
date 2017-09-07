@@ -6,7 +6,7 @@ const quickReplies = () => [
   {
     id: 1,
     alt: 'Lovely face',
-    text: 'Get Started',
+    text: 'Talk to Sarah',
     image:
       'https://i.pinimg.com/736x/b5/a6/3b/b5a63b0da8d66df3dd10f269be70ea88--always-smile-face-oil.jpg',
   },

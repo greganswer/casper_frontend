@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import $ from 'jquery/dist/jquery';
 import Message from './Message';
 import QuickReply from './QuickReply';
@@ -18,9 +19,9 @@ const defaultProps = {};
  */
 class Main extends Component {
   /**
-     * Scroll the quick replies from right to left to show the user the full list
-     * @return {void}
-     */
+   * Scroll the quick replies from right to left to show the user the full list
+   * @return {void}
+   */
   componentDidMount() {
     if (this.props.quickReplies) {
       const $wrapper = $('.Chat__Window__QuickReplies__Wrapper');

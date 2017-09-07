@@ -1,4 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import $ from 'jquery/dist/jquery';
 
 const propTypes = {
   onChatWindowOpen: PropTypes.func.isRequired,
@@ -22,6 +24,23 @@ class Button extends Component {
   }
 
   /**
+   * Scroll the quick replies from right to left to show the user the full list
+   * @return {void}
+   */
+  componentDidMount() {
+    $(() => {
+      setInterval(() => {
+        const animationName = 'animated tada';
+        const animationend =
+          'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        $('.Chat__Button').addClass(animationName).one(animationend, () => {
+          $(this).removeClass(animationName);
+        });
+      }, 3000);
+    });
+  }
+
+  /**
    * Open the chat window on click
    * @return {void}
    */
@@ -37,7 +56,7 @@ class Button extends Component {
     return (
       <div className="fixed-action-btn">
         <button
-          className="btn-floating btn-large waves-effect waves-circle waves-light indigo "
+          className="Chat__Button btn-floating btn-large waves-effect waves-circle waves-light indigo "
           onClick={this.handleClick}
         >
           <i className="fa fa-comments" />
