@@ -11,6 +11,7 @@ export default class Main extends Component {
    */
   isFirstFromOwner(index) {
     const messages = this.props.messages;
+
     return !messages[index - 1] || messages[index - 1].owner !== messages[index].owner;
   }
 
@@ -19,11 +20,9 @@ export default class Main extends Component {
    * @return {Array}
    */
   renderMessages() {
-    return this.props.messages.map((message, index) => {
-      return (
-        <Message key={message.id} isFirstFromOwner={this.isFirstFromOwner(index)} {...message} />
-      );
-    });
+    return this.props.messages.map((message, index) => (
+      <Message key={ message.id } isFirstFromOwner={ this.isFirstFromOwner(index) } { ...message } />
+    ));
   }
 
   /**
@@ -34,6 +33,7 @@ export default class Main extends Component {
     if (!this.props.isBotTyping) {
       return null;
     }
+
     return (
       <div className="Chat__Window__MessageWrapper">
         <div className="Chat__Window__BotMessage--typing">
@@ -50,15 +50,14 @@ export default class Main extends Component {
    * @return {Array}
    */
   renderQuickReplies() {
-    const replies = this.props.quickReplies.map((quickReply, index) => {
-      return (
-        <QuickReply key={quickReply.id} onUserInput={this.props.onUserInput} {...quickReply} />
-      );
-    });
+    const replies = this.props.quickReplies.map((quickReply, index) => (
+      <QuickReply key={ quickReply.id } onUserInput={ this.props.onUserInput } { ...quickReply } />
+    ));
 
     if (!replies.length) {
       return null;
     }
+
     return (
       <div className="Chat__Window__QuickReplies__Wrapper">
         {replies}

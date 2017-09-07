@@ -29,7 +29,7 @@ export default class Button extends Component {
       <div className="fixed-action-btn">
         <button
           className="btn-floating btn-large waves-effect waves-circle waves-light indigo "
-          onClick={this.handleClick}
+          onClick={ this.handleClick }
         >
           <i className="fa fa-comments" />
         </button>

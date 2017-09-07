@@ -18,10 +18,11 @@ export default class Message extends Component {
     if (!this.props.image && !this.props.alt) {
       return null;
     }
+
     return (
       <img
-        src={this.props.image}
-        alt={this.props.alt}
+        src={ this.props.image }
+        alt={ this.props.alt }
         className="Chat__Window__Image materialboxed"
       />
     );
@@ -35,6 +36,7 @@ export default class Message extends Component {
     if (!this.props.text) {
       return null;
     }
+
     return this.props.owner === 'bot' ? this.renderBotText() : this.renderUserText();
   }
 
@@ -47,7 +49,7 @@ export default class Message extends Component {
     return (
       <div
         className="Chat__Window__BotMessage"
-        dangerouslySetInnerHTML={{ __html: this.props.text }}
+        dangerouslySetInnerHTML={ { __html: this.props.text } }
       />
     );
   }
@@ -72,7 +74,7 @@ export default class Message extends Component {
     const wrapperClass = this.props.isFirstFromOwner ? 'first-from-owner' : '';
 
     return (
-      <div className={`Chat__Window__MessageWrapper ${wrapperClass}`}>
+      <div className={ `Chat__Window__MessageWrapper ${wrapperClass}` }>
         {this.renderImage()}
         {this.renderText()}
       </div>

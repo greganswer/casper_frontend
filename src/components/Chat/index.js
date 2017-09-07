@@ -39,8 +39,8 @@ export default class Chat extends Component {
   render() {
     return (
       <div>
-        <Window isWindowOpen={this.state.isWindowOpen} />
-        <Button onChatWindowOpen={this.handleWindowOpen} />
+        <Window isWindowOpen={ this.state.isWindowOpen } />
+        <Button onChatWindowOpen={ this.handleWindowOpen } />
       </div>
     );
   }
