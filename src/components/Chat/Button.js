@@ -24,7 +24,7 @@ class Button extends Component {
   }
 
   /**
-   * Scroll the quick replies from right to left to show the user the full list
+   * Animate the button every few seconds to let the user know about the service
    * @return {void}
    */
   componentDidMount() {
@@ -33,10 +33,10 @@ class Button extends Component {
         const animationName = 'animated tada';
         const animationend =
           'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        $('.Chat__Button').addClass(animationName).one(animationend, () => {
+        $('.Chat__Button').addClass(animationName).one(animationend, function callback() {
           $(this).removeClass(animationName);
         });
-      }, 3000);
+      }, 10000);
     });
   }
 
@@ -56,7 +56,7 @@ class Button extends Component {
     return (
       <div className="fixed-action-btn">
         <button
-          className="Chat__Button btn-floating btn-large waves-effect waves-circle waves-light indigo "
+          className="Chat__Button btn-floating btn-large waves-effect waves-circle waves-light indigo"
           onClick={this.handleClick}
         >
           <i className="fa fa-comments" />
