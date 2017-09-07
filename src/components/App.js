@@ -10,7 +10,7 @@ export default class App extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
-   * @return null
+   * @return {void}
    */
   constructor(props) {
     super(props);

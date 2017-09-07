@@ -4,7 +4,7 @@ export default class Header extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
-   * @return null
+   * @return {void}
    */
   constructor(props) {
     super(props);
@@ -14,7 +14,7 @@ export default class Header extends Component {
 
   /**
    * Close the Chat window
-   * @return null
+   * @return {void}
    */
   handleChatWindowClose(e) {
     this.props.onChatWindowClose();

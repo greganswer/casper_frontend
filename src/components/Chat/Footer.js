@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import Textarea from 'react-textarea-autosize';
 
+/**
+ * The Chat window is broken up into 3 sections: Header, Main, Footer
+ * @type {React.Component}
+ */
 export default class Footer extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
-   * @return null
+   * @return {void}
    */
   constructor(props) {
     super(props);
@@ -15,7 +19,7 @@ export default class Footer extends Component {
   /**
    * Respond to user input
    * @param  {Event} e The event object
-   * @return null
+   * @return {void}
    */
   handleKeyPress(e) {
     if (e.key === 'Enter') {

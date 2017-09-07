@@ -7,7 +7,7 @@ export default class Chat extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
-   * @return null
+   * @return {void}
    */
   constructor(props) {
     super(props);
@@ -18,7 +18,7 @@ export default class Chat extends Component {
 
   /**
    * Open the Chat window
-   * @return null
+   * @return {void}
    */
   handleWindowOpen() {
     this.setState({ isWindowOpen: true });
@@ -26,7 +26,7 @@ export default class Chat extends Component {
 
   /**
    * Close the Chat window
-   * @return null
+   * @return {void}
    */
   handleWindowClose() {
     this.setState({ isWindowOpen: false });

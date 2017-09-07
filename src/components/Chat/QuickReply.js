@@ -4,7 +4,7 @@ export default class QuickReply extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
-   * @return null
+   * @return {void}
    */
   constructor(props) {
     super(props);
@@ -13,7 +13,7 @@ export default class QuickReply extends Component {
 
   /**
    * Respond to a user clicking the QuickReply
-   * @return null
+   * @return {void}
    */
   handleClick() {
     this.props.onUserInput(this.props.text);

@@ -3,7 +3,33 @@ import $ from 'jquery/dist/jquery';
 import Message from './Message';
 import QuickReply from './QuickReply';
 
+/**
+ * The Chat window is broken up into 3 sections: Header, Main, Footer
+ * @type {React.Component}
+ */
 export default class Main extends Component {
+  /**
+     * Scroll the quick replies from right to left to show the user the full list
+     * @return {void}
+     */
+  componentDidMount() {
+    if (this.props.quickReplies) {
+      const $wrapper = $('.Chat__Window__QuickReplies__Wrapper');
+      $wrapper.scrollLeft($wrapper[0].scrollWidth);
+      $wrapper.animate({ scrollLeft: 0 }, $wrapper[0].scrollWidth * 2);
+    }
+  }
+
+  /**
+     * Scroll to the bottom of the window on update
+     * @return {[type]} [description]
+     */
+  componentDidUpdate() {
+    const $main = $('.Chat__Window__Main');
+    $main.scrollTop($main[0].scrollHeight);
+    $main.animate({ scrollTop: $main[0].scrollHeight }, 500);
+  }
+
   /**
    * Is this the first message from the owner (user or bot)?
    * @param  {Number} index The Current index in the array
@@ -20,9 +46,9 @@ export default class Main extends Component {
    * @return {Array}
    */
   renderMessages() {
-    return this.props.messages.map((message, index) => (
-      <Message key={ message.id } isFirstFromOwner={ this.isFirstFromOwner(index) } { ...message } />
-    ));
+    return this.props.messages.map((message, index) =>
+      <Message { ...message } key={ message.id } isFirstFromOwner={ this.isFirstFromOwner(index) } />,
+    );
   }
 
   /**
@@ -50,9 +76,9 @@ export default class Main extends Component {
    * @return {Array}
    */
   renderQuickReplies() {
-    const replies = this.props.quickReplies.map((quickReply, index) => (
-      <QuickReply key={ quickReply.id } onUserInput={ this.props.onUserInput } { ...quickReply } />
-    ));
+    const replies = this.props.quickReplies.map(quickReply =>
+      <QuickReply key={ quickReply.id } onUserInput={ this.props.onUserInput } { ...quickReply } />,
+    );
 
     if (!replies.length) {
       return null;
@@ -63,28 +89,6 @@ export default class Main extends Component {
         {replies}
       </div>
     );
-  }
-
-  /**
-   * Scroll the quick replies from right to left to show the user the full list
-   * @return null
-   */
-  componentDidMount() {
-    if (this.props.quickReplies) {
-      const $wrapper = $('.Chat__Window__QuickReplies__Wrapper');
-      $wrapper.scrollLeft($wrapper[0].scrollWidth);
-      $wrapper.animate({ scrollLeft: 0 }, $wrapper[0].scrollWidth * 2);
-    }
-  }
-
-  /**
-   * Scroll to the bottom of the window on update
-   * @return {[type]} [description]
-   */
-  componentDidUpdate() {
-    const $main = $('.Chat__Window__Main');
-    $main.scrollTop($main[0].scrollHeight);
-    $main.animate({ scrollTop: $main[0].scrollHeight }, 500);
   }
 
   /**

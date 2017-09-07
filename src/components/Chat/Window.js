@@ -9,7 +9,7 @@ export default class Window extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
-   * @return null
+   * @return {void}
    */
   constructor(props) {
     super(props);
@@ -26,7 +26,7 @@ export default class Window extends Component {
   /**
    * Check if the window is open
    * @param  {Object} newProps The new properties being passed in
-   * @return null
+   * @return {void}
    */
   componentWillReceiveProps(newProps) {
     this.setState({ visible: newProps.isWindowOpen });
@@ -34,7 +34,7 @@ export default class Window extends Component {
 
   /**
    * Close the Chat window
-   * @return null
+   * @return {void}
    */
   handleChatWindowClose() {
     this.setState({ visible: false });
@@ -43,7 +43,7 @@ export default class Window extends Component {
   /**
    * Handle the user's input and empty the quickReplies
    * @param  {String} The user's input
-   * @return null
+   * @return {void}
    */
   handleUserInput(input) {
     const messages = this.state.messages;
@@ -56,7 +56,7 @@ export default class Window extends Component {
    * NOTE: this is temporary until the chatbot API is complete
    * TODO: Finish chatbot API
    * @param  {String} The user's input
-   * @return null
+   * @return {void}
    */
   processUserInput(input) {
     const id = this.state.messages.length + 1;

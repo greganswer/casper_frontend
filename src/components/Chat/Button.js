@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
+/**
+ * The button that opens the Chat Window
+ * @type {React.Component}
+ */
 export default class Button extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
-   * @return null
+   * @return {void}
    */
   constructor(props) {
     super(props);
@@ -13,10 +17,10 @@ export default class Button extends Component {
 
   /**
    * Open the chat window on click
-   * @param  {Event} e Event object
-   * @return null
+   * @param {Event} _ thing
+   * @return {void}
    */
-  handleClick(e) {
+  handleClick(_) {
     this.props.onChatWindowOpen();
   }
 
@@ -37,3 +41,7 @@ export default class Button extends Component {
     );
   }
 }
+
+Button.propTypes = {
+  onChatWindowOpen: PropTypes.func.isRequired,
+};

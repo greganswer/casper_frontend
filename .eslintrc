@@ -7,41 +7,26 @@
     "node": true,
     "mocha": true
   },
-
   "extends": "airbnb",
-
   "rules": {
-    // spacing
+    "complexity": [ 1, 5 ],
     "no-multiple-empty-lines": [ 2, { "max": 1, "maxEOF": 0, "maxBOF": 0 } ],
-
+    "no-unused-vars": ["error", {"argsIgnorePattern": "^_"}],
+    "no-use-before-define": [ 2, { "functions": false } ],
+    "prefer-const": 1,
     "padding-line-between-statements": [
       "error",
-      { blankLine: "always", prev: "*", next: ["return", "throw", "multiline-block-like"] },
-      { blankLine: "always", prev: "multiline-block-like", next: "*" }
+      {
+        blankLine: "always",
+        prev: "*",
+        next: ["return", "throw", "multiline-block-like"]
+      },
+      {
+        blankLine: "always",
+        prev: "multiline-block-like",
+        next: "*"
+      }
     ],
-
-    // code arrangement matter
-    "no-use-before-define": [ 2, { "functions": false } ],
-
-    // make it meaningful
-    "prefer-const": 1,
-
-    // keep it simple
-    "complexity": [ 1, 5 ],
-
-    // react
-    "react/prefer-es6-class": 0,
-    "react/jsx-filename-extension": 0,
-    "react/jsx-curly-spacing": [ 2, "always" ],
-    "react/prop-types": 2,
-
-    "valid-jsdoc": ["error", {
-      "requireReturn": true,
-      "requireReturnType": true,
-      "requireParamDescription": true,
-      "requireReturnDescription": true
-    }],
-
     "require-jsdoc": ["error", {
       "require": {
           "FunctionDeclaration": true,
@@ -49,6 +34,31 @@
           "ClassDeclaration": true,
           "ArrowFunctionExpression": true
       }
-    }]
+    }],
+    "valid-jsdoc": ["error", {
+      "prefer": {
+        "arg": "param",
+        "argument": "param",
+        "class": "constructor",
+        "returns": "return",
+        "virtual": "abstract"
+      },
+      "preferType": {
+        "Boolean": "boolean",
+        "Number": "number",
+        "object": "Object",
+        "String": "string"
+      },
+      "requireReturn": true,
+      "requireReturnType": true,
+      "requireParamDescription": true,
+      "requireReturnDescription": false
+    }],
+
+    // react
+    "react/prefer-es6-class": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-curly-spacing": [ 2, "always" ],
+    "react/prop-types": 2,
   }
 }
