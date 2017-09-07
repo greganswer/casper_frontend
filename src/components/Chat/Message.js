@@ -31,8 +31,8 @@ class Message extends Component {
 
     return (
       <img
-        src={ this.props.image }
-        alt={ this.props.alt }
+        src={this.props.image}
+        alt={this.props.alt}
         className="Chat__Window__Image materialboxed"
       />
     );
@@ -45,35 +45,22 @@ class Message extends Component {
   renderText() {
     if (!this.props.text) {
       return null;
+    } else if (this.props.owner === 'bot') {
+      return (
+        <div
+          className="Chat__Window__BotMessage"
+          dangerouslySetInnerHTML={{ __html: this.props.text }}
+        />
+      );
+    } else if (this.props.owner === 'user') {
+      return (
+        <div className="Chat__Window__UserMessage">
+          {this.props.text}
+        </div>
+      );
     }
 
-    return this.props.owner === 'bot' ? this.renderBotText() : this.renderUserText();
-  }
-
-  /**
-   * Render the Bot's text in the chat window
-   * NOTE: This method can display HTML. Program discretion is advised.
-   * @return {React.Element} The text element
-   */
-  renderBotText() {
-    return (
-      <div
-        className="Chat__Window__BotMessage"
-        dangerouslySetInnerHTML={ { __html: this.props.text } }
-      />
-    );
-  }
-
-  /**
-   * Render the User's text in the chat window
-   * @return {React.Element} The text element
-   */
-  renderUserText() {
-    return (
-      <div className="Chat__Window__UserMessage">
-        {this.props.text}
-      </div>
-    );
+    return null;
   }
 
   /**
@@ -84,7 +71,7 @@ class Message extends Component {
     const wrapperClass = this.props.isFirstFromOwner ? 'first-from-owner' : '';
 
     return (
-      <div className={ `Chat__Window__MessageWrapper ${wrapperClass}` }>
+      <div className={`Chat__Window__MessageWrapper ${wrapperClass}`}>
         {this.renderImage()}
         {this.renderText()}
       </div>

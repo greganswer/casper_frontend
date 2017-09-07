@@ -45,9 +45,9 @@ class QuickReply extends Component {
    */
   renderImage() {
     if (this.props.image && this.props.alt) {
-      return <img src={ this.props.image } alt={ this.props.alt } />;
+      return <img src={this.props.image} alt={this.props.alt} />;
     } else if (this.props.icon) {
-      return <i className={ `fa fa-${this.props.icon} ${this.props.iconClass}` } />;
+      return <i className={`fa fa-${this.props.icon} ${this.props.iconClass}`} />;
     }
 
     return null;
@@ -67,7 +67,7 @@ class QuickReply extends Component {
    */
   render() {
     return (
-      <button className="Chat__Window__QuickReply" onClick={ this.handleClick }>
+      <button className="Chat__Window__QuickReply" onClick={this.handleClick}>
         {this.renderImage()}
         {this.renderText()}
       </button>

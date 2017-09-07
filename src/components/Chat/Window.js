@@ -85,14 +85,14 @@ class Window extends Component {
 
     return (
       <div className="Chat__Window">
-        <Header onChatWindowClose={ this.handleChatWindowClose } />
+        <Header onChatWindowClose={this.handleChatWindowClose} />
         <Main
-          isBotTyping={ this.state.isBotTyping }
-          messages={ this.state.messages }
-          quickReplies={ this.state.quickReplies }
-          onUserInput={ this.handleUserInput }
+          isBotTyping={this.state.isBotTyping}
+          messages={this.state.messages}
+          quickReplies={this.state.quickReplies}
+          onUserInput={this.handleUserInput}
         />
-        <Footer onUserInput={ this.handleUserInput } />
+        <Footer onUserInput={this.handleUserInput} />
       </div>
     );
   }

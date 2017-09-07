@@ -56,7 +56,7 @@ class Main extends Component {
    */
   renderMessages() {
     return this.props.messages.map((message, index) =>
-      <Message key={ message.id } isFirstFromOwner={ this.isFirstFromOwner(index) } { ...message } />,
+      <Message key={message.id} isFirstFromOwner={this.isFirstFromOwner(index)} {...message} />,
     );
   }
 
@@ -86,7 +86,7 @@ class Main extends Component {
    */
   renderQuickReplies() {
     const replies = this.props.quickReplies.map(quickReply =>
-      <QuickReply key={ quickReply.id } onUserInput={ this.props.onUserInput } { ...quickReply } />,
+      <QuickReply key={quickReply.id} onUserInput={this.props.onUserInput} {...quickReply} />,
     );
 
     if (!replies.length) {
