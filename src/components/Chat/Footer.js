@@ -9,7 +9,6 @@ export default class Footer extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = { term: '' };
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 

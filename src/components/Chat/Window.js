@@ -96,6 +96,7 @@ export default class Window extends Component {
       <div className="Chat__Window">
         <Header onChatWindowClose={this.handleChatWindowClose} />
         <Main
+          isBotTyping={this.state.isBotTyping}
           messages={this.state.messages}
           quickReplies={this.state.quickReplies}
           onUserInput={this.handleUserInput}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery/dist/jquery';
 import Message from './Message';
 import QuickReply from './QuickReply';
 
@@ -26,6 +27,25 @@ export default class Main extends Component {
   }
 
   /**
+   * Render the bot typing indicator if the bot is "typing"
+   * @return {ReactElement} The typing indicator
+   */
+  renderTypingIndicator() {
+    if (!this.props.isBotTyping) {
+      return null;
+    }
+    return (
+      <div className="Chat__Window__MessageWrapper">
+        <div className="Chat__Window__BotMessage--typing">
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+    );
+  }
+
+  /**
    * Render an array of QuickReply Elements
    * @return {Array}
    */
@@ -36,7 +56,7 @@ export default class Main extends Component {
       );
     });
 
-    if (!replies) {
+    if (!replies.length) {
       return null;
     }
     return (
@@ -47,12 +67,25 @@ export default class Main extends Component {
   }
 
   /**
+   * Scroll the quick replies from right to left to show the user the full list
+   * @return null
+   */
+  componentDidMount() {
+    if (this.props.quickReplies) {
+      const $wrapper = $('.Chat__Window__QuickReplies__Wrapper');
+      $wrapper.scrollLeft($wrapper[0].scrollWidth);
+      $wrapper.animate({ scrollLeft: 0 }, $wrapper[0].scrollWidth * 2);
+    }
+  }
+
+  /**
    * Scroll to the bottom of the window on update
    * @return {[type]} [description]
    */
   componentDidUpdate() {
-    let main = document.querySelector('.Chat__Window__Main');
-    main.scrollTop = main.scrollHeight;
+    const $main = $('.Chat__Window__Main');
+    $main.scrollTop($main[0].scrollHeight);
+    $main.animate({ scrollTop: $main[0].scrollHeight }, 500);
   }
 
   /**
@@ -63,6 +96,7 @@ export default class Main extends Component {
     return (
       <div className="Chat__Window__Main">
         {this.renderMessages()}
+        {this.renderTypingIndicator()}
         {this.renderQuickReplies()}
       </div>
     );

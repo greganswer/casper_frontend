@@ -8,7 +8,6 @@ export default class QuickReply extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = { term: '' };
     this.handleClick = this.handleClick.bind(this);
   }
 

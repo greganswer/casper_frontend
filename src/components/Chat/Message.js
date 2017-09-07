@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 
 export default class Message extends Component {
   /**
-   * Initialize this component
-   * @param  {Object} props The properties that are passed in
-   * @return null
-   */
-  constructor(props) {
-    super(props);
-    this.state = { term: '' };
-  }
-
-  /**
    * Capitalize the first letter
    * @param  {String} s The string to capitalize
    * @return {String} The capitalized string
