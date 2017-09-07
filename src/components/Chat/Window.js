@@ -12,8 +12,8 @@ export default class Window extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: true,
-      isBotTyping: false,
+      visible: this.props.isWindowOpen,
+      isBotTyping: true,
       quickReplies: [
         {
           id: 1,
@@ -50,6 +50,15 @@ export default class Window extends Component {
     };
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
+  }
+
+  /**
+   * Check if the window is open
+   * @param  {Object} newProps The new properties being passed in
+   * @return null
+   */
+  componentWillReceiveProps(newProps) {
+    this.setState({ visible: newProps.isWindowOpen });
   }
 
   /**
