@@ -5,9 +5,10 @@ import Main from './Main';
 import Footer from './Footer';
 import quickReplies from '../../services/quickReplies';
 import getMessages from '../../services/messages';
+import getCards from '../../services/cards';
 
 const propTypes = {
-  isWindowOpen: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool.isRequired,
 };
 
 const defaultProps = {};
@@ -25,10 +26,11 @@ class Window extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: this.props.isWindowOpen,
+      isVisible: this.props.isOpen,
       isBotTyping: true,
       quickReplies: quickReplies(),
       messages: getMessages(),
+      cards: getCards(),
     };
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
@@ -40,7 +42,7 @@ class Window extends Component {
    * @return {void}
    */
   componentWillReceiveProps(newProps) {
-    this.setState({ visible: newProps.isWindowOpen });
+    this.setState({ isVisible: newProps.isOpen });
   }
 
   /**
@@ -48,7 +50,8 @@ class Window extends Component {
    * @return {void}
    */
   handleChatWindowClose() {
-    this.setState({ visible: false });
+    this.props.onChatWindowClose();
+    this.setState({ isVisible: false });
   }
 
   /**
@@ -80,7 +83,7 @@ class Window extends Component {
    * @return {React.Element}
    */
   render() {
-    if (!this.state.visible) {
+    if (!this.state.isVisible) {
       return null;
     }
 
@@ -90,8 +93,8 @@ class Window extends Component {
         <Main
           isBotTyping={this.state.isBotTyping}
           messages={this.state.messages}
-          quickReplies={this.state.quickReplies}
           onUserInput={this.handleUserInput}
+          quickReplies={this.state.quickReplies}
         />
         <Footer onUserInput={this.handleUserInput} />
       </div>

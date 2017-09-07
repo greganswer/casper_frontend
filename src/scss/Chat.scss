@@ -8,6 +8,10 @@ $user-secondary-color: white;
 .Chat__Button {
 }
 
+.Chat__Window__Card {
+  @extend .card;
+}
+
 .Chat__Window {
   @extend .z-depth-4;
   width: 85%;

@@ -17,7 +17,7 @@ class Chat extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = { isWindowOpen: false };
+    this.state = { isWindowOpen: true };
     this.handleWindowOpen = this.handleWindowOpen.bind(this);
     this.handleWindowClose = this.handleWindowClose.bind(this);
   }
@@ -45,8 +45,8 @@ class Chat extends Component {
   render() {
     return (
       <div>
-        <Window isWindowOpen={this.state.isWindowOpen} />
-        <Button onChatWindowOpen={this.handleWindowOpen} />
+        <Window isOpen={this.state.isWindowOpen} onChatWindowClose={this.handleWindowClose} />
+        <Button isVisible={!this.state.isWindowOpen} onChatWindowOpen={this.handleWindowOpen} />
       </div>
     );
   }

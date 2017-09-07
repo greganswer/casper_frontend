@@ -4,9 +4,12 @@ import $ from 'jquery/dist/jquery';
 
 const propTypes = {
   onChatWindowOpen: PropTypes.func.isRequired,
+  isVisible: PropTypes.bool,
 };
 
-const defaultProps = {};
+const defaultProps = {
+  isVisible: true,
+};
 
 /**
  * The button that opens the Chat Window
@@ -20,6 +23,7 @@ class Button extends Component {
    */
   constructor(props) {
     super(props);
+    this.state = { isVisible: this.props.isVisible };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -41,18 +45,32 @@ class Button extends Component {
   }
 
   /**
+     * Check if the window is open
+     * @param  {Object} newProps The new properties being passed in
+     * @return {void}
+     */
+  componentWillReceiveProps(newProps) {
+    this.setState({ isVisible: newProps.isVisible });
+  }
+
+  /**
    * Open the chat window on click
    * @return {void}
    */
   handleClick() {
     this.props.onChatWindowOpen();
+    this.setState({ isVisible: false });
   }
 
   /**
    * Render this component
-   * @return {React.Element}
+   * @return {React.Element|null}
    */
   render() {
+    if (!this.props.isVisible) {
+      return null;
+    }
+
     return (
       <div className="fixed-action-btn">
         <button className="Chat__Button btn-floating btn-large purple" onClick={this.handleClick}>
