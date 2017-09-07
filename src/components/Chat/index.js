@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-
 import Button from './Button';
 import Window from './Window';
+
+const propTypes = {};
+const defaultProps = {};
 
 /**
  * The Chat container component
  * @type {React.Component}
  */
-export default class Chat extends Component {
+class Chat extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
@@ -49,3 +51,8 @@ export default class Chat extends Component {
     );
   }
 }
+
+Chat.propTypes = propTypes;
+Chat.defaultProps = defaultProps;
+
+export default Chat;

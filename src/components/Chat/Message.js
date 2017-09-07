@@ -1,10 +1,25 @@
 import React, { Component, PropTypes } from 'react';
 
+const propTypes = {
+  alt: PropTypes.string,
+  image: PropTypes.string,
+  isFirstFromOwner: PropTypes.bool,
+  owner: PropTypes.string.isRequired,
+  text: PropTypes.string,
+};
+
+const defaultProps = {
+  alt: '',
+  image: '',
+  isFirstFromOwner: true,
+  text: '',
+};
+
 /**
  * The Chat message
  * @type {React.Component}
  */
-export default class Message extends Component {
+class Message extends Component {
   /**
    * Render an image in the chat window
    * @return {React.Element} The image element
@@ -77,10 +92,7 @@ export default class Message extends Component {
   }
 }
 
-Message.propTypes = {
-  alt: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  isFirstFromOwner: PropTypes.bool.isRequired,
-  owner: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-};
+Message.propTypes = propTypes;
+Message.defaultProps = defaultProps;
+
+export default Message;

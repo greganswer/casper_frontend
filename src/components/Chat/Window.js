@@ -5,11 +5,17 @@ import Footer from './Footer';
 import quickReplies from '../../services/quickReplies';
 import getMessages from '../../services/messages';
 
+const propTypes = {
+  isWindowOpen: PropTypes.bool.isRequired,
+};
+
+const defaultProps = {};
+
 /**
  * The Chat Window
  * @type {React.Component}
  */
-export default class Window extends Component {
+class Window extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
@@ -92,6 +98,7 @@ export default class Window extends Component {
   }
 }
 
-Window.propTypes = {
-  isWindowOpen: PropTypes.bool.isRequired,
-};
+Window.propTypes = propTypes;
+Window.defaultProps = defaultProps;
+
+export default Window;

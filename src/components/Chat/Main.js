@@ -3,11 +3,20 @@ import $ from 'jquery/dist/jquery';
 import Message from './Message';
 import QuickReply from './QuickReply';
 
+const propTypes = {
+  isBotTyping: PropTypes.bool.isRequired,
+  messages: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onUserInput: PropTypes.func.isRequired,
+  quickReplies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+const defaultProps = {};
+
 /**
  * The Chat window is broken up into 3 sections: Header, Main, Footer
  * @type {React.Component}
  */
-export default class Main extends Component {
+class Main extends Component {
   /**
      * Scroll the quick replies from right to left to show the user the full list
      * @return {void}
@@ -47,7 +56,7 @@ export default class Main extends Component {
    */
   renderMessages() {
     return this.props.messages.map((message, index) =>
-      <Message { ...message } key={ message.id } isFirstFromOwner={ this.isFirstFromOwner(index) } />,
+      <Message key={ message.id } isFirstFromOwner={ this.isFirstFromOwner(index) } { ...message } />,
     );
   }
 
@@ -106,9 +115,7 @@ export default class Main extends Component {
   }
 }
 
-Main.propTypes = {
-  isBotTyping: PropTypes.bool.isRequired,
-  messages: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onUserInput: PropTypes.func.isRequired,
-  quickReplies: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
+Main.propTypes = propTypes;
+Main.defaultProps = defaultProps;
+
+export default Main;

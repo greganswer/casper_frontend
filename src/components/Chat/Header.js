@@ -1,10 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 
+const propTypes = {
+  onChatWindowClose: PropTypes.func.isRequired,
+};
+
+const defaultProps = {};
+
 /**
  * The Chat window is broken up into 3 sections: Header, Main, Footer
  * @type {React.Component}
  */
-export default class Header extends Component {
+class Header extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
@@ -40,6 +46,7 @@ export default class Header extends Component {
   }
 }
 
-Header.propTypes = {
-  onChatWindowClose: PropTypes.func.isRequired,
-};
+Header.propTypes = propTypes;
+Header.defaultProps = defaultProps;
+
+export default Header;

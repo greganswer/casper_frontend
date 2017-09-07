@@ -1,10 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 
+const propTypes = {
+  onChatWindowOpen: PropTypes.func.isRequired,
+};
+
+const defaultProps = {};
+
 /**
  * The button that opens the Chat Window
  * @type {React.Component}
  */
-export default class Button extends Component {
+class Button extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
@@ -41,6 +47,7 @@ export default class Button extends Component {
   }
 }
 
-Button.propTypes = {
-  onChatWindowOpen: PropTypes.func.isRequired,
-};
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
+
+export default Button;

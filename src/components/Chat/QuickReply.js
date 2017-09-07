@@ -1,10 +1,26 @@
 import React, { Component, PropTypes } from 'react';
 
+const propTypes = {
+  alt: PropTypes.string,
+  icon: PropTypes.string,
+  iconClass: PropTypes.string,
+  image: PropTypes.string,
+  onUserInput: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
+const defaultProps = {
+  alt: '',
+  icon: '',
+  iconClass: '',
+  image: '',
+};
+
 /**
  * A QuickReply allows users to click a button instead of type text
  * @type {React.Component}
  */
-export default class QuickReply extends Component {
+class QuickReply extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
@@ -59,11 +75,7 @@ export default class QuickReply extends Component {
   }
 }
 
-QuickReply.propTypes = {
-  alt: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
-  iconClass: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  onUserInput: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
-};
+QuickReply.propTypes = propTypes;
+QuickReply.defaultProps = defaultProps;
+
+export default QuickReply;

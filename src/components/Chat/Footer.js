@@ -1,11 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import Textarea from 'react-textarea-autosize';
 
+const propTypes = {
+  onUserInput: PropTypes.func.isRequired,
+};
+
+const defaultProps = {};
+
 /**
  * The Chat window is broken up into 3 sections: Header, Main, Footer
  * @type {React.Component}
  */
-export default class Footer extends Component {
+class Footer extends Component {
   /**
    * Initialize this component
    * @param  {Object} props The properties that are passed in
@@ -50,6 +56,7 @@ export default class Footer extends Component {
   }
 }
 
-Footer.propTypes = {
-  onUserInput: PropTypes.func.isRequired,
-};
+Footer.propTypes = propTypes;
+Footer.defaultProps = defaultProps;
+
+export default Footer;

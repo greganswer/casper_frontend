@@ -10,7 +10,7 @@ import Footer from './Footer';
  * The entire React app
  * @type {React.Component}
  */
-export default class App extends Component {
+class App extends Component {
   /**
    * Initialize this component
    * @constructor
@@ -37,3 +37,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
