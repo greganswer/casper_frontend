@@ -30,7 +30,7 @@ class Button extends Component {
   componentDidMount() {
     $(() => {
       setInterval(() => {
-        const animationName = 'animated tada';
+        const animationName = 'animated pulse';
         const animationend =
           'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         $('.Chat__Button').addClass(animationName).one(animationend, function callback() {
@@ -55,10 +55,7 @@ class Button extends Component {
   render() {
     return (
       <div className="fixed-action-btn">
-        <button
-          className="Chat__Button btn-floating btn-large waves-effect waves-circle waves-light indigo"
-          onClick={this.handleClick}
-        >
+        <button className="Chat__Button btn-floating btn-large purple" onClick={this.handleClick}>
           <i className="fa fa-comments" />
         </button>
       </div>
