@@ -19,9 +19,11 @@ $body-bg-color: #eee;
 /**
  * COMPONENTS
  */
-@import "Header";
-@import "Chat";
-@import "Footer";
+@import "Layout/Header";
+@import "Layout/Footer";
+@import "Chat/index";
+@import "Chat/Messages";
+@import "Chat/QuickReplies";
 
 /**
  * APP STYLES

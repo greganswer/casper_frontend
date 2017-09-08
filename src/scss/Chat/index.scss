@@ -1,0 +1,88 @@
+@import "materialize-css/sass/materialize";
+
+$bot-primary-color: #ddd;
+$bot-secondary-color: black;
+$user-primary-color: #283593;
+$user-secondary-color: white;
+
+.Chat__Button {
+  @keyframes pulse {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+      transform: scale3d(1.25, 1.25, 1.25);
+    }
+
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}
+
+.Chat__Footer {
+  border-radius: 0 0 5px 5px;
+  padding: 15px;
+  background: #cfd8dc;
+
+  textarea {
+    @extend .browser-default;
+    resize: none;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, .2);
+    padding: 10px;
+    background: white;
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px -1px purple;
+    }
+  }
+}
+
+.Chat__Header {
+  background: #6a1b9a;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 5px 5px 0 0;
+}
+
+.Chat__Main {
+  padding: 20px;
+  background: white;
+  height: 60vh;
+  max-height: 500px;
+  overflow-x: hidden;
+  width: 100%;
+  white-space: nowrap;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+}
+
+.Chat__Window {
+  @extend .z-depth-4;
+  width: 85%;
+  max-width: 400px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+
+  .material-icons {
+    cursor: pointer;
+  }
+}

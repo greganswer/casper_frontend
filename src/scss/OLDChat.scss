@@ -5,22 +5,6 @@ $bot-secondary-color: black;
 $user-primary-color: #283593;
 $user-secondary-color: white;
 
-.Chat__Button {
-  @keyframes pulse {
-    from {
-      transform: scale3d(1, 1, 1);
-    }
-
-    50% {
-      transform: scale3d(1.25, 1.25, 1.25);
-    }
-
-    to {
-      transform: scale3d(1, 1, 1);
-    }
-  }
-}
-
 .Chat__Card {
   $radius: 10px;
   @extend .z-depth-2;
@@ -90,49 +74,6 @@ $user-secondary-color: white;
         }
       }
     }
-  }
-}
-
-.Chat__Footer {
-  border-radius: 0 0 5px 5px;
-  padding: 15px;
-  background: #cfd8dc;
-}
-
-.Chat__Header {
-  background: #6a1b9a;
-  color: white;
-  padding: 5px 8px;
-  border-radius: 5px 5px 0 0;
-}
-
-.Chat__Input {
-  @extend .browser-default;
-  resize: none;
-  width: 100%;
-  border-radius: 5px;
-  border: 2px solid rgba(0, 0, 0, .2);
-  padding: 10px;
-  background: white;
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 5px -1px purple;
-  }
-}
-
-.Chat__Main {
-  padding: 20px;
-  background: white;
-  height: 60vh;
-  max-height: 500px;
-  overflow-x: hidden;
-  width: 100%;
-  white-space: nowrap;
-
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
   }
 }
 
@@ -206,44 +147,6 @@ $user-secondary-color: white;
   border-radius: 20px 20px 20px 5px;
 }
 
-.Chat__Message--QuickReply {
-  @extend .z-depth-1;
-  height: 34px;
-  line-height: 30px;
-  padding: 0 12px;
-  border-radius: 20px;
-  margin: 0 5px;
-  background: none;
-  border: 2px solid $user-primary-color;
-  color: $user-primary-color;
-  cursor: pointer;
-  vertical-align: bottom;
-
-  > img {
-    float: left;
-    margin: 0 8px 0 -12px;
-    border-radius: 50%;
-    border: 3px solid $user-primary-color;
-    position: relative;
-    top: -1px;
-    left: -1px;
-    height: 32px;
-    width: 32px;
-  }
-  .fa {
-    border-radius: 500px;
-    padding: 4px;
-    position: relative;
-    left: -13px;
-    background: $user-primary-color;
-    color: white;
-    font-size: 1.2em;
-    display: inline-block;
-    width: 30px;
-    border: 3px solid $user-primary-color;
-  }
-}
-
 .Chat__Message--User {
   background: $user-primary-color;
   color: white;
@@ -258,20 +161,6 @@ $user-secondary-color: white;
 
   &.first-from-owner {
     margin-top: 1em;
-  }
-}
-
-.Chat__Window {
-  @extend .z-depth-4;
-  width: 85%;
-  max-width: 400px;
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 1000;
-
-  .material-icons {
-    cursor: pointer;
   }
 }
 

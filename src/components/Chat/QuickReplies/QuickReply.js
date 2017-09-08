@@ -68,10 +68,12 @@ class QuickReply extends Component {
    */
   render() {
     return (
-      <button className="Chat__Message--QuickReply" onClick={this.handleClick}>
-        {this.renderImage()}
-        {this.renderText()}
-      </button>
+      <li>
+        <button className="Chat__QuickReply" onClick={this.handleClick}>
+          {this.renderImage()}
+          {this.renderText()}
+        </button>
+      </li>
     );
   }
 }
