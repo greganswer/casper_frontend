@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
-import quickReplies from '../../services/quickReplies';
-import getMessages from '../../services/messages';
+import quickReplies from '../../../services/quickReplies';
+import getMessages from '../../../services/messages';
 
 const propTypes = {
   isOpen: PropTypes.bool.isRequired,

@@ -23,18 +23,6 @@ const defaultProps = {
  */
 class Main extends Component {
   /**
-   * Scroll the quick replies from right to left to show the user the full list
-   * @return {void}
-   */
-  componentDidMount() {
-    if (this.props.cards.length || this.props.quickReplies.length) {
-      const $wrapper = $('.Chat__X_Scrollable');
-      $wrapper.scrollLeft($wrapper[0].scrollWidth);
-      $wrapper.animate({ scrollLeft: 0 }, $wrapper[0].scrollWidth * 2);
-    }
-  }
-
-  /**
      * Scroll to the bottom of the window on update
      * @return {[type]} [description]
      */
@@ -45,52 +33,13 @@ class Main extends Component {
   }
 
   /**
-   * Is this the first message from the owner (user or bot)?
-   * @param  {int} index The Current index in the array
-   * @return {boolean}
-   */
-  isFirstFromOwner(index) {
-    const messages = this.props.messages;
-
-    return !messages[index - 1] || messages[index - 1].owner !== messages[index].owner;
-  }
-
-  /**
-   * Render an array of Card Elements
-   * @return {Array}
-   */
-  renderCards() {
-    const cards = this.props.cards.map(card => <Card key={card.id} {...card} />);
-
-    if (!cards.length) {
-      return null;
-    }
-
-    return (
-      <div className="Chat__X_Scrollable">
-        {cards}
-      </div>
-    );
-  }
-
-  /**
-   * Render an array of Message Elements
-   * @return {Array}
-   */
-  renderMessages() {
-    return this.props.messages.map((message, index) =>
-      <Message key={message.id} isFirstFromOwner={this.isFirstFromOwner(index)} {...message} />,
-    );
-  }
-
-  /**
    * Render this component
    * @return {React.Element}
    */
   render() {
     return (
       <div className="Chat__Main">
-        <Messages />
+        <Messages messages={this.props.messages} />
         <TypingIndicator visible={this.props.isBotTyping} />
         <QuickReplies />
       </div>

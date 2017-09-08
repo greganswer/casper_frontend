@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Cards from './Cards';
 import Image from './Image';
@@ -13,28 +13,35 @@ const components = {
 };
 
 /**
- * Render an array of Message Elements
- * @param {Array} props The properties pass in to this Element
- * @return {Array}
+ *
+ * @type {React.Component}
  */
-const Messages = ({ messages }) => {
-  if (!messages.length) {
-    return null;
+class Messages extends Component {
+  /**
+   * Render this component
+   * @return {ReactElement}
+   */
+  render() {
+    const messages = this.props.messages;
+
+    if (!messages.length) {
+      return null;
+    }
+
+    return messages.map((message, index) => {
+      const previousMessage = messages[index - 1];
+      const isFirstFromOwner = !previousMessage || previousMessage.owner !== messages[index].owner;
+      const wrapperClass = isFirstFromOwner ? 'first-from-owner' : '';
+      const SpecificMessage = components[message.type];
+
+      return (
+        <div className={`Chat__Message__Wrapper ${wrapperClass}`}>
+          <SpecificMessage {...message} />;
+        </div>
+      );
+    });
   }
-
-  return messages.map((message, index) => {
-    const previousMessage = messages[index - 1];
-    const isFirstFromOwner = !previousMessage || previousMessage.owner !== messages[index].owner;
-    const wrapperClass = isFirstFromOwner ? 'first-from-owner' : '';
-    const SpecificMessage = components[message.type];
-
-    return (
-      <div className={`Chat__Message__Wrapper ${wrapperClass}`}>
-        <SpecificMessage {...message} />;
-      </div>
-    );
-  });
-};
+}
 
 Messages.propTypes = propTypes;
 Messages.defaultProps = defaultProps;
