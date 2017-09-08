@@ -5,7 +5,6 @@ import Main from './Main';
 import Footer from './Footer';
 import quickReplies from '../../services/quickReplies';
 import getMessages from '../../services/messages';
-import getCards from '../../services/cards';
 
 const propTypes = {
   isOpen: PropTypes.bool.isRequired,
@@ -31,7 +30,6 @@ class Window extends Component {
       isBotTyping: true,
       quickReplies: quickReplies(),
       messages: getMessages(),
-      cards: getCards(),
     };
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
@@ -63,7 +61,7 @@ class Window extends Component {
   handleUserInput(input) {
     const messages = this.state.messages;
     messages.push(this.processUserInput(input));
-    this.setState({ messages, quickReplies: [], cards: [] });
+    this.setState({ messages, quickReplies: [] });
   }
 
   /**
@@ -92,7 +90,6 @@ class Window extends Component {
       <div className="Chat__Window">
         <Header onChatWindowClose={this.handleChatWindowClose} />
         <Main
-          cards={this.state.cards}
           isBotTyping={this.state.isBotTyping}
           messages={this.state.messages}
           onUserInput={this.handleUserInput}

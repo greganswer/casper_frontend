@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import $ from 'jquery/dist/jquery';
-import Card from './Card';
-import Message from './Message';
-import QuickReply from './QuickReply';
+import Messages from '../Messages';
+import TypingIndicator from '../Messages/TypingIndicator';
+import QuickReplies from '../QuickReplies';
 
 const propTypes = {
-  cards: PropTypes.arrayOf(PropTypes.object),
   isBotTyping: PropTypes.bool.isRequired,
   messages: PropTypes.arrayOf(PropTypes.object),
   onUserInput: PropTypes.func.isRequired,
@@ -14,7 +13,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-  cards: [],
   messages: [],
   quickReplies: [],
 };
@@ -86,26 +84,6 @@ class Main extends Component {
   }
 
   /**
-   * Render the bot typing indicator if the bot is "typing"
-   * @return {React.Element} The typing indicator
-   */
-  renderTypingIndicator() {
-    if (!this.props.isBotTyping) {
-      return null;
-    }
-
-    return (
-      <div className="Chat__Message__Wrapper">
-        <div className="Chat__Message--Bot--typing">
-          <span />
-          <span />
-          <span />
-        </div>
-      </div>
-    );
-  }
-
-  /**
    * Render an array of QuickReply Elements
    * @return {Array}
    */
@@ -132,10 +110,9 @@ class Main extends Component {
   render() {
     return (
       <div className="Chat__Main">
-        {this.renderMessages()}
-        {this.renderTypingIndicator()}
-        {this.renderCards()}
-        {this.renderQuickReplies()}
+        <Messages />
+        <TypingIndicator visible={this.props.isBotTyping} />
+        <QuickReplies />
       </div>
     );
   }
