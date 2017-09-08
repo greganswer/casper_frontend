@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Cards from './Cards';
+import Image from './Image';
+import Text from './Text';
 
-const propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.object),
-};
-
+const propTypes = { messages: PropTypes.arrayOf(PropTypes.object) };
 const defaultProps = { messages: [] };
+const components = {
+  cards: Cards,
+  image: Image,
+  text: Text,
+};
 
 /**
  * Render an array of Message Elements
@@ -17,15 +22,18 @@ const Messages = ({ messages }) => {
     return null;
   }
 
-  const messages = messages.map(message =>
-    
-  );
+  return messages.map((message, index) => {
+    const previousMessage = messages[index - 1];
+    const isFirstFromOwner = !previousMessage || previousMessage.owner !== messages[index].owner;
+    const wrapperClass = isFirstFromOwner ? 'first-from-owner' : '';
+    const SpecificMessage = components[message.type];
 
-  return (
-    <div className="Chat__X_Scrollable center">
-      {messages}
-    </div>
-  );
+    return (
+      <div className={`Chat__Message__Wrapper ${wrapperClass}`}>
+        <SpecificMessage {...message} />;
+      </div>
+    );
+  });
 };
 
 Messages.propTypes = propTypes;
