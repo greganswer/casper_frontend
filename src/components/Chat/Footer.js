@@ -42,15 +42,15 @@ class Footer extends Component {
    */
   render() {
     return (
-      <div className="Chat__Window__Footer">
+      <div className="Chat__Footer">
         <Textarea
           autoComplete="off"
-          className=" Chat__Window__Input"
-          maxRows="4"
+          className=" Chat__Input"
+          maxRows={4}
           name="message"
           onKeyPress={this.handleKeyPress}
           placeholder="Type here and hit enter to chat"
-          rows="1"
+          rows={1}
           type="text"
         />
       </div>

@@ -37,8 +37,8 @@ class Header extends Component {
    */
   render() {
     return (
-      <div className="Chat__Window__Header">
-        <span className="Chat__Window__title">Chat With CasperBot</span>
+      <div className="Chat__Header">
+        <span className="Chat__title">Chat With CasperBot</span>
         <span className="right" role="button" tabIndex="0" onClick={this.handleChatWindowClose}>
           <i className="material-icons">close</i>
         </span>

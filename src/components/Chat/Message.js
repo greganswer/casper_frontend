@@ -34,7 +34,7 @@ class Message extends Component {
       <img
         src={this.props.image}
         alt={this.props.alt}
-        className="Chat__Window__Image materialboxed"
+        className="Chat__Image materialboxed"
       />
     );
   }
@@ -49,13 +49,13 @@ class Message extends Component {
     } else if (this.props.owner === 'bot') {
       return (
         <div
-          className="Chat__Window__BotMessage"
+          className="Chat__BotMessage"
           dangerouslySetInnerHTML={{ __html: this.props.text }}
         />
       );
     } else if (this.props.owner === 'user') {
       return (
-        <div className="Chat__Window__UserMessage">
+        <div className="Chat__UserMessage">
           {this.props.text}
         </div>
       );
@@ -72,7 +72,7 @@ class Message extends Component {
     const wrapperClass = this.props.isFirstFromOwner ? 'first-from-owner' : '';
 
     return (
-      <div className={`Chat__Window__MessageWrapper ${wrapperClass}`}>
+      <div className={`Chat__Message__Wrapper ${wrapperClass}`}>
         {this.renderImage()}
         {this.renderText()}
       </div>

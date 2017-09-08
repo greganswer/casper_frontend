@@ -41,11 +41,11 @@ class Main extends Component {
    */
   componentDidMount() {
     if (this.props.cards.length) {
-      scrollWrapperRightToLeft('Chat__Window__Cards__Wrapper');
+      scrollWrapperRightToLeft('Chat__Cards__Wrapper');
     }
 
     if (this.props.quickReplies.length) {
-      scrollWrapperRightToLeft('Chat__Window__QuickReplies__Wrapper');
+      scrollWrapperRightToLeft('Chat__QuickReplies__Wrapper');
     }
   }
 
@@ -54,7 +54,7 @@ class Main extends Component {
      * @return {[type]} [description]
      */
   componentDidUpdate() {
-    const $main = $('.Chat__Window__Main');
+    const $main = $('.Chat__Main');
     $main.scrollTop($main[0].scrollHeight);
     $main.animate({ scrollTop: $main[0].scrollHeight }, 500);
   }
@@ -82,7 +82,7 @@ class Main extends Component {
     }
 
     return (
-      <div className="Chat__Window__Cards__Wrapper">
+      <div className="Chat__Cards__Wrapper">
         {cards}
       </div>
     );
@@ -108,8 +108,8 @@ class Main extends Component {
     }
 
     return (
-      <div className="Chat__Window__MessageWrapper">
-        <div className="Chat__Window__BotMessage--typing">
+      <div className="Chat__Message__Wrapper">
+        <div className="Chat__BotMessage--typing">
           <span />
           <span />
           <span />
@@ -132,7 +132,7 @@ class Main extends Component {
     }
 
     return (
-      <div className="Chat__Window__QuickReplies__Wrapper">
+      <div className="Chat__QuickReplies__Wrapper">
         {replies}
       </div>
     );
@@ -144,7 +144,7 @@ class Main extends Component {
    */
   render() {
     return (
-      <div className="Chat__Window__Main">
+      <div className="Chat__Main">
         {this.renderMessages()}
         {this.renderTypingIndicator()}
         {this.renderCards()}

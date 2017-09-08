@@ -8,7 +8,7 @@ $user-secondary-color: white;
 .Chat__Button {
 }
 
-.Chat__Window__Card {
+.Chat__Card {
   $radius: 10px;
   @extend .z-depth-2;
   border-radius: $radius;
@@ -16,8 +16,6 @@ $user-secondary-color: white;
   width: 90%;
   max-width: 250px;
   margin: 0 10px;
-  // height: 350px;
-  // overflow: hidden;
   white-space: initial;
   vertical-align: bottom;
 
@@ -96,20 +94,18 @@ $user-secondary-color: white;
   }
 }
 
-.Chat__Window__Header {
+.Chat__Header {
   background: #6a1b9a;
   color: white;
   padding: 5px 8px;
   border-radius: 5px 5px 0 0;
 }
 
-.Chat__Window__Main {
+.Chat__Main {
   padding: 20px;
   background: white;
-  // min-height: 40vh;
   height: 60vh;
   max-height: 500px;
-  // overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
   white-space: nowrap;
@@ -121,7 +117,7 @@ $user-secondary-color: white;
   }
 }
 
-.Chat__Window__MessageWrapper {
+.Chat__Message__Wrapper {
   clear: both;
   white-space: pre-wrap;
 
@@ -130,24 +126,24 @@ $user-secondary-color: white;
   }
 }
 
-.Chat__Window__Image,
-.Chat__Window__BotMessage,
-.Chat__Window__BotMessage--typing,
-.Chat__Window__UserMessage,
-.Chat__Window__QuickReply {
+.Chat__Image,
+.Chat__BotMessage,
+.Chat__BotMessage--typing,
+.Chat__UserMessage,
+.Chat__QuickReply {
   margin: 3px 0;
 }
 
-.Chat__Window__Image {
+.Chat__Image {
   width: 100%;
   display: block;
   border-radius: 20px 20px 20px 5px;
 }
 
-.Chat__Window__BotMessage,
-.Chat__Window__BotMessage--typing,
-.Chat__Window__UserMessage,
-.Chat__Window__QuickReply {
+.Chat__BotMessage,
+.Chat__BotMessage--typing,
+.Chat__UserMessage,
+.Chat__QuickReply {
   padding: 10px;
   border-radius: 20px 20px 20px 5px;
   display: inline-block;
@@ -155,15 +151,15 @@ $user-secondary-color: white;
   word-wrap: break-word;
 }
 
-.Chat__Window__BotMessage,
-.Chat__Window__BotMessage--typing {
+.Chat__BotMessage,
+.Chat__BotMessage--typing {
   background: $bot-primary-color;
   a {
     text-decoration: underline;
   }
 }
 
-.Chat__Window__BotMessage--typing {
+.Chat__BotMessage--typing {
   will-change: transform;
   padding: 14px;
   display: table;
@@ -197,7 +193,7 @@ $user-secondary-color: white;
   }
 }
 
-.Chat__Window__UserMessage {
+.Chat__UserMessage {
   background: $user-primary-color;
   color: white;
   border-radius: 20px 20px 5px 20px;
@@ -205,7 +201,7 @@ $user-secondary-color: white;
   clear: both;
 }
 
-.Chat__Window__QuickReply {
+.Chat__QuickReply {
   @extend .z-depth-1;
   height: 34px;
   line-height: 30px;
@@ -243,24 +239,24 @@ $user-secondary-color: white;
   }
 }
 
-.Chat__Window__Cards__Wrapper,
-.Chat__Window__QuickReplies__Wrapper {
+.Chat__Cards__Wrapper,
+.Chat__QuickReplies__Wrapper {
   margin-top: 2em;
   overflow-x: scroll;
   padding: 10px 0;
 }
 
-.Chat__Window__QuickReplies__Wrapper {
+.Chat__QuickReplies__Wrapper {
   text-align: center;
 }
 
-.Chat__Window__Footer {
+.Chat__Footer {
   border-radius: 0 0 5px 5px;
   padding: 15px;
   background: #cfd8dc;
 }
 
-.Chat__Window__Input {
+.Chat__Input {
   @extend .browser-default;
   resize: none;
   width: 100%;

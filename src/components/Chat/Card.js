@@ -42,7 +42,7 @@ class Card extends Component {
    */
   renderOptions() {
     return this.props.options.map(option =>
-      (<a href={option.link}>
+      (<a href={option.link} key={option.id}>
         {option.icon ? <i className={`fa fa-${option.icon}`} /> : ''}
         {option.text}
         {option.isExternal ? <i className="fa fa-external-link" /> : ''}
@@ -56,7 +56,7 @@ class Card extends Component {
    */
   render() {
     return (
-      <div className="Chat__Window__Card">
+      <div className="Chat__Card">
         <div className={`image ${this.props.title && 'with-title'}`}>
           <img src={this.props.image} alt={this.props.alt} />
           <div className="title">
