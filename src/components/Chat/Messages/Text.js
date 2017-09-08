@@ -13,10 +13,10 @@ const propTypes = {
  */
 const Text = ({ text, owner }) => {
   if (owner === 'bot') {
-    return <div className="Chat__Message--Bot" dangerouslySetInnerHTML={{ __html: text }} />;
+    return <div className="Chat__Message Bot" dangerouslySetInnerHTML={{ __html: text }} />;
   } else if (owner === 'user') {
     return (
-      <div className="Chat__Message--User">
+      <div className="Chat__Message User">
         {text}
       </div>
     );

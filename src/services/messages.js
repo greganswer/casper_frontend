@@ -20,6 +20,7 @@ const messages = () => [
     id: 3,
     owner: 'bot',
     type: 'image',
+    alt: 'Casper sleep cartoon',
     image: 'http://heydoyou.com/wp-content/uploads/2016/04/e59f99c255a2cb8499d57924f1f1dae7.jpg',
   },
   { id: 4, owner: 'user', type: 'text', text: 'Hello CasperBot' },

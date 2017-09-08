@@ -7,7 +7,7 @@ const propTypes = {
   className: PropTypes.string,
 };
 
-const defaultProps = { className: 'Chat__Message--Image materialboxed' };
+const defaultProps = { className: 'Chat__Message Image materialboxed' };
 
 /**
  * Render this component

@@ -2,7 +2,80 @@
 
 .Chat__Messages {
   li {
-    margin-top: 3px;
-    margin-bottom: 3px;
+    clear: both;
+    white-space: pre-wrap;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    &.first-from-owner {
+      margin-top: 2em;
+    }
+  }
+}
+
+.Chat__Message {
+  padding: 10px;
+  border-radius: 20px 20px 20px 5px;
+  display: inline-block;
+  max-width: 80%;
+  word-wrap: break-word;
+
+  &.Bot {
+    background: $bot-primary-color;
+    a {
+      text-decoration: underline;
+    }
+  }
+  &.Image {
+    padding: 0;
+    width: 100%;
+    display: block;
+    border-radius: 20px 20px 20px 5px;
+  }
+  &.User {
+    background: $user-primary-color;
+    color: white;
+    border-radius: 20px 20px 5px 20px;
+    float: right;
+    clear: both;
+  }
+  &.Bot .Typing {
+    will-change: transform;
+    padding: 14px;
+    display: table;
+    animation: 2s bulge infinite ease-out;
+
+    span {
+      height: .8em;
+      width: .8em;
+      float: left;
+      margin: 0 1px;
+      background: #9e9ea1;
+      display: block;
+      border-radius: 50%;
+      opacity: 0.4;
+      @for $i from 1 through 3 {
+        &:nth-of-type(#{$i}) {
+          animation: 1s blink infinite ($i * .3333s);
+        }
+      }
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bulge {
+    50% {
+      transform: scale(1.05);
+    }
   }
 }

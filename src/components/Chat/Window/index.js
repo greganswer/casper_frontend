@@ -29,7 +29,7 @@ class Window extends Component {
       isVisible: this.props.isOpen,
       isBotTyping: true,
       quickReplies: quickReplies(),
-      // messages: getMessages(),
+      messages: getMessages(),
     };
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);

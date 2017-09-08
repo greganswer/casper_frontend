@@ -15,13 +15,13 @@ const TypingIndicator = ({ visible }) => {
   }
 
   return (
-    <div className="Chat__Message__Wrapper first-from-owner">
-      <div className="Chat__Message--Bot--typing">
+    <li className="first-from-owner">
+      <div className="Chat__Message Bot Typing">
         <span />
         <span />
         <span />
       </div>
-    </div>
+    </li>
   );
 };
 

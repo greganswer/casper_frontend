@@ -22,43 +22,47 @@ class Messages extends Component {
     $main.scrollTop($main[0].scrollHeight);
     $main.animate({ scrollTop: $main[0].scrollHeight }, 500);
   }
+
   /**
-   * Render this component
-   * @return {ReactElement}
+   * Render a list Element based the type given in message.type
+   * @param  {int} index The currenet position in the messages array
+   * @return {React.Element} [description]
+   */
+  renderListItem(index) {
+    const messages = this.props.messages;
+    const message = messages[index];
+    const previousMessage = messages[index - 1];
+    const isFirstFromOwner = !previousMessage || previousMessage.owner !== message.owner;
+
+    const components = { cards: Cards, image: Image, text: Text };
+    const SpecificMessage = components[message.type];
+
+    if (!SpecificMessage) {
+      return <li />;
+    }
+
+    return (
+      <li key={message.id} className={isFirstFromOwner ? 'first-from-owner' : ''}>
+        <SpecificMessage {...message} />
+      </li>
+    );
+  }
+
+  /**
+   * Render the messages
+   * @return {React.Element}
    */
   render() {
     const messages = this.props.messages;
-    const components = {
-      cards: Cards,
-      image: Image,
-      text: Text,
-    };
 
     if (!messages.length) {
       return null;
     }
 
-    const elements = messages.map((message, index) => {
-      const previousMessage = messages[index - 1];
-      const isFirstFromOwner = !previousMessage || previousMessage.owner !== messages[index].owner;
-      const wrapperClass = isFirstFromOwner ? 'first-from-owner' : '';
-      const SpecificMessage = components[message.type];
-
-      if (!SpecificMessage) {
-        return <div />;
-      }
-
-      return (
-        <div className={`Chat__Message__Wrapper ${wrapperClass}`}>
-          <SpecificMessage {...message} />
-        </div>
-      );
-    });
-
     return (
-      <div className="Chat__Messages">
-        {elements}
-      </div>
+      <ul className="Chat__Messages">
+        {messages.map((message, index) => this.renderListItem(index))}
+      </ul>
     );
   }
 }

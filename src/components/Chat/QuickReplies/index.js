@@ -30,7 +30,7 @@ class QuickReplies extends Component {
 
   /**
    * Render this component
-   * @return {ReactElement}
+   * @return {React.Element}
    */
   render() {
     if (!this.props.quickReplies.length) {
@@ -38,7 +38,9 @@ class QuickReplies extends Component {
     }
 
     const elements = this.props.quickReplies.map(quickReply =>
-      <QuickReply key={quickReply.id} onUserInput={this.props.onUserInput} {...quickReply} />,
+      (<li key={quickReply.id}>
+        <QuickReply onUserInput={this.props.onUserInput} {...quickReply} />
+      </li>),
     );
 
     return (

@@ -41,8 +41,8 @@ class QuickReply extends Component {
   }
 
   /**
-   * Render an Image ReactElement or null
-   * @return {ReactElement|null}
+   * Render an Image React.Element or null
+   * @return {React.Element|null}
    */
   renderImage() {
     if (this.props.image && this.props.alt) {
@@ -68,12 +68,10 @@ class QuickReply extends Component {
    */
   render() {
     return (
-      <li>
-        <button className="Chat__QuickReply" onClick={this.handleClick}>
-          {this.renderImage()}
-          {this.renderText()}
-        </button>
-      </li>
+      <button className="Chat__QuickReply" onClick={this.handleClick}>
+        {this.renderImage()}
+        {this.renderText()}
+      </button>
     );
   }
 }

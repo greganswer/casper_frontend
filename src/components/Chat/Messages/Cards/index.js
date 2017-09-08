@@ -18,12 +18,16 @@ const Cards = ({ cards }) => {
     return null;
   }
 
-  const elements = cards.map(card => <Card key={card.id} {...card} />);
+  const elements = cards.map(card =>
+    (<li key={card.id}>
+      <Card {...card} />
+    </li>),
+  );
 
   return (
-    <div className="Chat__X_Scrollable center">
+    <ul className="Chat__X_Scrollable center">
       {elements}
-    </div>
+    </ul>
   );
 };
 
