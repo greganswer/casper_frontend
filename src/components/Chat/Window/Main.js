@@ -23,9 +23,9 @@ const defaultProps = {
  */
 class Main extends Component {
   /**
-     * Scroll to the bottom of the window on update
-     * @return {[type]} [description]
-     */
+   * Scroll to the bottom of the window on update
+   * @return {[type]} [description]
+   */
   componentDidUpdate() {
     const $main = $('.Chat__Main');
     $main.scrollTop($main[0].scrollHeight);
@@ -41,7 +41,7 @@ class Main extends Component {
       <div className="Chat__Main">
         <Messages messages={this.props.messages} />
         <TypingIndicator visible={this.props.isBotTyping} />
-        <QuickReplies />
+        <QuickReplies quickReplies={this.props.quickReplies} onUserInput={this.props.onUserInput} />
       </div>
     );
   }
