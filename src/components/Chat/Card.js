@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   alt: PropTypes.string.isRequired,
+  header: PropTypes.string,
   image: PropTypes.string.isRequired,
   title: PropTypes.string,
   text: PropTypes.string,
@@ -10,8 +11,9 @@ const propTypes = {
 };
 
 const defaultProps = {
-  title: '',
   text: '',
+  header: '',
+  title: '',
 };
 
 /**
@@ -19,6 +21,21 @@ const defaultProps = {
  * @type {React.Component}
  */
 class Card extends Component {
+  /**
+   * Renderthe header
+   * @return {React.Element|null} [description]
+   */
+  renderHeader() {
+    if (!this.props.header) {
+      return null;
+    }
+
+    return (
+      <div className="header">
+        {this.props.header}
+      </div>
+    );
+  }
   /**
    * Render some text in the chat window
    * @return {Array} Array of options
@@ -40,24 +57,20 @@ class Card extends Component {
   render() {
     return (
       <div className="Chat__Window__Card">
-        <div className="card-image">
-          <img
-            src={this.props.image}
-            alt={this.props.alt}
-            className={this.props.title && 'with-title'}
-          />
-          <span className="card-title">
+        <div className={`image ${this.props.title && 'with-title'}`}>
+          <img src={this.props.image} alt={this.props.alt} />
+          <div className="title">
             {this.props.title}
-          </span>
+          </div>
         </div>
-        <div className="card-action">
-          <div className="header">
-            {this.props.header}
-          </div>
-          <div className="text">
+        <div className="text">
+          {this.renderHeader()}
+          <p>
             {this.props.text}
+          </p>
+          <div className="links">
+            {this.renderOptions()}
           </div>
-          {this.renderOptions()}
         </div>
       </div>
     );

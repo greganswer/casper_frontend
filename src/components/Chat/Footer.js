@@ -46,11 +46,11 @@ class Footer extends Component {
         <Textarea
           autoComplete="off"
           className=" Chat__Window__Input"
-          rows="1"
           maxRows="4"
           name="message"
           onKeyPress={this.handleKeyPress}
           placeholder="Type here and hit enter to chat"
+          rows="1"
           type="text"
         />
       </div>

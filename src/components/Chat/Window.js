@@ -27,9 +27,9 @@ class Window extends Component {
     super(props);
     this.state = {
       isVisible: this.props.isOpen,
-      // isBotTyping: true,
-      // quickReplies: quickReplies(),
-      // messages: getMessages(),
+      isBotTyping: true,
+      quickReplies: quickReplies(),
+      messages: getMessages(),
       cards: getCards(),
     };
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);

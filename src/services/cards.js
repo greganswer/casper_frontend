@@ -57,15 +57,7 @@ const cards = () => [
       'Lorem ipsum dolor sit amet, nihil scripta assentior eu sit, eos no populo sensibus, appetere abhorreant rationibus nec id. Mea et nihil affert iriure. Ut populo percipit sea, no vis copiosae intellegat, sed tota molestiae te.',
     image: 'https://casper.imgix.net/product/pip/pip-sleep-system.jpg?auto=compress&q=65&w=300',
     alt: 'Casper products',
-    options: [
-      {
-        id: 1,
-        text: 'View all products',
-        link: 'https://casper.com/ca/en/products/',
-        icon: 'globe',
-      },
-      { id: 2, text: 'Contact a rep', link: '#', icon: 'envelope', isExternal: true },
-    ],
+    options: [{ id: 2, text: 'Contact a rep', link: '#', icon: 'envelope', isExternal: true }],
   },
 ];
 
