@@ -84,26 +84,6 @@ class Main extends Component {
   }
 
   /**
-   * Render an array of QuickReply Elements
-   * @return {Array}
-   */
-  renderQuickReplies() {
-    const replies = this.props.quickReplies.map(quickReply =>
-      <QuickReply key={quickReply.id} onUserInput={this.props.onUserInput} {...quickReply} />,
-    );
-
-    if (!replies.length) {
-      return null;
-    }
-
-    return (
-      <div className="Chat__X_Scrollable center">
-        {replies}
-      </div>
-    );
-  }
-
-  /**
    * Render this component
    * @return {React.Element}
    */

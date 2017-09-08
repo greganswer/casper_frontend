@@ -1,83 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  alt: PropTypes.string,
-  image: PropTypes.string,
-  isFirstFromOwner: PropTypes.bool,
-  owner: PropTypes.string.isRequired,
-  text: PropTypes.string,
+  messages: PropTypes.arrayOf(PropTypes.object),
 };
 
-const defaultProps = {
-  alt: '',
-  image: '',
-  isFirstFromOwner: true,
-  text: '',
-};
+const defaultProps = { messages: [] };
 
 /**
- * The Chat message
- * @type {React.Component}
+ * Render an array of Message Elements
+ * @param {Array} props The properties pass in to this Element
+ * @return {Array}
  */
-class Message extends Component {
-  /**
-   * Render an image in the chat window
-   * @return {React.Element} The image element
-   */
-  renderImage() {
-    if (!this.props.image && !this.props.alt) {
-      return null;
-    }
-
-    return (
-      <img
-        src={this.props.image}
-        alt={this.props.alt}
-        className="Chat__Message--Image materialboxed"
-      />
-    );
-  }
-
-  /**
-   * Render some text in the chat window
-   * @return {ReactElement|null} The text element or null
-   */
-  renderText() {
-    if (!this.props.text) {
-      return null;
-    } else if (this.props.owner === 'bot') {
-      return (
-        <div className="Chat__Message--Bot" dangerouslySetInnerHTML={{ __html: this.props.text }} />
-      );
-    } else if (this.props.owner === 'user') {
-      return (
-        <div className="Chat__Message--User">
-          {this.props.text}
-        </div>
-      );
-    }
-
+const Messages = ({ messages }) => {
+  if (!messages.length) {
     return null;
   }
 
-  /**
-   * Render this component
-   * @return {React.Element}
-   */
-  render() {
-    const wrapperClass = this.props.isFirstFromOwner ? 'first-from-owner' : '';
+  const messages = messages.map(message =>
+    
+  );
 
-    return (
-      <div className={`Chat__Message__Wrapper ${wrapperClass}`}>
-        {this.renderImage()}
-        {this.renderText()}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="Chat__X_Scrollable center">
+      {messages}
+    </div>
+  );
+};
 
-Message.propTypes = propTypes;
-Message.defaultProps = defaultProps;
+Messages.propTypes = propTypes;
+Messages.defaultProps = defaultProps;
 
-export default Message;
+export default Messages;
