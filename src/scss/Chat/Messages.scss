@@ -44,7 +44,7 @@
     float: right;
     clear: both;
   }
-  &.Bot .Typing {
+  &.Bot.Typing {
     will-change: transform;
     padding: 14px;
     display: table;

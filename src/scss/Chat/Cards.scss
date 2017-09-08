@@ -1,9 +1,10 @@
-@import "materialize-css/sass/materialize";
+@import "index";
 
-$bot-primary-color: #ddd;
-$bot-secondary-color: black;
-$user-primary-color: #283593;
-$user-secondary-color: white;
+.Chat__Cards {
+  margin-top: 2em;
+  overflow-x: scroll;
+  padding: 10px 0;
+}
 
 .Chat__Card {
   $radius: 10px;
@@ -75,30 +76,4 @@ $user-secondary-color: white;
       }
     }
   }
-}
-
-.Chat__Message--Bot,
-.Chat__Message--Bot--typing,
-.Chat__Message--QuickReply,
-.Chat__Message--User {
-  padding: 10px;
-  border-radius: 20px 20px 20px 5px;
-  display: inline-block;
-  max-width: 80%;
-  word-wrap: break-word;
-}
-
-.Chat__Message__Wrapper {
-  clear: both;
-  white-space: pre-wrap;
-
-  &.first-from-owner {
-    margin-top: 1em;
-  }
-}
-
-.Chat__X_Scrollable {
-  margin-top: 2em;
-  overflow-x: scroll;
-  padding: 10px 0;
 }
