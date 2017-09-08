@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import $ from 'jquery/dist/jquery';
+import Card from './Card';
 import Message from './Message';
 import QuickReply from './QuickReply';
 
 const propTypes = {
+  cards: PropTypes.arrayOf(PropTypes.object),
   isBotTyping: PropTypes.bool.isRequired,
-  messages: PropTypes.arrayOf(PropTypes.object).isRequired,
+  messages: PropTypes.arrayOf(PropTypes.object),
   onUserInput: PropTypes.func.isRequired,
-  quickReplies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  quickReplies: PropTypes.arrayOf(PropTypes.object),
 };
 
-const defaultProps = {};
+const defaultProps = {
+  cards: [],
+  messages: [],
+  quickReplies: [],
+};
+
+/**
+ * Scroll a wrapper div from right to left
+ * @param  {[type]} className [description]
+ * @return {[type]} [description]
+ */
+function scrollWrapperRightToLeft(className) {
+  const $wrapper = $(`.${className}`);
+  $wrapper.scrollLeft($wrapper[0].scrollWidth);
+  $wrapper.animate({ scrollLeft: 0 }, $wrapper[0].scrollWidth * 2);
+}
 
 /**
  * The Chat window is broken up into 3 sections: Header, Main, Footer
@@ -23,10 +40,12 @@ class Main extends Component {
    * @return {void}
    */
   componentDidMount() {
-    if (this.props.quickReplies) {
-      const $wrapper = $('.Chat__Window__QuickReplies__Wrapper');
-      $wrapper.scrollLeft($wrapper[0].scrollWidth);
-      $wrapper.animate({ scrollLeft: 0 }, $wrapper[0].scrollWidth * 2);
+    if (this.props.cards.length) {
+      scrollWrapperRightToLeft('Chat__Window__Cards__Wrapper');
+    }
+
+    if (this.props.quickReplies.length) {
+      scrollWrapperRightToLeft('Chat__Window__QuickReplies__Wrapper');
     }
   }
 
@@ -49,6 +68,24 @@ class Main extends Component {
     const messages = this.props.messages;
 
     return !messages[index - 1] || messages[index - 1].owner !== messages[index].owner;
+  }
+
+  /**
+   * Render an array of Card Elements
+   * @return {Array}
+   */
+  renderCards() {
+    const cards = this.props.cards.map(card => <Card key={card.id} {...card} />);
+
+    if (!cards.length) {
+      return null;
+    }
+
+    return (
+      <div className="Chat__Window__Cards__Wrapper">
+        {cards}
+      </div>
+    );
   }
 
   /**
@@ -110,6 +147,7 @@ class Main extends Component {
       <div className="Chat__Window__Main">
         {this.renderMessages()}
         {this.renderTypingIndicator()}
+        {this.renderCards()}
         {this.renderQuickReplies()}
       </div>
     );
