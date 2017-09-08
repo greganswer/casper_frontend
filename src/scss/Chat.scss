@@ -6,6 +6,19 @@ $user-primary-color: #283593;
 $user-secondary-color: white;
 
 .Chat__Button {
+  @keyframes pulse {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+      transform: scale3d(1.25, 1.25, 1.25);
+    }
+
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
 }
 
 .Chat__Card {

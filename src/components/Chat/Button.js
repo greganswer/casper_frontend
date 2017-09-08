@@ -40,7 +40,7 @@ class Button extends Component {
         $('.Chat__Button').addClass(animationName).one(animationend, function callback() {
           $(this).removeClass(animationName);
         });
-      }, 10000);
+      }, 20000);
     });
   }
 
