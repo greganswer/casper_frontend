@@ -17,7 +17,7 @@ class Chat extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = { isWindowOpen: true };
+    this.state = { isWindowOpen: false };
     this.handleWindowOpen = this.handleWindowOpen.bind(this);
     this.handleWindowClose = this.handleWindowClose.bind(this);
   }

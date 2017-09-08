@@ -9,6 +9,7 @@ import getCards from '../../services/cards';
 
 const propTypes = {
   isOpen: PropTypes.bool.isRequired,
+  onChatWindowClose: PropTypes.func.isRequired,
 };
 
 const defaultProps = {};
@@ -62,7 +63,7 @@ class Window extends Component {
   handleUserInput(input) {
     const messages = this.state.messages;
     messages.push(this.processUserInput(input));
-    this.setState({ messages, quickReplies: [] });
+    this.setState({ messages, quickReplies: [], cards: [] });
   }
 
   /**

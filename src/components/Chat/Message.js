@@ -48,10 +48,7 @@ class Message extends Component {
       return null;
     } else if (this.props.owner === 'bot') {
       return (
-        <div
-          className="Chat__Message--Bot"
-          dangerouslySetInnerHTML={{ __html: this.props.text }}
-        />
+        <div className="Chat__Message--Bot" dangerouslySetInnerHTML={{ __html: this.props.text }} />
       );
     } else if (this.props.owner === 'user') {
       return (
