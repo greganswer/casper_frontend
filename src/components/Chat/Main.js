@@ -20,17 +20,6 @@ const defaultProps = {
 };
 
 /**
- * Scroll a wrapper div from right to left
- * @param  {[type]} className [description]
- * @return {[type]} [description]
- */
-function scrollWrapperRightToLeft(className) {
-  const $wrapper = $(`.${className}`);
-  $wrapper.scrollLeft($wrapper[0].scrollWidth);
-  $wrapper.animate({ scrollLeft: 0 }, $wrapper[0].scrollWidth * 2);
-}
-
-/**
  * The Chat window is broken up into 3 sections: Header, Main, Footer
  * @type {React.Component}
  */
@@ -40,12 +29,10 @@ class Main extends Component {
    * @return {void}
    */
   componentDidMount() {
-    if (this.props.cards.length) {
-      scrollWrapperRightToLeft('Chat__Cards__Wrapper');
-    }
-
-    if (this.props.quickReplies.length) {
-      scrollWrapperRightToLeft('Chat__QuickReplies__Wrapper');
+    if (this.props.cards.length || this.props.quickReplies.length) {
+      const $wrapper = $('.Chat__X_Scrollable');
+      $wrapper.scrollLeft($wrapper[0].scrollWidth);
+      $wrapper.animate({ scrollLeft: 0 }, $wrapper[0].scrollWidth * 2);
     }
   }
 
@@ -82,7 +69,7 @@ class Main extends Component {
     }
 
     return (
-      <div className="Chat__Cards__Wrapper">
+      <div className="Chat__X_Scrollable">
         {cards}
       </div>
     );
@@ -109,7 +96,7 @@ class Main extends Component {
 
     return (
       <div className="Chat__Message__Wrapper">
-        <div className="Chat__BotMessage--typing">
+        <div className="Chat__Message--Bot--typing">
           <span />
           <span />
           <span />
@@ -132,7 +119,7 @@ class Main extends Component {
     }
 
     return (
-      <div className="Chat__QuickReplies__Wrapper">
+      <div className="Chat__X_Scrollable center">
         {replies}
       </div>
     );

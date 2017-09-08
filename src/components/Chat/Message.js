@@ -34,7 +34,7 @@ class Message extends Component {
       <img
         src={this.props.image}
         alt={this.props.alt}
-        className="Chat__Image materialboxed"
+        className="Chat__Message--Image materialboxed"
       />
     );
   }
@@ -49,13 +49,13 @@ class Message extends Component {
     } else if (this.props.owner === 'bot') {
       return (
         <div
-          className="Chat__BotMessage"
+          className="Chat__Message--Bot"
           dangerouslySetInnerHTML={{ __html: this.props.text }}
         />
       );
     } else if (this.props.owner === 'user') {
       return (
-        <div className="Chat__UserMessage">
+        <div className="Chat__Message--User">
           {this.props.text}
         </div>
       );

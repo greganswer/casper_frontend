@@ -80,18 +80,10 @@ $user-secondary-color: white;
   }
 }
 
-.Chat__Window {
-  @extend .z-depth-4;
-  width: 85%;
-  max-width: 400px;
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 1000;
-
-  .material-icons {
-    cursor: pointer;
-  }
+.Chat__Footer {
+  border-radius: 0 0 5px 5px;
+  padding: 15px;
+  background: #cfd8dc;
 }
 
 .Chat__Header {
@@ -99,6 +91,20 @@ $user-secondary-color: white;
   color: white;
   padding: 5px 8px;
   border-radius: 5px 5px 0 0;
+}
+
+.Chat__Input {
+  @extend .browser-default;
+  resize: none;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, .2);
+  padding: 10px;
+  background: white;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px -1px purple;
+  }
 }
 
 .Chat__Main {
@@ -117,33 +123,18 @@ $user-secondary-color: white;
   }
 }
 
-.Chat__Message__Wrapper {
-  clear: both;
-  white-space: pre-wrap;
-
-  &.first-from-owner {
-    margin-top: 1em;
-  }
-}
-
-.Chat__Image,
-.Chat__BotMessage,
-.Chat__BotMessage--typing,
-.Chat__UserMessage,
-.Chat__QuickReply {
+.Chat__Message--Bot,
+.Chat__Message--Bot--typing,
+.Chat__Message--Image,
+.Chat__Message--QuickReply,
+.Chat__Message--User {
   margin: 3px 0;
 }
 
-.Chat__Image {
-  width: 100%;
-  display: block;
-  border-radius: 20px 20px 20px 5px;
-}
-
-.Chat__BotMessage,
-.Chat__BotMessage--typing,
-.Chat__UserMessage,
-.Chat__QuickReply {
+.Chat__Message--Bot,
+.Chat__Message--Bot--typing,
+.Chat__Message--QuickReply,
+.Chat__Message--User {
   padding: 10px;
   border-radius: 20px 20px 20px 5px;
   display: inline-block;
@@ -151,15 +142,15 @@ $user-secondary-color: white;
   word-wrap: break-word;
 }
 
-.Chat__BotMessage,
-.Chat__BotMessage--typing {
+.Chat__Message--Bot,
+.Chat__Message--Bot--typing {
   background: $bot-primary-color;
   a {
     text-decoration: underline;
   }
 }
 
-.Chat__BotMessage--typing {
+.Chat__Message--Bot--typing {
   will-change: transform;
   padding: 14px;
   display: table;
@@ -193,15 +184,13 @@ $user-secondary-color: white;
   }
 }
 
-.Chat__UserMessage {
-  background: $user-primary-color;
-  color: white;
-  border-radius: 20px 20px 5px 20px;
-  float: right;
-  clear: both;
+.Chat__Message--Image {
+  width: 100%;
+  display: block;
+  border-radius: 20px 20px 20px 5px;
 }
 
-.Chat__QuickReply {
+.Chat__Message--QuickReply {
   @extend .z-depth-1;
   height: 34px;
   line-height: 30px;
@@ -239,33 +228,39 @@ $user-secondary-color: white;
   }
 }
 
-.Chat__Cards__Wrapper,
-.Chat__QuickReplies__Wrapper {
+.Chat__Message--User {
+  background: $user-primary-color;
+  color: white;
+  border-radius: 20px 20px 5px 20px;
+  float: right;
+  clear: both;
+}
+
+.Chat__Message__Wrapper {
+  clear: both;
+  white-space: pre-wrap;
+
+  &.first-from-owner {
+    margin-top: 1em;
+  }
+}
+
+.Chat__Window {
+  @extend .z-depth-4;
+  width: 85%;
+  max-width: 400px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+
+  .material-icons {
+    cursor: pointer;
+  }
+}
+
+.Chat__X_Scrollable {
   margin-top: 2em;
   overflow-x: scroll;
   padding: 10px 0;
-}
-
-.Chat__QuickReplies__Wrapper {
-  text-align: center;
-}
-
-.Chat__Footer {
-  border-radius: 0 0 5px 5px;
-  padding: 15px;
-  background: #cfd8dc;
-}
-
-.Chat__Input {
-  @extend .browser-default;
-  resize: none;
-  width: 100%;
-  border-radius: 5px;
-  border: 2px solid rgba(0, 0, 0, .2);
-  padding: 10px;
-  background: white;
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 5px -1px purple;
-  }
 }
