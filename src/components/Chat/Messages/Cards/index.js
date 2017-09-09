@@ -25,7 +25,7 @@ const Cards = ({ cards }) => {
   );
 
   return (
-    <ul className="Chat__X_Scrollable center">
+    <ul className="Chat__Cards">
       {elements}
     </ul>
   );

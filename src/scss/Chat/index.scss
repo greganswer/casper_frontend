@@ -62,11 +62,6 @@ $user-secondary-color: white;
     display: table;
     clear: both;
   }
-
-  ul {
-    padding: 0;
-    list-style: none;
-  }
 }
 
 .Chat__Window {
@@ -77,6 +72,10 @@ $user-secondary-color: white;
   right: 20px;
   bottom: 20px;
   z-index: 1000;
+
+  ul {
+    list-style: none;
+  }
 
   .material-icons {
     cursor: pointer;

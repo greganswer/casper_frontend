@@ -1,11 +1,12 @@
 @import "index";
 
 .Chat__Messages {
-  li {
+  padding: 0;
+
+  > li {
     clear: both;
-    white-space: pre-wrap;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: .7em;
+
     &:after {
       content: "";
       display: table;
@@ -19,6 +20,7 @@
 }
 
 .Chat__Message {
+  white-space: pre-wrap;
   padding: 10px;
   border-radius: 20px 20px 20px 5px;
   display: inline-block;

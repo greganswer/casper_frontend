@@ -25,13 +25,13 @@ class Card extends Component {
    * Renderthe header
    * @return {React.Element|null} [description]
    */
-  renderHeader() {
+  renderInfoTitle() {
     if (!this.props.header) {
       return null;
     }
 
     return (
-      <div className="header">
+      <div className="title">
         {this.props.header}
       </div>
     );
@@ -57,18 +57,18 @@ class Card extends Component {
   render() {
     return (
       <div className="Chat__Card">
-        <div className={`image ${this.props.title && 'with-title'}`}>
+        <div className={`Header ${this.props.title && 'with-title'}`}>
           <img src={this.props.image} alt={this.props.alt} />
           <div className="title">
             {this.props.title}
           </div>
         </div>
-        <div className="text">
-          {this.renderHeader()}
+        <div className="Info">
+          {this.renderInfoTitle()}
           <p>
             {this.props.text}
           </p>
-          <div className="links">
+          <div className="Links">
             {this.renderOptions()}
           </div>
         </div>
