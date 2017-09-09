@@ -6,7 +6,7 @@ import React from 'react';
  * @return {React.Element}
  */
 const Home = () =>
-  (<div>
+  (<div className="HomePage">
     <img src="/images/hero1.jpg" alt="Casper mattress and box" width="100%" />
     <div className="container">
       <div className="Section--large">

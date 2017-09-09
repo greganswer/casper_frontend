@@ -44,7 +44,7 @@ class Chat extends Component {
    */
   render() {
     return (
-      <div>
+      <div className="Chat">
         <Window isOpen={this.state.isWindowOpen} onChatWindowClose={this.handleWindowClose} />
         <Button isVisible={!this.state.isWindowOpen} onChatWindowOpen={this.handleWindowOpen} />
       </div>
