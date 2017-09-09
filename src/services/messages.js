@@ -3,36 +3,36 @@
  * @return {Array} list of messages
  */
 const messages = () => [
-  // {
-  //   id: 1,
-  //   owner: 'bot',
-  //   type: 'text',
-  //   text: 'Hello there and welcome to Casper. I am CasperBot',
-  // },
-  // {
-  //   id: 2,
-  //   owner: 'bot',
-  //   type: 'text',
-  //   text:
-  //     'I was built a very talented developer named <a href="http://greganswer.com">Greg Answer</a> who loves his Casper mattress.',
-  // },
-  // {
-  //   id: 3,
-  //   owner: 'bot',
-  //   type: 'image',
-  //   alt: 'Casper sleep cartoon',
-  //   image: 'http://heydoyou.com/wp-content/uploads/2016/04/e59f99c255a2cb8499d57924f1f1dae7.jpg',
-  // },
-  // { id: 4, owner: 'user', type: 'text', text: 'Hello CasperBot' },
-  // { id: 5, owner: 'bot', type: 'text', text: 'Hello my friend!' },
-  // { id: 6, owner: 'bot', type: 'text', text: 'How may I assist you today?' },
-  // { id: 7, owner: 'user', type: 'text', text: "I'd like to take a look at your products" },
-  // {
-  //   id: 8,
-  //   owner: 'bot',
-  //   type: 'text',
-  //   text: 'Certaintly! Here is a list of some of our products:',
-  // },
+  {
+    id: 1,
+    owner: 'bot',
+    type: 'text',
+    text: 'Hello there and welcome to Casper. I am CasperBot',
+  },
+  {
+    id: 2,
+    owner: 'bot',
+    type: 'text',
+    text:
+      'I was built a very talented developer named <a href="http://greganswer.com">Greg Answer</a> who loves his Casper mattress.',
+  },
+  {
+    id: 3,
+    owner: 'bot',
+    type: 'image',
+    alt: 'Casper sleep cartoon',
+    image: 'http://heydoyou.com/wp-content/uploads/2016/04/e59f99c255a2cb8499d57924f1f1dae7.jpg',
+  },
+  { id: 4, owner: 'user', type: 'text', text: 'Hello CasperBot' },
+  { id: 5, owner: 'bot', type: 'text', text: 'Hello my friend!' },
+  { id: 6, owner: 'bot', type: 'text', text: 'How may I assist you today?' },
+  { id: 7, owner: 'user', type: 'text', text: "I'd like to take a look at your products" },
+  {
+    id: 8,
+    owner: 'bot',
+    type: 'text',
+    text: 'Certaintly! Here is a list of some of our products:',
+  },
   {
     id: 9,
     owner: 'bot',

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import $ from 'jquery/dist/jquery';
 import PropTypes from 'prop-types';
 import Card from './Card';
 
@@ -9,27 +10,44 @@ const propTypes = {
 const defaultProps = { cards: [] };
 
 /**
- * Render an array of Card Elements
- * @param {Array} props The properties pass in to this Element
- * @return {Array}
+ *
+ * @type {React.Component}
  */
-const Cards = ({ cards }) => {
-  if (!cards.length) {
-    return null;
+class Cards extends Component {
+  /**
+   * Scroll to the bottom of the window on update
+   * @return {[type]} [description]
+   */
+  componentDidMount() {
+    if (this.props.cards.length) {
+      const $wrapper = $('.Chat__Cards');
+      $wrapper.scrollLeft($wrapper[0].scrollWidth);
+      $wrapper.animate({ scrollLeft: 0 }, 2000);
+    }
   }
 
-  const elements = cards.map(card =>
-    (<li key={card.id}>
-      <Card {...card} />
-    </li>),
-  );
+  /**
+   * Render this component
+   * @return {ReactElement}
+   */
+  render() {
+    if (!this.props.cards.length) {
+      return null;
+    }
 
-  return (
-    <ul className="Chat__Cards">
-      {elements}
-    </ul>
-  );
-};
+    const elements = this.props.cards.map(card =>
+      (<li key={card.id}>
+        <Card {...card} />
+      </li>),
+    );
+
+    return (
+      <ul className="Chat__Cards">
+        {elements}
+      </ul>
+    );
+  }
+}
 
 Cards.propTypes = propTypes;
 Cards.defaultProps = defaultProps;
