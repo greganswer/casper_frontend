@@ -5,8 +5,7 @@
  */
 $roboto-font-path: "~materialize-css/dist/fonts/roboto/";
 @import "materialize-css/sass/components/color";
-$primary-color-name: 'indigo';
-$primary-color: color($primary-color-name, 'darken-3');
+$primary-color: #00237e;
 $body-bg-color: #eee;
 
 /**
@@ -38,4 +37,9 @@ body,
 
 main {
   flex: 1 0 auto;
+}
+
+.Section--large {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }

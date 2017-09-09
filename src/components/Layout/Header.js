@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
+/**
+ * App Header
+ * @type {React.Component}
+ */
 export default class Header extends Component {
+  /**
+   * Initialize this component
+   * @constructor
+   * @param {Object} props The properties that are passed in
+   */
+  constructor(props) {
+    super(props);
+    this.state = { term: '' };
+  }
+
+  /**
+   * Render this component
+   * @return {React.Element|null}
+   */
   render() {
     return (
       <header>
         <div className="navbar-fixed">
           <nav>
-            <div className="nav-wrapper indigo darken-3">
+            <div className="nav-wrapper">
               <a href="#" className="brand-logo hide-on-large-only">
                 Casper
               </a>

@@ -42,7 +42,7 @@ class Card extends Component {
    */
   renderOptions() {
     return this.props.options.map(option =>
-      (<a href={option.link} key={option.id}>
+      (<a href={option.link} key={option.id} target={option.isExternal ? '_blank' : '_self'}>
         {option.icon ? <i className={`fa fa-${option.icon}`} /> : ''}
         {option.text}
         {option.isExternal ? <i className="fa fa-external-link" /> : ''}

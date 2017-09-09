@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import '../libs/materialize';
 
-import Header from './Header';
+import Header from './Layout/Header';
+import Footer from './Layout/Footer';
+import HomePage from './Pages/Home';
 import Chat from './Chat';
-import Footer from './Footer';
 
 /**
  * The entire React app
@@ -30,6 +31,7 @@ class App extends Component {
       <div>
         <Header />
         <main>
+          <HomePage />
           <Chat />
         </main>
         <Footer />

@@ -1,17 +1,26 @@
-footer a {
-  color: white;
-  font-weight: 100;
-}
-footer a:hover {
-  color: #ddd;
-}
+.page-footer {
+  background: $primary-color;
 
-.page-footer h6 {
-  font-weight: bolder;
-  text-transform: capitalize;
-}
+  a {
+    color: white;
+    font-weight: 100;
 
-.footer-copyright ul li {
-  display: inline;
-  margin: 0 5px;
+    &:hover {
+      color: #ddd;
+    }
+  }
+  h6 {
+    font-weight: bolder;
+    text-transform: capitalize;
+  }
+
+  .footer-copyright {
+    background: #071a53;
+    background: darken($primary-color, 10%);
+
+    ul li {
+      display: inline;
+      margin: 0 5px;
+    }
+  }
 }

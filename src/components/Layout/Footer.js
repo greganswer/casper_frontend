@@ -6,7 +6,7 @@ import React from 'react';
  * @return {React.Element}
  */
 const Footer = props =>
-  (<footer className="page-footer indigo darken-3">
+  (<footer className="page-footer">
     <div className="container">
       <div className="row">
         <div className="col m12 l6">
@@ -70,7 +70,7 @@ const Footer = props =>
       </div>
     </div>
 
-    <div className="footer-copyright indigo darken-4">
+    <div className="footer-copyright">
       <div className="container center">
         <ul className="inline">
           <li>© 2014 Copyright</li>
