@@ -1,12 +1,6 @@
 // NOTE: Order is important
 
-/**
- * COLORS
- */
-$roboto-font-path: "~materialize-css/dist/fonts/roboto/";
-@import "materialize-css/sass/components/color";
-$primary-color: #00237e;
-$body-bg-color: #eee;
+@import "Variables";
 
 /**
  * VENDOR IMPORTS
