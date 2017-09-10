@@ -28,7 +28,7 @@ class Window extends Component {
     this.state = {
       isVisible: this.props.isOpen,
       isBotTyping: true,
-      quickReplies: quickReplies(),
+      quickReplies: getMessages().length ? quickReplies() : this.getStarted(),
       messages: getMessages(),
     };
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
@@ -44,6 +44,13 @@ class Window extends Component {
     this.setState({ isVisible: newProps.isOpen });
   }
 
+  /**
+     * Set the Get Started Quick Reply
+     * @return {[type]} [description]
+     */
+  getStarted() {
+    return [{ id: 1, text: 'Get Started' }];
+  }
   /**
    * Close the Chat window
    * @return {void}

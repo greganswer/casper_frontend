@@ -22,3 +22,4 @@ yarn-error.log*
 
 # Save SCSS files instead of CSS files
 src/**/*.css
+src/css

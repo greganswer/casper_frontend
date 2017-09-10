@@ -18,7 +18,7 @@ class Messages extends Component {
    * @return {[type]} [description]
    */
   componentDidUpdate() {
-    const $main = $('.Chat__Cards');
+    const $main = $('.Chat__Messages');
     $main.scrollTop($main[0].scrollHeight);
     $main.animate({ scrollTop: $main[0].scrollHeight }, 500);
   }
