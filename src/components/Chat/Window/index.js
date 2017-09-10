@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
 import PropTypes from 'prop-types';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import botResponses from '../../../services/botResponses';
 import quickReplies from '../../../services/quickReplies';
-import getMessages from '../../../services/messages';
+import allMessages from '../../../services/messages';
 
 const propTypes = {
   isOpen: PropTypes.bool.isRequired,
@@ -27,9 +29,9 @@ class Window extends Component {
     super(props);
     this.state = {
       isVisible: this.props.isOpen,
-      isBotTyping: true,
-      quickReplies: getMessages().length ? quickReplies() : this.getStarted(),
-      messages: getMessages(),
+      isBotTyping: false,
+      quickReplies: allMessages().length ? quickReplies() : this.getStarted(),
+      messages: allMessages(),
     };
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
@@ -45,11 +47,11 @@ class Window extends Component {
   }
 
   /**
-     * Set the Get Started Quick Reply
-     * @return {[type]} [description]
-     */
+   * Set the Get Started Quick Reply
+   * @return {[type]} [description]
+   */
   getStarted() {
-    return [{ id: 1, text: 'Get Started' }];
+    return [{ key: uuid.v1(), text: 'Get Started' }];
   }
   /**
    * Close the Chat window
@@ -67,35 +69,9 @@ class Window extends Component {
    */
   handleUserInput(input) {
     const messages = this.state.messages;
-    messages.push(this.processUserInput(input));
+    messages.push({ id: uuid.v1(), owner: 'user', type: 'text', text: input });
+    messages.concat(botResponses(input));
     this.setState({ messages, quickReplies: [] });
-  }
-
-  /**
-   * Process the user's input
-   * NOTE: this is temporary until the chatbot API is complete
-   * TODO: Finish chatbot API
-   * @param  {string} input The user's input
-   * @return {Object}
-   */
-  processUserInput(input) {
-    let id;
-    fetch(process.env.REACT_APP_CHATBOT_API_URL, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ text: input }),
-    })
-      .then(res => res.json())
-      .then((data) => {
-        id = data.id;
-        console.log('data is', data);
-      })
-      .catch(error => console.log('error is', error));
-
-    return { id, owner: 'user', type: 'text', text: input };
   }
 
   /**
