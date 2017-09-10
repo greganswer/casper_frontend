@@ -76,10 +76,24 @@ class Window extends Component {
    * NOTE: this is temporary until the chatbot API is complete
    * TODO: Finish chatbot API
    * @param  {string} input The user's input
-   * @return {void}
+   * @return {Object}
    */
   processUserInput(input) {
-    const id = this.state.messages.length + 1;
+    let id;
+    fetch(process.env.REACT_APP_CHATBOT_API_URL, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ text: input }),
+    })
+      .then(res => res.json())
+      .then((data) => {
+        id = data.id;
+        console.log('data is', data);
+      })
+      .catch(error => console.log('error is', error));
 
     return { id, owner: 'user', type: 'text', text: input };
   }

@@ -28,14 +28,15 @@
 - Unix like operating system (OS X, Ubuntu, Debian, etc.)
 - Not yet tested on Windows
 
-### Installation
+### Development Installation
 
 1. Install [npm](https://www.npmjs.com/)
 1. Clone or download the repository
 1. `cd` into project directory *(If not already there)*
 1. In the terminal run `npm install`
 1. In the terminal run `npm start`
-1. View in browser at *http://localhost:3000*
+2. Startup the API server at *http://localhost:3000*
+1. View in browser at *http://localhost:3001 (or other port number)*
 
 ### Running tests
 
