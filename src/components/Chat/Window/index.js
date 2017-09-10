@@ -51,7 +51,7 @@ class Window extends Component {
    * @return {[type]} [description]
    */
   getStarted() {
-    return [{ key: uuid.v1(), text: 'Get Started' }];
+    return [{ id: uuid.v1(), text: 'Get Started' }];
   }
   /**
    * Close the Chat window
@@ -67,11 +67,14 @@ class Window extends Component {
    * @param  {string} input The user's input
    * @return {void}
    */
-  handleUserInput(input) {
+  async handleUserInput(input) {
     const messages = this.state.messages;
     messages.push({ id: uuid.v1(), owner: 'user', type: 'text', text: input });
-    messages.concat(botResponses(input));
-    this.setState({ messages, quickReplies: [] });
+    this.setState({ messages, isBotTyping: true, quickReplies: [] });
+    const output = messages.concat(await botResponses(input));
+    setTimeout(() => {
+      this.setState({ messages: output, isBotTyping: false });
+    }, 3000);
   }
 
   /**
