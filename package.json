@@ -5,6 +5,7 @@
   "proxy": "http://localhost:3000",
   "dependencies": {
     "animate.css": "^3.5.2",
+    "axios": "^0.16.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",

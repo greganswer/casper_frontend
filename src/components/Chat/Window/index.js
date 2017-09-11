@@ -67,14 +67,32 @@ class Window extends Component {
    * @param  {string} input The user's input
    * @return {void}
    */
-  async handleUserInput(input) {
+  handleUserInput(input) {
     const messages = this.state.messages;
     messages.push({ id: uuid.v1(), owner: 'user', type: 'text', text: input });
     this.setState({ messages, isBotTyping: true, quickReplies: [] });
-    const output = messages.concat(await botResponses(input));
-    setTimeout(() => {
-      this.setState({ messages: output, isBotTyping: false });
-    }, 3000);
+
+    this.addBotResponses(input);
+  }
+
+  /**
+   * Add the bot messages to the chat window
+   * @param  {string} input the user input
+   * @return {Promise} [description]
+   */
+  async addBotResponses(input) {
+    const messages = this.state.messages;
+    const botMessages = await botResponses(input);
+
+    botMessages.forEach((message, index) => {
+      setTimeout(() => {
+        this.setState({ messages: messages.concat(message), isBotTyping: false });
+      }, message.text.length * 20);
+
+      if (messages[index + 1]) {
+        this.setState({ isBotTyping: true });
+      }
+    });
   }
 
   /**
