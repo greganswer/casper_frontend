@@ -1,8 +1,8 @@
 @import "materialize-css/sass/materialize";
 
-$bot-primary-color: #ddd;
+$bot-primary-color: lighten(#ddd, 5%);
 $bot-secondary-color: black;
-$user-primary-color: #283593;
+$user-primary-color: lighten(#283593, 20%);
 $user-secondary-color: white;
 $window-radius: 8px;
 

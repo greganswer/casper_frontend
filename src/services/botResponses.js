@@ -11,8 +11,8 @@ async function botResponses(userInput) {
 
   try {
     const url = process.env.REACT_APP_CHATBOT_API_URL;
-    const res = await axios.post(url, { text: userInput });
-    const message = res.data.result.fulfillment.messages[0].speech;
+    const response = await axios.post(url, { text: userInput });
+    const message = response.data.result.fulfillment.messages[0].speech;
     messages = [{ id: uuid.v1(), owner: 'bot', type: 'text', text: message }];
     console.log('message is', messages);
 

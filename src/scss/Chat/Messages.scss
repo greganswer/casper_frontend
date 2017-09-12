@@ -28,7 +28,8 @@
   word-wrap: break-word;
 
   &.Bot {
-    background: $bot-primary-color;
+    // background: $bot-primary-color;
+    background: linear-gradient($bot-primary-color, darken($bot-primary-color, 10%));
     a {
       text-decoration: underline;
     }
@@ -40,7 +41,8 @@
     border-radius: 20px 20px 20px 5px;
   }
   &.User {
-    background: $user-primary-color;
+    // background: $user-primary-color;
+    background: linear-gradient($user-primary-color, darken($user-primary-color, 10%));
     color: white;
     border-radius: 20px 20px 5px 20px;
     float: right;
