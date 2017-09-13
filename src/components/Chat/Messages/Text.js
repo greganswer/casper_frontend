@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  text: PropTypes.string.isRequired,
-  owner: PropTypes.string.isRequired,
+  sender: PropTypes.shape({ type: PropTypes.string }).isRequired,
+  message: PropTypes.shape({ text: PropTypes.string, mid: PropTypes.string }).isRequired,
 };
 
 /**
  * Render this component
- * @param {Array} props The properties pass in to this Element
+ * @param {Object} props The properties pass in to this Element
  * @return {React.Element}
  */
-const Text = ({ text, owner }) => {
-  if (owner === 'bot') {
-    return <div className="Chat__Message Bot" dangerouslySetInnerHTML={{ __html: text }} />;
-  } else if (owner === 'user') {
+const Text = ({ sender, message }) => {
+  if (sender.type === 'bot') {
+    return <div className="Chat__Message Bot" dangerouslySetInnerHTML={{ __html: message.text }} />;
+  } else if (sender.type === 'user') {
     return (
       <div className="Chat__Message User">
-        {text}
+        {message.text}
       </div>
     );
   }

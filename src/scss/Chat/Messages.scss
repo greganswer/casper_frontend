@@ -13,7 +13,7 @@
       clear: both;
     }
 
-    &.first-from-owner {
+    &.first-from-sender {
       margin-top: 2em;
     }
   }
@@ -28,8 +28,8 @@
   word-wrap: break-word;
 
   &.Bot {
-    // background: $bot-primary-color;
-    background: linear-gradient($bot-primary-color, darken($bot-primary-color, 10%));
+    background: $bot-primary-color;
+    background: linear-gradient(#eee, #ddd);
     a {
       text-decoration: underline;
     }

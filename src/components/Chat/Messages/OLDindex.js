@@ -24,31 +24,26 @@ class Messages extends Component {
   }
 
   /**
-   * Is this message the first from sender
-   * @param  {Object} item The currenet message in the messages array
-   * @param  {int} index The currenet position in the messages array
-   * @return {boolean} [description]
-   */
-  isFirstFromSender(item, index) {
-    const items = this.props.messages;
-    const previousItem = items[index - 1];
-
-    return !previousItem || previousItem.sender.type !== item.sender.type;
-  }
-
-  /**
    * Render a list Element based the type given in message.type
-   * @param  {Object} item The currenet message in the messages array
    * @param  {int} index The currenet position in the messages array
    * @return {React.Element} [description]
    */
-  renderListItem(item, index) {
+  renderListItem(index) {
+    const messages = this.props.messages;
+    const message = messages[index];
+    const previousMessage = messages[index - 1];
+    const isFirstFromOwner = !previousMessage || previousMessage.owner !== message.owner;
+
+    const components = { cards: Cards, image: Image, text: Text };
+    const SpecificMessage = components[message.type];
+
+    if (!SpecificMessage) {
+      return <li />;
+    }
+
     return (
-      <li
-        key={item.message.mid}
-        className={this.isFirstFromSender(item, index) ? 'first-from-sender' : ''}
-      >
-        <Text {...item} />
+      <li key={message.id} className={isFirstFromOwner ? 'first-from-sender' : ''}>
+        <SpecificMessage {...message} />
       </li>
     );
   }
@@ -66,7 +61,7 @@ class Messages extends Component {
 
     return (
       <ul className="Chat__Messages">
-        {messages.map((item, index) => this.renderListItem(item, index))}
+        {messages.map((message, index) => this.renderListItem(index))}
       </ul>
     );
   }

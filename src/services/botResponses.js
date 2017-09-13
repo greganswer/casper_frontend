@@ -1,5 +1,8 @@
-import uuid from 'uuid';
 import axios from 'axios';
+
+const CHATBOT_API_URL = process.env.REACT_APP_CHATBOT_API_URL;
+const CHATBOT_ACCESS_TOKEN = process.env.REACT_APP_CHATBOT_API_ACCESS_TOKEN;
+const CHATBOT_POST_URL = `${CHATBOT_API_URL}?access_token=${CHATBOT_ACCESS_TOKEN}`;
 
 /**
  * Process the user's input
@@ -7,20 +10,13 @@ import axios from 'axios';
  * @return {Object}
  */
 async function botResponses(userInput) {
-  let messages = [];
-
   try {
-    const url = process.env.REACT_APP_CHATBOT_API_URL;
-    const response = await axios.post(url, { text: userInput });
-    const message = response.data.result.fulfillment.messages[0].speech;
-    messages = [{ id: uuid.v1(), owner: 'bot', type: 'text', text: message }];
-    console.log('message is', messages);
-
-    return messages;
+    return await axios.post(CHATBOT_POST_URL, { text: userInput });
   } catch (e) {
-    console.log('error is', e);
+    console.log('Error retrieving bot responses');
+    console.log('e = ', JSON.stringify(e, null, 2));
 
-    return e;
+    return [];
   }
 }
 

@@ -69,7 +69,15 @@ class Window extends Component {
    */
   handleUserInput(input) {
     const messages = this.state.messages;
-    messages.push({ id: uuid.v1(), owner: 'user', type: 'text', text: input });
+    messages.push({
+      sender: { type: 'user' },
+      recipient: { type: 'bot' },
+      timestamp: Date.now(),
+      message: {
+        mid: uuid.v1(),
+        text: input,
+      },
+    });
     this.setState({ messages, isBotTyping: true, quickReplies: [] });
 
     this.addBotResponses(input);
@@ -82,12 +90,12 @@ class Window extends Component {
    */
   async addBotResponses(input) {
     const messages = this.state.messages;
-    const botMessages = await botResponses(input);
+    const response = await botResponses(input);
 
-    botMessages.forEach((message, index) => {
-      setTimeout(() => {
-        this.setState({ messages: messages.concat(message), isBotTyping: false });
-      }, message.text.length * 20);
+    response.data.forEach((item, index) => {
+      const milliseconds = item.message.text.length * 20;
+      messages.push(item);
+      setTimeout(() => this.setState({ messages, isBotTyping: false }), milliseconds);
 
       if (messages[index + 1]) {
         this.setState({ isBotTyping: true });
