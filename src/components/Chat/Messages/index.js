@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import $ from 'jquery/dist/jquery';
-import Cards from './Cards';
-import Image from './Image';
+import Attachment from './Attachment/index';
 import Text from './Text';
 
 const propTypes = { messages: PropTypes.arrayOf(PropTypes.object) };
@@ -43,12 +42,14 @@ class Messages extends Component {
    * @return {React.Element} [description]
    */
   renderListItem(item, index) {
+    const SpecificMessage = item.message.attachment ? Attachment : Text;
+
     return (
       <li
         key={item.message.mid}
         className={this.isFirstFromSender(item, index) ? 'first-from-sender' : ''}
       >
-        <Text {...item} />
+        <SpecificMessage {...item} />
       </li>
     );
   }

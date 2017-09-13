@@ -36,6 +36,7 @@ class Card extends Component {
       </div>
     );
   }
+
   /**
    * Render some text in the chat window
    * @return {Array} Array of options

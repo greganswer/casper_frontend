@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import chatMessageFormat from '../../../services/chatMessageFormat';
 import botResponses from '../../../services/botResponses';
 import quickReplies from '../../../services/quickReplies';
 import allMessages from '../../../services/messages';
@@ -69,17 +70,9 @@ class Window extends Component {
    */
   handleUserInput(input) {
     const messages = this.state.messages;
-    messages.push({
-      sender: { type: 'user' },
-      recipient: { type: 'bot' },
-      timestamp: Date.now(),
-      message: {
-        mid: uuid.v1(),
-        text: input,
-      },
-    });
+    const userMessage = chatMessageFormat(input);
+    messages.push(userMessage);
     this.setState({ messages, isBotTyping: true, quickReplies: [] });
-
     this.addBotResponses(input);
   }
 
@@ -93,9 +86,9 @@ class Window extends Component {
     const response = await botResponses(input);
 
     response.data.forEach((item, index) => {
-      const milliseconds = item.message.text.length * 20;
+      const ms = item.message.text ? item.message.text.length * 20 : 2000;
       messages.push(item);
-      setTimeout(() => this.setState({ messages, isBotTyping: false }), milliseconds);
+      setTimeout(() => this.setState({ messages, isBotTyping: false }), ms);
 
       if (messages[index + 1]) {
         this.setState({ isBotTyping: true });
