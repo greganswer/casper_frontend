@@ -7,6 +7,7 @@ const propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     url: PropTypes.string,
+    length: PropTypes.func.isRequired,
     map: PropTypes.func.isRequired,
   }),
   default_action: PropTypes.object,
