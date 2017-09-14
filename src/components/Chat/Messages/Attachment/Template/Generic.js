@@ -31,7 +31,7 @@ class Generic extends Component {
    * @return {React.Element}
    */
   renderButtons() {
-    if (this.props.buttons) {
+    if (this.props.buttons.length) {
       return (
         <ul className="Buttons">
           {this.props.buttons.map(button =>
@@ -73,7 +73,9 @@ class Generic extends Component {
   render() {
     return (
       <div className="Chat__Card">
-        {this.renderImage()}
+        <div className="Header">
+          {this.renderImage()}
+        </div>
         <div className="Main">
           <div className="title">
             {this.props.title}

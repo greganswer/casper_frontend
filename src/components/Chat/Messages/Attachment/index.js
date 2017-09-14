@@ -4,8 +4,8 @@ import Image from './Image';
 import Template from './Template';
 
 const propTypes = {
-  attachment: PropTypes.shape({
-    type: PropTypes.string.isRequired,
+  message: PropTypes.shape({
+    attachment: PropTypes.string.isRequired,
   }).isRequired,
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
 import Generic from './Generic';
 
 const propTypes = {
@@ -18,7 +19,19 @@ const defaultProps = {
  */
 const Template = (props) => {
   if (props.template_type === 'generic') {
-    return <Generic {...props.elements} />;
+    if (props.elements.length > 1) {
+      return (
+        <ul className="Chat__Cards">
+          {props.elements.map(element =>
+            (<li key={uuid.v1()}>
+              <Generic {...element} />
+            </li>),
+          )}
+        </ul>
+      );
+    }
+
+    return <Generic {...props.elements[0]} />;
   }
 
   return null;
