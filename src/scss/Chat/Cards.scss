@@ -31,6 +31,7 @@
   max-width: 80%;
   white-space: initial;
   vertical-align: bottom;
+  position: relative;
 
   .Header {
     position: relative;
@@ -87,6 +88,11 @@
     }
     .Buttons {
       margin: 1.5em 0;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      margin: 0 auto;
+      left: -3px;
 
       li {
         border-top: 1px solid #ddd;
