@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import $ from 'jquery/dist/jquery';
 import Messages from '../Messages';
 import TypingIndicator from '../Messages/TypingIndicator';
-import QuickReplies from '../QuickReplies';
+import QuickReplies from '../Messages/QuickReplies';
 
 const propTypes = {
   isBotTyping: PropTypes.bool.isRequired,

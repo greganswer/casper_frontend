@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery/dist/jquery';
+import uuid from 'uuid';
 import PropTypes from 'prop-types';
 import QuickReply from './QuickReply';
 
@@ -38,7 +39,7 @@ class QuickReplies extends Component {
     }
 
     const elements = this.props.quickReplies.map(quickReply =>
-      (<li key={quickReply.id}>
+      (<li key={uuid.v1()}>
         <QuickReply onUserInput={this.props.onUserInput} {...quickReply} />
       </li>),
     );

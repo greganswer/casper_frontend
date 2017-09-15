@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import formatChatMessage from '../../../services/formatChatMessage';
 import botResponses from '../../../services/botResponses';
-import quickReplies from '../../../services/quickReplies';
 import allMessages from '../../../services/messages';
 
 const propTypes = {
@@ -28,12 +27,10 @@ class Window extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = {
-      isVisible: this.props.isOpen,
-      isBotTyping: false,
-      quickReplies: allMessages().length ? quickReplies() : this.getStarted(),
-      messages: allMessages(),
-    };
+    const messages = allMessages();
+    const lastItem = _.last(messages);
+    const quickReplies = lastItem ? lastItem.message.quick_replies : this.getStarted();
+    this.state = { isVisible: this.props.isOpen, isBotTyping: false, messages, quickReplies };
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
   }
@@ -52,7 +49,7 @@ class Window extends Component {
    * @return {[type]} [description]
    */
   getStarted() {
-    return [{ id: uuid.v1(), text: 'Get Started' }];
+    return [{ content_type: 'text', title: 'Get Started', payload: '' }];
   }
   /**
    * Close the Chat window
@@ -88,7 +85,12 @@ class Window extends Component {
     response.data.forEach((item, index) => {
       const ms = item.message.text ? item.message.text.length * 20 : 2000;
       messages.push(item);
-      setTimeout(() => this.setState({ messages, isBotTyping: false }), ms);
+      const state = {
+        messages,
+        isBotTyping: false,
+        quickReplies: item.message.quick_replies,
+      };
+      setTimeout(() => this.setState(state), ms);
 
       if (messages[index + 1]) {
         this.setState({ isBotTyping: true });

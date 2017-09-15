@@ -2,20 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  alt: PropTypes.string,
-  icon: PropTypes.string,
-  iconClass: PropTypes.string,
-  image: PropTypes.string,
+  content_type: PropTypes.string.isRequired,
+  image_url: PropTypes.string,
   onUserInput: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
+  payload: PropTypes.string,
+  title: PropTypes.string,
 };
 
-const defaultProps = {
-  alt: '',
-  icon: '',
-  iconClass: '',
-  image: '',
-};
+const defaultProps = { image_url: '', payload: '', title: '' };
 
 /**
  * A QuickReply allows users to click a button instead of type text
@@ -37,7 +31,7 @@ class QuickReply extends Component {
    * @return {void}
    */
   handleClick() {
-    this.props.onUserInput(this.props.text);
+    this.props.onUserInput(this.props.title);
   }
 
   /**
@@ -45,10 +39,8 @@ class QuickReply extends Component {
    * @return {React.Element|null}
    */
   renderImage() {
-    if (this.props.image && this.props.alt) {
-      return <img src={this.props.image} alt={this.props.alt} />;
-    } else if (this.props.icon) {
-      return <i className={`fa fa-${this.props.icon} ${this.props.iconClass}`} />;
+    if (this.props.image_url) {
+      return <img src={this.props.image_url} alt="" />;
     }
 
     return null;
@@ -58,8 +50,12 @@ class QuickReply extends Component {
    * Send the string message or null
    * @return {string|null}
    */
-  renderText() {
-    return this.props.text ? this.props.text : null;
+  renderTitle() {
+    if (this.props.content_type === 'location') {
+      return 'Send Location';
+    }
+
+    return this.props.title ? this.props.title : null;
   }
 
   /**
@@ -70,7 +66,7 @@ class QuickReply extends Component {
     return (
       <button className="Chat__QuickReply" onClick={this.handleClick}>
         {this.renderImage()}
-        {this.renderText()}
+        {this.renderTitle()}
       </button>
     );
   }
