@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
-import chatMessageFormat from '../../../services/chatMessageFormat';
+import formatChatMessage from '../../../services/formatChatMessage';
 import botResponses from '../../../services/botResponses';
 import quickReplies from '../../../services/quickReplies';
 import allMessages from '../../../services/messages';
@@ -65,15 +65,15 @@ class Window extends Component {
 
   /**
    * Handle the user's input and empty the quickReplies
-   * @param  {string} input The user's input
+   * @param  {string} text The user's input
    * @return {void}
    */
-  handleUserInput(input) {
+  handleUserInput(text) {
     const messages = this.state.messages;
-    const userMessage = chatMessageFormat(input);
+    const userMessage = formatChatMessage('user', { text });
     messages.push(userMessage);
     this.setState({ messages, isBotTyping: true, quickReplies: [] });
-    this.addBotResponses(input);
+    this.addBotResponses(text);
   }
 
   /**

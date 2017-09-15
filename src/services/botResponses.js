@@ -1,13 +1,13 @@
 import axios from 'axios';
-import chatMessageFormat from './chatMessageFormat';
+import formatChatMessage from './formatChatMessage';
 
 const CHATBOT_API_URL = process.env.REACT_APP_CHATBOT_API_URL;
 const CHATBOT_ACCESS_TOKEN = process.env.REACT_APP_CHATBOT_API_ACCESS_TOKEN;
 const CHATBOT_POST_URL = `${CHATBOT_API_URL}/?access_token=${CHATBOT_ACCESS_TOKEN}`;
 
 /**
- * [randomErrorMessages description]
- * @return {[type]} [description]
+ * Generate a random error message if the server is not connected
+ * @return {string}
  */
 const randomErrorMessages = () => {
   const random = Math.random();
@@ -23,21 +23,18 @@ const randomErrorMessages = () => {
 
 /**
  * Process the user's input
- * @param  {string} userInput The user's userInput
+ * @param  {string} text The user's message
  * @return {Object}
  */
-async function botResponses(userInput) {
+export default async function botResponses(text) {
   try {
-    return await axios.post(CHATBOT_POST_URL, { text: userInput });
+    return await axios.post(CHATBOT_POST_URL, { text });
   } catch (e) {
-    const data = e.response.data;
     console.log('Error retrieving bot responses');
-    console.log('data = ', JSON.stringify(data, null, 2));
+    console.log('e = ', JSON.stringify(e, null, 2));
 
     return {
-      data: [chatMessageFormat(randomErrorMessages(), 'bot')],
+      data: [formatChatMessage('bot', { text: randomErrorMessages() })],
     };
   }
 }
-
-export default botResponses;
