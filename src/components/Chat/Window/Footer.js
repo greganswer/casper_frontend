@@ -29,10 +29,20 @@ class Footer extends Component {
    * @return {void}
    */
   handleKeyPress(e) {
+    const textarea = e.target;
+    const value = textarea.value.trim();
+
+    if (value.length === 0) {
+      textarea.value = '';
+    }
+
     if (e.key === 'Enter') {
-      // TODO: Send message to NLP provider
-      this.props.onUserInput(e.target.value);
-      e.target.value = null;
+      if (value.length > 0) {
+        this.props.onUserInput(value);
+      }
+
+      textarea.value = '';
+      e.preventDefault();
     }
   }
 
