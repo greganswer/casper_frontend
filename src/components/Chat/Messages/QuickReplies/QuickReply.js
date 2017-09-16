@@ -31,7 +31,8 @@ class QuickReply extends Component {
    * @return {void}
    */
   handleClick() {
-    this.props.onUserInput(this.props.title);
+    const input = this.props.content_type === 'location' ? 'Send Location' : this.props.title;
+    this.props.onUserInput(input);
   }
 
   /**
