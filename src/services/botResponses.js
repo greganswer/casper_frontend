@@ -23,12 +23,12 @@ const randomErrorMessages = () => {
 
 /**
  * Process the user's input
- * @param  {string} text The user's message
+ * @param  {string} data The user's message
  * @return {Object}
  */
-export default async function botResponses(text) {
+export default async function botResponses(data) {
   try {
-    return await axios.post(CHATBOT_POST_URL, { text });
+    return await axios.post(CHATBOT_POST_URL, data);
   } catch (e) {
     console.log('Error retrieving bot responses');
     console.log('e = ', JSON.stringify(e, null, 2));

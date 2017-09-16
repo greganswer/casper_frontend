@@ -67,10 +67,10 @@ class Window extends Component {
    */
   handleUserInput(text) {
     const messages = this.state.messages;
-    const userMessage = formatChatMessage('user', { text });
-    messages.push(userMessage);
+    const formattedMessage = formatChatMessage('user', { text });
+    messages.push(formattedMessage);
     this.setState({ messages, isBotTyping: true, quickReplies: [] });
-    this.addBotResponses(text);
+    this.addBotResponses(formattedMessage);
   }
 
   /**
