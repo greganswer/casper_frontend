@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid';
 
 const propTypes = {
-  buttons: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+  buttons: PropTypes.arrayOf(PropTypes.object),
+  // buttons: PropTypes.shape({
+  //   title: PropTypes.string.isRequired,
+  //   type: PropTypes.string.isRequired,
+  //   url: PropTypes.string,
+  //   length: PropTypes.func.isRequired,
+  //   map: PropTypes.func.isRequired,
+  // }),
+  default_action: PropTypes.shape({
+    type: PropTypes.string,
     url: PropTypes.string,
-    length: PropTypes.func.isRequired,
-    map: PropTypes.func.isRequired,
   }),
-  default_action: PropTypes.object,
   image_url: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   title: PropTypes.string.isRequired,

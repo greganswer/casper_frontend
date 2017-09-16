@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import $ from 'jquery/dist/jquery';
-import uuid from 'uuid';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
 import QuickReply from './QuickReply';
+import scrollRightToLeft from '../../../helpers/scrollRightToLeft';
 
 const propTypes = {
   onUserInput: PropTypes.func.isRequired,
@@ -12,20 +12,26 @@ const propTypes = {
 const defaultProps = { quickReplies: [] };
 
 /**
- *
+ * Quick Reply list
  * @type {React.Component}
  */
 class QuickReplies extends Component {
   /**
    * Scroll the quick replies from right to left to show the user the full list
-   * TODO: Export this to a utility function
    * @return {void}
    */
   componentDidMount() {
     if (this.props.quickReplies.length) {
-      const $wrapper = $('.Chat__QuickReplies');
-      $wrapper.scrollLeft($wrapper[0].scrollWidth);
-      $wrapper.animate({ scrollLeft: 0 }, $wrapper[0].scrollWidth * 2);
+      scrollRightToLeft('.Chat__QuickReplies');
+    }
+  }
+  /**
+   * Scroll the quick replies from right to left to show the user the full list
+   * @return {void}
+   */
+  componentDidUpdate() {
+    if (this.props.quickReplies.length) {
+      scrollRightToLeft('.Chat__QuickReplies');
     }
   }
 
