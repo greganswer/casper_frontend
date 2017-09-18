@@ -82,7 +82,6 @@ class Window extends Component {
   async addBotResponses(input) {
     const messages = this.state.messages;
     const response = await botResponses(input);
-    console.log(response.data);
 
     response.data.forEach(async (item, index) => {
       this.setState({ isBotTyping: true });

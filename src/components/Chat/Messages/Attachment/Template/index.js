@@ -18,7 +18,6 @@ const defaultProps = { elements: [] };
 class Template extends Component {
   /**
    * Scroll to the bottom of the window on update
-   * TODO: Export this to a utility function
    * @return {[type]} [description]
    */
   componentDidMount() {

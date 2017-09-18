@@ -30,9 +30,6 @@ export default async function botResponses(data) {
   try {
     return await axios.post(CHATBOT_POST_URL, data);
   } catch (e) {
-    console.log('Error retrieving bot responses');
-    console.log('e = ', JSON.stringify(e, null, 2));
-
     return {
       data: [formatChatMessage('bot', { text: randomErrorMessages() })],
     };

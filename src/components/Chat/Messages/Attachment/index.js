@@ -18,7 +18,6 @@ const defaultProps = {};
  */
 const Attachment = ({ message }) => {
   const attachment = message.attachment;
-  console.log('attachment = ', JSON.stringify(attachment, null, 2));
 
   if (attachment.type === 'image') {
     return <Image {...attachment.payload} />;
