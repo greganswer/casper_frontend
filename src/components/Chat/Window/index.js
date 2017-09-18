@@ -7,6 +7,7 @@ import Footer from './Footer';
 import formatChatMessage from '../../../services/formatChatMessage';
 import botResponses from '../../../services/botResponses';
 import allMessages from '../../../services/messages';
+import Utils from '../../../Utils';
 
 const propTypes = {
   isOpen: PropTypes.bool.isRequired,
@@ -81,20 +82,17 @@ class Window extends Component {
   async addBotResponses(input) {
     const messages = this.state.messages;
     const response = await botResponses(input);
+    console.log(response.data);
 
-    response.data.forEach((item, index) => {
-      const ms = item.message.text ? item.message.text.length * 20 : 2000;
+    response.data.forEach(async (item, index) => {
+      this.setState({ isBotTyping: true });
+      await Utils.wait((index + 1) * 2000 + index * 2000);
       messages.push(item);
-      const state = {
+      this.setState({
         messages,
-        isBotTyping: false,
+        isBotTyping: !!response.data[index + 1],
         quickReplies: item.message.quick_replies,
-      };
-      setTimeout(() => this.setState(state), ms);
-
-      if (messages[index + 1]) {
-        this.setState({ isBotTyping: true });
-      }
+      });
     });
   }
 
