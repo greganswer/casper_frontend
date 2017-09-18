@@ -2,7 +2,6 @@
   "name": "casper_frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
   "dependencies": {
     "animate.css": "^3.5.2",
     "axios": "^0.16.2",
