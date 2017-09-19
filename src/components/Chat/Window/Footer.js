@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import $ from 'jquery/dist/jquery';
 import Textarea from 'react-textarea-autosize';
 
 const propTypes = {
@@ -20,7 +21,26 @@ class Footer extends Component {
    */
   constructor(props) {
     super(props);
+    this.state = { isSubmiting: false };
+    this.handleInputSubmission = this.handleInputSubmission.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  /**
+   * Respond to user click
+   * @return {void}
+   */
+  handleInputSubmission() {
+    const textarea = document.getElementById('chat-text-input');
+    const text = textarea.value.trim();
+
+    if (text.length > 0) {
+      this.setState({ isSubmiting: true });
+      this.props.onUserInput({ text });
+    }
+
+    textarea.value = '';
+    this.setState({ isSubmiting: false });
   }
 
   /**
@@ -29,7 +49,7 @@ class Footer extends Component {
    * @return {void}
    */
   handleKeyPress(e) {
-    const textarea = e.target;
+    const textarea = document.getElementById('chat-text-input');
     const text = textarea.value.trim();
 
     if (text.length === 0) {
@@ -37,11 +57,7 @@ class Footer extends Component {
     }
 
     if (e.key === 'Enter') {
-      if (text.length > 0) {
-        this.props.onUserInput({ text });
-      }
-
-      textarea.value = '';
+      this.handleInputSubmission();
       e.preventDefault();
     }
   }
@@ -54,6 +70,7 @@ class Footer extends Component {
     return (
       <div className="Chat__Footer">
         <Textarea
+          id="chat-text-input"
           autoComplete="off"
           autoFocus="true"
           className="browser-default Chat__Input"
@@ -64,6 +81,13 @@ class Footer extends Component {
           rows={1}
           type="text"
         />
+        <button
+          className="btn light-blue darken-1 z-depth-0"
+          onClick={this.handleInputSubmission}
+          disabled={this.state.isSubmiting}
+        >
+          <i className="fa fa-paper-plane" /> Send
+        </button>
       </div>
     );
   }
