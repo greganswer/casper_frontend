@@ -39,13 +39,11 @@ class Generic extends Component {
     if (this.props.buttons.length) {
       return (
         <ul className="Buttons">
-          {this.props.buttons.map(button =>
-            (<li key={uuid.v1()}>
-              <a href={button.url}>
-                {button.title}
-              </a>
-            </li>),
-          )}
+          {this.props.buttons.map(button => (
+            <li key={uuid.v1()}>
+              <a href={button.url}>{button.title}</a>
+            </li>
+          ))}
         </ul>
       );
     }
@@ -61,11 +59,7 @@ class Generic extends Component {
     const imageElement = <img src={this.props.image_url} alt="" />;
 
     if (this.props.default_action.url) {
-      return (
-        <a href={this.props.default_action.url}>
-          {imageElement}
-        </a>
-      );
+      return <a href={this.props.default_action.url}>{imageElement}</a>;
     }
 
     return imageElement;
@@ -78,16 +72,10 @@ class Generic extends Component {
   render() {
     return (
       <div className="Chat__Card">
-        <div className="Header">
-          {this.renderImage()}
-        </div>
+        <div className="Header">{this.renderImage()}</div>
         <div className="Main">
-          <div className="title">
-            {this.props.title}
-          </div>
-          <div className="subtitle">
-            {this.props.subtitle}
-          </div>
+          <div className="title">{this.props.title}</div>
+          <div className="subtitle">{this.props.subtitle}</div>
           {this.renderButtons()}
         </div>
       </div>

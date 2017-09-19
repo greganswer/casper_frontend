@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
+import Button from './Button';
 import Generic from './Generic';
 import scrollRightToLeft from '../../../../helpers/scrollRightToLeft';
 
@@ -21,7 +22,7 @@ class Template extends Component {
    * @return {[type]} [description]
    */
   componentDidMount() {
-    if (this.props.elements.length > 1) {
+    if (this.props.elements && this.props.elements.length > 1) {
       scrollRightToLeft('.Chat__Cards');
     }
   }
@@ -46,6 +47,8 @@ class Template extends Component {
       }
 
       return <Generic {...this.props.elements[0]} />;
+    } else if (this.props.template_type === 'button') {
+      return <Button {...this.props} />;
     }
 
     return null;
