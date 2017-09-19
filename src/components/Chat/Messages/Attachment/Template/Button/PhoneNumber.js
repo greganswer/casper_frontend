@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const propTypes = {};
+const propTypes = {
+  payload: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 const defaultProps = {};
 
@@ -25,11 +28,11 @@ class PhoneNumber extends Component {
    * @return {React.Element}
    */
   render() {
-    return ();
+    return <a href={`tel:${this.props.payload}`}>{this.props.title}</a>;
   }
 }
 
 PhoneNumber.propTypes = propTypes;
 PhoneNumber.defaultProps = defaultProps;
 
-export default PhoneNumber ;
+export default PhoneNumber;

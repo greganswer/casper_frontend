@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import Text from '../../../Text';
+import PhoneNumber from './PhoneNumber';
 
 const propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -23,14 +24,27 @@ class Button extends Component {
   renderButtons() {
     if (this.props.buttons.length) {
       return (
-        <ul className="Buttons">
+        <ul className="collection">
           {this.props.buttons.map(button => (
-            <li key={uuid.v1()}>
-              <a href={button.url}>{button.title}</a>
+            <li key={uuid.v1()} className="collection-item">
+              {this.renderButtonType(button)}
             </li>
           ))}
         </ul>
       );
+    }
+
+    return null;
+  }
+
+  /**
+   * Render button type
+   * @param  {Object} button The button to be rendered
+   * @return {React.Element}
+   */
+  renderButtonType(button) {
+    if (button.type === 'phone_number') {
+      return <PhoneNumber {...button} />;
     }
 
     return null;
@@ -44,6 +58,7 @@ class Button extends Component {
     return (
       <div className="Chat__Template__Button">
         <Text sender={{ type: 'bot' }} message={{ text: this.props.text }} />
+        {this.renderButtons()}
       </div>
     );
   }

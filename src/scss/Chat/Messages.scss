@@ -1,5 +1,16 @@
 @import 'index';
 
+$border-radius-bot-message: 20px 20px 20px 5px;
+$border-radius-user-message: 20px 20px 5px 20px;
+
+.Chat__Template__Button {
+  .collection {
+    width: 80%;
+    text-align: center;
+    border-radius: $border-radius-bot-message;
+  }
+}
+
 .Chat__Messages {
   padding: 0;
 
@@ -22,7 +33,7 @@
 .Chat__Message {
   white-space: pre-wrap;
   padding: 10px;
-  border-radius: 20px 20px 20px 5px;
+  border-radius: $border-radius-bot-message;
   display: inline-block;
   max-width: 80%;
   word-wrap: break-word;
@@ -38,18 +49,19 @@
     padding: 0;
     width: 100%;
     display: block;
-    border-radius: 20px 20px 20px 5px;
+    border-radius: $border-radius-bot-message;
 
     &.User {
       float: right;
       clear: both;
+      border-radius: $border-radius-user-message;
     }
   }
   &.User {
     // background: $user-primary-color;
     background: linear-gradient($user-primary-color, darken($user-primary-color, 10%));
     color: white;
-    border-radius: 20px 20px 5px 20px;
+    border-radius: $border-radius-user-message;
     float: right;
     clear: both;
   }
