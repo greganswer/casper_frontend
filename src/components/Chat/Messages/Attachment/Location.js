@@ -20,7 +20,7 @@ const defaultProps = {};
  */
 const Location = ({ sender, coordinates }) => {
   const alt = 'Your current location';
-  let className = 'Chat__Message Image materialboxed ';
+  let className = 'Chat__Message Image ';
   className += sender.type === 'user' ? 'User' : 'Bot';
   const center = `${coordinates.lat},${coordinates.long}`;
   const url = `https://maps.googleapis.com/maps/api/staticmap?center=${center}&zoom=14&size=400x400`;

@@ -9,7 +9,7 @@ const propTypes = {
 
 const defaultProps = {
   alt: '',
-  className: 'Chat__Message Image materialboxed',
+  className: 'Chat__Message Image',
 };
 
 /**
