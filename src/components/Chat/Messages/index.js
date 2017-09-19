@@ -42,11 +42,13 @@ class Messages extends Component {
    * @return {React.Element} [description]
    */
   renderListItem(item, index) {
-    const SpecificMessage = item.message.attachment ? Attachment : Text;
+    const message = item.message;
+    const hasAttachment = message.attachment || message.attachments;
+    const SpecificMessage = hasAttachment ? Attachment : Text;
 
     return (
       <li
-        key={item.message.mid}
+        key={message.mid}
         className={this.isFirstFromSender(item, index) ? 'first-from-sender' : ''}
       >
         <SpecificMessage {...item} />

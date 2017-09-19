@@ -24,6 +24,7 @@ class QuickReply extends Component {
    */
   constructor(props) {
     super(props);
+    this.state = { isButtonDisabled: false };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -33,6 +34,9 @@ class QuickReply extends Component {
    */
   async handleClick() {
     const input = {};
+    this.setState({
+      isButtonDisabled: true,
+    });
 
     if (this.props.content_type === 'location') {
       const { coords } = await getUserGeolocation();
@@ -91,7 +95,11 @@ class QuickReply extends Component {
    */
   render() {
     return (
-      <button className="Chat__QuickReply" onClick={this.handleClick}>
+      <button
+        className="Chat__QuickReply"
+        disabled={this.state.isButtonDisabled}
+        onClick={this.handleClick}
+      >
         {this.renderImage()}
         {this.renderTitle()}
       </button>

@@ -21,7 +21,7 @@ class QuickReplies extends Component {
    * @return {void}
    */
   componentDidMount() {
-    if (this.props.quickReplies.length) {
+    if (this.props.quickReplies.length > 1) {
       scrollRightToLeft('.Chat__QuickReplies');
     }
   }
@@ -44,17 +44,13 @@ class QuickReplies extends Component {
       return null;
     }
 
-    const elements = this.props.quickReplies.map(quickReply =>
-      (<li key={uuid.v1()}>
+    const elements = this.props.quickReplies.map(quickReply => (
+      <li key={uuid.v1()}>
         <QuickReply onUserInput={this.props.onUserInput} {...quickReply} />
-      </li>),
-    );
+      </li>
+    ));
 
-    return (
-      <ul className="Chat__QuickReplies">
-        {elements}
-      </ul>
-    );
+    return <ul className="Chat__QuickReplies">{elements}</ul>;
   }
 }
 

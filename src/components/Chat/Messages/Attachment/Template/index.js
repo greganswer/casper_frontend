@@ -21,7 +21,7 @@ class Template extends Component {
    * @return {[type]} [description]
    */
   componentDidMount() {
-    if (this.props.elements.length) {
+    if (this.props.elements.length > 1) {
       scrollRightToLeft('.Chat__Cards');
     }
   }
@@ -36,11 +36,11 @@ class Template extends Component {
       if (this.props.elements.length > 1) {
         return (
           <ul className="Chat__Cards">
-            {this.props.elements.map(element =>
-              (<li key={uuid.v1()}>
+            {this.props.elements.map(element => (
+              <li key={uuid.v1()}>
                 <Generic {...element} />
-              </li>),
-            )}
+              </li>
+            ))}
           </ul>
         );
       }

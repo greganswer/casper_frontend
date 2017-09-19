@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 import URI from 'urijs';
 
 const propTypes = {
-  sender: PropTypes.shape({ type: PropTypes.string }).isRequired,
-  message: PropTypes.shape({ text: PropTypes.string, mid: PropTypes.string }).isRequired,
+  sender: PropTypes.shape({
+    type: PropTypes.string,
+  }).isRequired,
+  message: PropTypes.shape({
+    text: PropTypes.string,
+    mid: PropTypes.string,
+  }).isRequired,
 };
 
 /**
@@ -37,12 +42,8 @@ const Text = ({ sender, message }) => {
         dangerouslySetInnerHTML={{ __html: formatMessage(message.text) }}
       />
     );
-  } else if (sender.type === 'user') {
-    return (
-      <div className="Chat__Message User">
-        {message.text}
-      </div>
-    );
+  } else if (sender.type === 'user' && message.text) {
+    return <div className="Chat__Message User">{message.text}</div>;
   }
 
   return null;
