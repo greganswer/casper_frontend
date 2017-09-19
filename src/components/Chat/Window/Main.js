@@ -26,6 +26,14 @@ class Main extends Component {
    * Scroll to the bottom of the window on update
    * @return {[type]} [description]
    */
+  componentDidMount() {
+    const $main = $('.Chat__Main');
+    $main.scrollTop($main[0].scrollHeight);
+  }
+  /**
+   * Scroll to the bottom of the window on update
+   * @return {[type]} [description]
+   */
   componentDidUpdate() {
     const $main = $('.Chat__Main');
     $main.scrollTop($main[0].scrollHeight);

@@ -55,6 +55,7 @@ class Footer extends Component {
       <div className="Chat__Footer">
         <Textarea
           autoComplete="off"
+          autoFocus="true"
           className="browser-default Chat__Input"
           maxRows={4}
           name="message"
