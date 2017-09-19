@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import Text from '../../../Text';
-import PhoneNumber from './PhoneNumber';
+import URI from 'urijs';
 
 const propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -43,8 +43,19 @@ class Button extends Component {
    * @return {React.Element}
    */
   renderButtonType(button) {
-    if (button.type === 'phone_number') {
-      return <PhoneNumber {...button} />;
+    if (button.type === 'web_url') {
+      const currentURI = new URI(window.location.href);
+      const urlObject = new URI(button.url);
+      const isCurrentDomain = currentURI.domain() === urlObject.domain();
+      const target = isCurrentDomain ? '_self' : '_blank';
+
+      return (
+        <a href={button.url} target={target}>
+          {button.title}
+        </a>
+      );
+    } else if (button.type === 'phone_number') {
+      return <a href={`tel:${button.payload}`}>{button.title}</a>;
     }
 
     return null;
