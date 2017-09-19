@@ -63,12 +63,12 @@ class Window extends Component {
 
   /**
    * Handle the user's input and empty the quickReplies
-   * @param  {string} text The user's input
+   * @param  {Object} input The user's input
    * @return {void}
    */
-  handleUserInput(text) {
+  handleUserInput(input) {
     const messages = this.state.messages;
-    const formattedMessage = formatChatMessage('user', { text });
+    const formattedMessage = formatChatMessage('user', input);
     messages.push(formattedMessage);
     this.setState({ messages, isBotTyping: true, quickReplies: [] });
     this.addBotResponses(formattedMessage);

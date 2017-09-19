@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import getUserGeolocation from '../../../../services/getUserGeolocation';
 
 const propTypes = {
   content_type: PropTypes.string.isRequired,
@@ -30,8 +31,28 @@ class QuickReply extends Component {
    * Respond to a user clicking the QuickReply
    * @return {void}
    */
-  handleClick() {
-    const input = this.props.content_type === 'location' ? 'Send Location' : this.props.title;
+  async handleClick() {
+    const input = {};
+
+    if (this.props.content_type === 'location') {
+      const { coords } = await getUserGeolocation();
+      input.attachments = [
+        {
+          title: "User's location",
+          type: 'location',
+          payload: {
+            coordinates: {
+              lat: coords.latitude,
+              long: coords.longitude,
+            },
+          },
+        },
+      ];
+    } else {
+      input.text = this.props.title;
+      input.quick_reply = this.props;
+    }
+
     this.props.onUserInput(input);
   }
 
@@ -53,7 +74,12 @@ class QuickReply extends Component {
    */
   renderTitle() {
     if (this.props.content_type === 'location') {
-      return 'Send Location';
+      return (
+        <span>
+          <i className="fa fa-map-marker" />
+          <span>Send Location</span>
+        </span>
+      );
     }
 
     return this.props.title ? this.props.title : null;

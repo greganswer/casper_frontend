@@ -30,15 +30,15 @@ class Footer extends Component {
    */
   handleKeyPress(e) {
     const textarea = e.target;
-    const value = textarea.value.trim();
+    const text = textarea.value.trim();
 
-    if (value.length === 0) {
+    if (text.length === 0) {
       textarea.value = '';
     }
 
     if (e.key === 'Enter') {
-      if (value.length > 0) {
-        this.props.onUserInput(value);
+      if (text.length > 0) {
+        this.props.onUserInput({ text });
       }
 
       textarea.value = '';
