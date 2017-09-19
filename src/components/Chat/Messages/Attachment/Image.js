@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import $ from 'jquery/dist/jquery';
 
 const propTypes = {
   url: PropTypes.string.isRequired,
@@ -14,10 +15,25 @@ const defaultProps = {
 
 /**
  * Render this component
- * @param {Object} props The properties pass in to this Element
- * @return {React.Element}
+ * @type {React.Component}
  */
-const Image = ({ url, alt, className }) => <img src={url} alt={alt} className={className} />;
+class Image extends Component {
+  /**
+   * Set materialize box when ready
+   * @return {void}
+   */
+  componentDidMount() {
+    $('.materialboxed').materialbox();
+  }
+
+  /**
+   * Render this component
+   * @return {React.Element}
+   */
+  render() {
+    return <img src={this.props.url} alt={this.props.alt} className={this.props.className} />;
+  }
+}
 
 Image.propTypes = propTypes;
 Image.defaultProps = defaultProps;
