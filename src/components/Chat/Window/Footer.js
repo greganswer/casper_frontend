@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import $ from 'jquery/dist/jquery';
 import Textarea from 'react-textarea-autosize';
 
 const propTypes = {
