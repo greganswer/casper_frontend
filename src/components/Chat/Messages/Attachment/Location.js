@@ -23,7 +23,8 @@ const Location = ({ sender, coordinates }) => {
   let className = 'Chat__Message Image ';
   className += sender.type === 'user' ? 'User' : 'Bot';
   const center = `${coordinates.lat},${coordinates.long}`;
-  const url = `https://maps.googleapis.com/maps/api/staticmap?center=${center}&zoom=14&size=400x400`;
+  const key = process.env.REACT_APP_GOOGLE_MAPS_GEOCODING_API_KEY;
+  const url = `https://maps.googleapis.com/maps/api/staticmap?key=${key}&center=${center}&zoom=14&size=400x400`;
 
   return <img src={url} alt={alt} className={className} />;
 };
