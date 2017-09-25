@@ -10,15 +10,14 @@ const CHATBOT_POST_URL = `${CHATBOT_API_URL}/?access_token=${CHATBOT_ACCESS_TOKE
  * @return {string}
  */
 const randomErrorMessages = () => {
-  const random = Math.random();
+  const possibleResponses = [
+    "⚠\nI'm sorry, I'm having trouble communicating with my server at the moment.\n\nPlease contact my developer and try again later.",
+    "⚠\nUh oh! It looks like I'm not feeling well 😵 \n\nPlease let my creator know and try again later.",
+    '⚠\nI seem to be under the weather right now 😷 \n\nPlease tell my creators so they can fix me up.',
+  ];
+  const text = possibleResponses[Math.round(Math.random() * (possibleResponses.length - 1))];
 
-  if (random <= 0.33) {
-    return "⚠\nI'm sorry, I'm having trouble communicating with my server at the moment.\n\nPlease contact my developer and try again later.";
-  } else if (random >= 0.66) {
-    return "⚠\nUh oh! It looks like I'm not feeling well 😵 \n\nPlease let my creator know and try again later.";
-  }
-
-  return '⚠\nI seem to be under the weather right now 😷 \n\nPlease tell my creators so they can fix me up.';
+  return `${text}`
 };
 
 /**
