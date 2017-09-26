@@ -29,7 +29,7 @@ const randomErrorMessages = () => {
  */
 export default async function botResponses(data) {
   try {
-    const response = axios.post(CHATBOT_POST_URL, data);
+    const response = await axios.post(CHATBOT_POST_URL, data);
     return response.data.length ? response : randomErrorMessages();
   } catch (e) {
     return randomErrorMessages();
