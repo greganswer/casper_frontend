@@ -6,7 +6,8 @@ const CHATBOT_ACCESS_TOKEN = process.env.REACT_APP_CHATBOT_API_ACCESS_TOKEN;
 const CHATBOT_POST_URL = `${CHATBOT_API_URL}/?access_token=${CHATBOT_ACCESS_TOKEN}`;
 
 /**
- * Generate a random error message if the server is not connected
+ * Generate a random error message if the server is not connected.
+ *
  * @return {string}
  */
 const randomErrorMessages = () => {
@@ -17,20 +18,20 @@ const randomErrorMessages = () => {
   ];
   const text = possibleResponses[Math.round(Math.random() * (possibleResponses.length - 1))];
 
-  return `${text}`
+  return { data: [formatChatMessage('bot', { text })] };
 };
 
 /**
- * Process the user's input
+ * Process the user's input.
+ *
  * @param  {string} data The user's message
  * @return {Object}
  */
 export default async function botResponses(data) {
   try {
-    return await axios.post(CHATBOT_POST_URL, data);
+    const response = axios.post(CHATBOT_POST_URL, data);
+    return response.data.length ? response : randomErrorMessages();
   } catch (e) {
-    return {
-      data: [formatChatMessage('bot', { text: randomErrorMessages() })],
-    };
+    return randomErrorMessages();
   }
 }
