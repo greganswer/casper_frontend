@@ -32,6 +32,7 @@ class Window extends Component {
     const lastItem = _.last(messages);
     const quickReplies = lastItem ? lastItem.message.quick_replies : this.getStarted();
     this.state = { isVisible: this.props.isOpen, isBotTyping: false, messages, quickReplies };
+    this.handleRemoveQuickReplies = this.handleRemoveQuickReplies.bind(this);
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
   }
@@ -59,6 +60,10 @@ class Window extends Component {
   handleChatWindowClose() {
     this.props.onChatWindowClose();
     this.setState({ isVisible: false });
+  }
+
+  handleRemoveQuickReplies() {
+    this.setState({ isBotTyping: true, quickReplies: [] });
   }
 
   /**
@@ -111,6 +116,7 @@ class Window extends Component {
           isBotTyping={this.state.isBotTyping}
           messages={this.state.messages}
           onUserInput={this.handleUserInput}
+          removeQuickReplies={this.handleRemoveQuickReplies}
           quickReplies={this.state.quickReplies}
         />
         <Footer onUserInput={this.handleUserInput} />

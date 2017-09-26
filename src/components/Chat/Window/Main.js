@@ -50,7 +50,7 @@ class Main extends Component {
       <div className="Chat__Main">
         <Messages messages={this.props.messages} />
         <TypingIndicator visible={this.props.isBotTyping} />
-        <QuickReplies quickReplies={this.props.quickReplies} onUserInput={this.props.onUserInput} />
+        <QuickReplies quickReplies={this.props.quickReplies} onUserInput={this.props.onUserInput} removeQuickReplies={this.props.removeQuickReplies} />
       </div>
     );
   }

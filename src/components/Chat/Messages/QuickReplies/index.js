@@ -46,7 +46,7 @@ class QuickReplies extends Component {
 
     const elements = this.props.quickReplies.map(quickReply => (
       <li key={uuid.v1()}>
-        <QuickReply onUserInput={this.props.onUserInput} {...quickReply} />
+        <QuickReply onUserInput={this.props.onUserInput} removeQuickReplies={this.props.removeQuickReplies} {...quickReply} />
       </li>
     ));
 

@@ -39,6 +39,7 @@ class QuickReply extends Component {
     });
 
     if (this.props.content_type === 'location') {
+    this.props.removeQuickReplies();
       const { coords } = await getUserGeolocation();
       input.attachments = [
         {
