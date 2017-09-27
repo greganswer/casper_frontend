@@ -30,11 +30,24 @@ class Window extends Component {
     super(props);
     const messages = allMessages();
     const lastItem = _.last(messages);
-    const quickReplies = lastItem ? lastItem.message.quick_replies : this.getStarted();
-    this.state = { isVisible: this.props.isOpen, isBotTyping: false, messages, quickReplies };
+    const quickReplies = lastItem ? lastItem.message.quick_replies : [];
+    this.state = { isVisible: this.props.isOpen, messages, quickReplies };
+    this.state.isBotTyping = !messages.length;
+
     this.handleRemoveQuickReplies = this.handleRemoveQuickReplies.bind(this);
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
+  }
+
+  /**
+   * When the window is first open, if there are no messages, send a "Get Started" user message.
+   * @return {Promise} [description]
+   */
+  async componentDidMount() {
+    if (!this.state.messages.length) {
+      await Utils.wait(4000);
+      await this.addBotResponses(formatChatMessage('user', { text: 'Get Started' }));
+    }
   }
 
   /**
@@ -62,6 +75,10 @@ class Window extends Component {
     this.setState({ isVisible: false });
   }
 
+  /**
+   * Remove the quick_replies and set bot typing indicator.
+   * @return {void}
+   */
   handleRemoveQuickReplies() {
     this.setState({ isBotTyping: true, quickReplies: [] });
   }

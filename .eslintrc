@@ -30,7 +30,7 @@
       },
       {
         blankLine: "always",
-        prev: ["class", "function", "multiline-block-like"],
+        prev: ["class", "function"],
         next: "*"
       }
     ],
@@ -47,7 +47,7 @@
         "arg": "param",
         "argument": "param",
         "class": "constructor",
-        "return": "returns",
+        "returns": "return",
         "throw": "throws",
         "virtual": "abstract"
       },

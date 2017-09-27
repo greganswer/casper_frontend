@@ -71,7 +71,6 @@ class Footer extends Component {
         <Textarea
           id="chat-text-input"
           autoComplete="off"
-          autoFocus="true"
           className="browser-default Chat__Input"
           maxRows={4}
           name="message"
