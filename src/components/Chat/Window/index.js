@@ -45,7 +45,7 @@ class Window extends Component {
    */
   async componentDidMount() {
     if (!this.state.messages.length) {
-      await Utils.wait(4000);
+      await Utils.wait(3000);
       await this.addBotResponses(formatChatMessage('user', { text: 'Get Started' }));
     }
   }
@@ -104,17 +104,18 @@ class Window extends Component {
   async addBotResponses(input) {
     const messages = this.state.messages;
     const response = await botResponses(input);
+    const items = response.data;
 
-    response.data.forEach(async (item, index) => {
+    for (let i = 0; i < items.length; i++) {
       this.setState({ isBotTyping: true });
-      await Utils.wait((index + 1) * 2000 + index * 2000);
-      messages.push(item);
+      await Utils.wait((i + 1) * 2000 + i * 2000);
+      messages.push(items[i]);
       this.setState({
         messages,
-        isBotTyping: !!response.data[index + 1],
-        quickReplies: item.message.quick_replies,
+        isBotTyping: !!response.data[i + 1],
+        quickReplies: items[i].message.quick_replies,
       });
-    });
+    }
   }
 
   /**
