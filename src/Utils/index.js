@@ -9,6 +9,8 @@ module.exports = class Utils {
    * @return {Promise|null}
    */
   static wait(miliseconds = 2000) {
+    console.log('environment = ', process.env.NODE_ENV);
+
     if (process.env.NODE_ENV !== 'production') {
       return null;
     }
