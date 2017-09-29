@@ -2,6 +2,9 @@
   "name": "casper_frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "8.1.2"
+  },
   "dependencies": {
     "animate.css": "^3.5.2",
     "axios": "^0.16.2",
