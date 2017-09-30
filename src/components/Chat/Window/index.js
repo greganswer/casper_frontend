@@ -31,8 +31,12 @@ class Window extends Component {
     const messages = allMessages();
     const lastItem = _.last(messages);
     const quickReplies = lastItem ? lastItem.message.quick_replies : [];
-    this.state = { isVisible: this.props.isOpen, messages, quickReplies };
-    this.state.isBotTyping = !messages.length;
+    this.state = {
+      isVisible: this.props.isOpen,
+      isBotTyping: !messages.length,
+      messages,
+      quickReplies,
+    };
 
     this.handleRemoveQuickReplies = this.handleRemoveQuickReplies.bind(this);
     this.handleChatWindowClose = this.handleChatWindowClose.bind(this);
