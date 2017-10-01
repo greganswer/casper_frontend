@@ -56,6 +56,9 @@ class Generic extends Component {
    * @return {React.Element}
    */
   renderImage() {
+    if (!this.props.image_url) {
+      return null;
+    }
     const imageElement = <img src={this.props.image_url} alt="" />;
 
     if (this.props.default_action.url) {
