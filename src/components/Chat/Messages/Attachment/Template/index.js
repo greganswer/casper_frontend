@@ -36,13 +36,9 @@ class Template extends Component {
     if (this.props.template_type === 'generic') {
       if (this.props.elements.length > 1) {
         return (
-          <ul className="Chat__Cards">
-            {this.props.elements.map(element => (
-              <li key={uuid.v1()}>
-                <Generic {...element} />
-              </li>
-            ))}
-          </ul>
+          <div className="Chat__Cards">
+            {this.props.elements.map(element => <Generic key={uuid.v1()} {...element} />)}
+          </div>
         );
       }
 

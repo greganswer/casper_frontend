@@ -37,26 +37,26 @@ class Generic extends Component {
    * @return {React.Element}
    */
   renderButtons() {
-    if (this.props.buttons.length) {
-      return (
-        <ul className="Buttons">
-          {this.props.buttons.map(button => (
-            <li key={uuid.v1()}>
-              <a href={button.url}>{button.title}</a>
-            </li>
-          ))}
-        </ul>
-      );
+    if (!this.props.buttons.length) {
+      return null;
     }
 
-    return null;
+    return (
+      <ul className="Buttons">
+        {this.props.buttons.map(button => (
+          <li key={uuid.v1()}>
+            <a href={button.url}>{button.title}</a>
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   /**
    * Render the Card image
    * @return {React.Element}
    */
-  renderImage() {
+  renderHeader() {
     if (!this.props.image_url) {
       return null;
     }
@@ -66,7 +66,7 @@ class Generic extends Component {
       return <a href={this.props.default_action.url}>{imageElement}</a>;
     }
 
-    return imageElement;
+    return <div className="Header">{imageElement}</div>;
   }
 
   /**
@@ -76,12 +76,12 @@ class Generic extends Component {
   render() {
     return (
       <div className="Chat__Card">
-        <div className="Header">{this.renderImage()}</div>
+        {this.renderHeader()}
         <div className="Main">
           <div className="title">{this.props.title}</div>
           <div className="subtitle">{this.props.subtitle}</div>
-          {this.renderButtons()}
         </div>
+        {this.renderButtons()}
       </div>
     );
   }
