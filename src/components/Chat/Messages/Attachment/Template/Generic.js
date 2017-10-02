@@ -15,7 +15,7 @@ const propTypes = {
     type: PropTypes.string,
     url: PropTypes.string,
   }),
-  image_url: PropTypes.string.isRequired,
+  image_url: PropTypes.string,
   subtitle: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
@@ -24,6 +24,7 @@ const defaultProps = {
   buttons: [],
   default_action: {},
   subtitle: '',
+  image_url: '',
 };
 
 /**

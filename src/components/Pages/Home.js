@@ -2,11 +2,11 @@ import React from 'react';
 
 /**
  * Render this component
- * @param {Array} props The properties pass in to this Element
+ * @param {array} props The properties pass in to this Element
  * @return {React.Element}
  */
-const Home = () =>
-  (<div className="HomePage">
+const Home = () => (
+  <div className="HomePage">
     <img src="/images/hero1.jpg" alt="Casper mattress and box" width="100%" />
     <div className="container">
       <div className="Section--large">
@@ -42,6 +42,7 @@ const Home = () =>
         </div>
       </div>
     </div>
-  </div>);
+  </div>
+);
 
 export default Home;

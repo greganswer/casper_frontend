@@ -19,7 +19,7 @@ const defaultProps = { elements: [] };
 class Template extends Component {
   /**
    * Scroll to the bottom of the window on update
-   * @return {[type]} [description]
+   * @return {void}
    */
   componentDidMount() {
     if (this.props.elements && this.props.elements.length > 1) {
@@ -29,7 +29,7 @@ class Template extends Component {
 
   /**
    * Render this component
-   * @param {Array} props The properties pass in to this Element
+   * @param {array} props The properties pass in to this Element
    * @return {React.Element}
    */
   render() {
