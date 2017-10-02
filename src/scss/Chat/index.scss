@@ -23,11 +23,13 @@ $window-radius: 8px;
 }
 
 .Chat__Footer {
-  border-radius: 0 0 $window-radius $window-radius;
   padding: 15px;
   background: #cfd8dc;
   position: relative;
 
+  @media #{$medium-and-up} {
+    border-radius: 0 0 $window-radius $window-radius;
+  }
   textarea {
     resize: none;
     width: 100%;
@@ -62,22 +64,31 @@ $window-radius: 8px;
   background: #6a1b9a;
   color: white;
   padding: 9px;
-  border-radius: $window-radius $window-radius 0 0;
   position: relative;
   z-index: 1;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.3);
+
+  @media #{$medium-and-up} {
+    border-radius: $window-radius $window-radius 0 0;
+  }
 }
 
 .Chat__Main {
   padding: 20px;
   position: relative;
   background: white;
-  height: 60vh;
-  max-height: 500px;
+  height: 100%;
   overflow-x: hidden;
   width: 100%;
   white-space: nowrap;
 
+  @media #{$small-and-down} {
+    flex: 1 0 auto;
+  }
+  @media #{$medium-and-up} {
+    height: 60vh;
+    max-height: 500px;
+  }
   &:after {
     content: '';
     display: table;
@@ -87,14 +98,24 @@ $window-radius: 8px;
 
 .Chat__Window {
   @extend .z-depth-4;
-  width: 85%;
-  max-width: 400px;
   position: fixed;
-  right: 20px;
-  bottom: 20px;
   z-index: 1000;
-  border-radius: $window-radius;
+  width: 100%;
+  right: 0;
+  bottom: 0;
 
+  @media #{$small-and-down} {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  @media #{$medium-and-up} {
+    width: 85%;
+    max-width: 400px;
+    right: 20px;
+    bottom: 20px;
+    border-radius: $window-radius;
+  }
   ul {
     list-style: none;
   }

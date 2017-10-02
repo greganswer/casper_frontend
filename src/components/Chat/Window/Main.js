@@ -10,6 +10,7 @@ const propTypes = {
   messages: PropTypes.arrayOf(PropTypes.object),
   onUserInput: PropTypes.func.isRequired,
   quickReplies: PropTypes.arrayOf(PropTypes.object),
+  removeQuickReplies: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
@@ -50,7 +51,11 @@ class Main extends Component {
       <div className="Chat__Main">
         <Messages messages={this.props.messages} />
         <TypingIndicator visible={this.props.isBotTyping} />
-        <QuickReplies quickReplies={this.props.quickReplies} onUserInput={this.props.onUserInput} removeQuickReplies={this.props.removeQuickReplies} />
+        <QuickReplies
+          quickReplies={this.props.quickReplies}
+          onUserInput={this.props.onUserInput}
+          removeQuickReplies={this.props.removeQuickReplies}
+        />
       </div>
     );
   }
