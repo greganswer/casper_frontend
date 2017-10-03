@@ -46,10 +46,6 @@ $color-send-button: #039be5;
   position: relative;
   z-index: 1;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.3);
-
-  @media #{$medium-and-up} {
-    border-radius: $window-radius $window-radius 0 0;
-  }
 }
 .Chat__Main {
   padding: 20px;
@@ -101,7 +97,7 @@ $color-send-button: #039be5;
     max-width: 400px;
     right: 20px;
     bottom: 20px;
-    border-radius: 0.5em 0.5em 0 0;
+    border-radius: 0.5em;
   }
   .material-icons {
     cursor: pointer;
