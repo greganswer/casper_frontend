@@ -1,0 +1,64 @@
+.Chat__Cards {
+  display: flex;
+  margin-top: 2em;
+  overflow-x: scroll;
+  text-align: center;
+  padding-bottom: 1em;
+
+  .Chat__Card {
+    margin-right: 0.5em;
+  }
+}
+.Chat__Card {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 0;
+  white-space: initial;
+  width: 80%;
+}
+.Chat__Card__Buttons {
+  text-align: center;
+  padding: 0;
+
+  li {
+    list-style: none;
+    border-top: 1px solid #ddd;
+    padding: 0.5em 0;
+
+    a {
+      color: darken(#039be5, 10%);
+      display: block;
+    }
+  }
+}
+.Chat__Card__Header {
+  background: linear-gradient(#555, #333);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    height: 150px;
+    display: block;
+    width: auto;
+  }
+}
+.Chat__Card__Main {
+  text-align: left;
+  padding: 0.5em;
+  margin-bottom: auto;
+}
+.Chat__Card__Main__subtitle {
+  line-height: 1.3;
+  color: #999;
+  white-space: pre-line;
+}
+.Chat__Card__Main__title {
+  font-weight: bold;
+  font-size: 1.1em;
+}
