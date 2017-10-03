@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import $ from 'jquery/dist/jquery';
 import Messages from '../Messages';
 import TypingIndicator from '../Messages/TypingIndicator';
 import QuickReplies from '../Messages/QuickReplies';
@@ -28,8 +27,8 @@ class Main extends Component {
    * @return {[type]} [description]
    */
   componentDidMount() {
-    const $main = $('.Chat__Main');
-    $main.scrollTop($main[0].scrollHeight);
+    const main = document.querySelector('.Chat__Main');
+    main.scrollTop = main.scrollHeight;
   }
 
   /**
@@ -37,9 +36,8 @@ class Main extends Component {
    * @return {[type]} [description]
    */
   componentDidUpdate() {
-    const $main = $('.Chat__Main');
-    $main.scrollTop($main[0].scrollHeight);
-    $main.animate({ scrollTop: $main[0].scrollHeight }, 500);
+    const main = document.querySelector('.Chat__Main');
+    main.scrollTop = main.scrollHeight;
   }
 
   /**
