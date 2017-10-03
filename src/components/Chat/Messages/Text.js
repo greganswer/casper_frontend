@@ -38,12 +38,12 @@ const Text = ({ sender, message }) => {
   if (sender.type === 'bot') {
     return (
       <div
-        className="Chat__Message Bot"
+        className="Chat__Message--Bot"
         dangerouslySetInnerHTML={{ __html: formatMessage(message.text) }}
       />
     );
   } else if (sender.type === 'user' && message.text) {
-    return <div className="Chat__Message User">{message.text}</div>;
+    return <div className="Chat__Message--User">{message.text}</div>;
   }
 
   return null;

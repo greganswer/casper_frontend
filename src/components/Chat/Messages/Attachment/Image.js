@@ -9,7 +9,7 @@ const propTypes = {
 
 const defaultProps = {
   alt: '',
-  className: 'Chat__Message Image',
+  className: 'Chat__Message--Bot Chat__Message--Image',
 };
 
 /**

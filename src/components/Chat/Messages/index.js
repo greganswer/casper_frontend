@@ -21,7 +21,7 @@ class Messages extends Component {
 
     if ($main[0]) {
       $main.scrollTop($main[0].scrollHeight);
-      $main.animate({ scrollTop: $main[0].scrollHeight }, 500);
+      $main.animate({ scrollTop: $main[0].scrollHeight }, 200);
     }
   }
 
