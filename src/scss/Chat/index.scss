@@ -51,7 +51,7 @@ $color-send-button: #039be5;
   background: white;
   flex-direction: column;
   flex: 1 0 auto;
-  height: 60vh;
+  height: 10vh;
   margin-bottom: auto;
   overflow-x: hidden;
   padding: 1em;
@@ -61,6 +61,7 @@ $color-send-button: #039be5;
 
   @media #{$medium-and-up} {
     max-height: 500px;
+    height: 60vh;
   }
 }
 .Chat__Send__Button {
