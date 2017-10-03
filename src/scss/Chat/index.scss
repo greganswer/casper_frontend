@@ -82,27 +82,26 @@ $color-send-button: #039be5;
   padding: 0 1em;
 }
 .Chat__Window {
-  @extend .z-depth-4;
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-  right: 0;
   bottom: 0;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12),
+    0 5px 5px -3px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  z-index: 997;
 
   @media #{$small-and-down} {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100%;
   }
   @media #{$medium-and-up} {
     width: 85%;
     max-width: 400px;
     right: 20px;
     bottom: 20px;
-    border-radius: $window-radius;
-  }
-  ul {
-    list-style: none;
+    border-radius: 0.5em 0.5em 0 0;
   }
   .material-icons {
     cursor: pointer;
