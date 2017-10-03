@@ -27,16 +27,6 @@
   &:focus {
     background: none;
   }
-  &:disabled {
-    $color: #999;
-    border: 2px solid $color;
-    color: $color;
-    .fa {
-      background: $color;
-      border: 3px solid $color;
-    }
-  }
-
   > img {
     float: left;
     margin: 0 8px 0 -12px;
