@@ -12,7 +12,7 @@
 }
 
 .Chat__QuickReply {
-  @extend .z-depth-1;
+  box-shadow: $box-shadow-1;
   height: 34px;
   line-height: 30px;
   padding: 0 12px;

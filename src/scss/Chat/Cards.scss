@@ -14,7 +14,7 @@ body {
   }
 }
 .Chat__Card {
-  @extend .z-depth-2;
+  box-shadow: $box-shadow-1;
   border-radius: 10px;
   border: 1px solid #ddd;
   display: flex;

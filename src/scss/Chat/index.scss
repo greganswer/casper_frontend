@@ -5,8 +5,7 @@ $bot-secondary-color: black;
 $user-primary-color: lighten(#283593, 20%);
 $user-secondary-color: white;
 $window-radius: 8px;
-
-.Chat__Button {
+$box-shadow-1: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), .Chat__Button {
   @keyframes pulse {
     from {
       transform: scale3d(1, 1, 1);
