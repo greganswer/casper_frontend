@@ -6,6 +6,7 @@ const propTypes = {
   content_type: PropTypes.string.isRequired,
   image_url: PropTypes.string,
   onUserInput: PropTypes.func.isRequired,
+  removeQuickReplies: PropTypes.func.isRequired,
   payload: PropTypes.string,
   title: PropTypes.string,
 };
@@ -24,7 +25,6 @@ class QuickReply extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = { isButtonDisabled: false };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -34,12 +34,9 @@ class QuickReply extends Component {
    */
   async handleClick() {
     const input = {};
-    this.setState({
-      isButtonDisabled: true,
-    });
 
     if (this.props.content_type === 'location') {
-    this.props.removeQuickReplies();
+      this.props.removeQuickReplies();
       const { coords } = await getUserGeolocation();
       input.attachments = [
         {
@@ -96,11 +93,7 @@ class QuickReply extends Component {
    */
   render() {
     return (
-      <button
-        className="Chat__QuickReply"
-        disabled={this.state.isButtonDisabled}
-        onClick={this.handleClick}
-      >
+      <button className="Chat__QuickReply" onClick={this.handleClick}>
         {this.renderImage()}
         {this.renderTitle()}
       </button>

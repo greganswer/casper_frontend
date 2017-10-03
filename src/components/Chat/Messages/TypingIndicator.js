@@ -6,7 +6,7 @@ const defaultProps = { visible: true };
 
 /**
  * Render the bot typing indicator if the bot is "typing"
- * @param {Array} props The properties pass in to this Element
+ * @param {array} props The properties pass in to this Element
  * @return {React.Element} The typing indicator
  */
 const TypingIndicator = ({ visible }) => {
@@ -15,7 +15,7 @@ const TypingIndicator = ({ visible }) => {
   }
 
   return (
-    <div className="Chat__Message Bot Typing">
+    <div className="Chat__Message--Bot Chat__Message--Typing">
       <span />
       <span />
       <span />

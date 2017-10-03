@@ -6,6 +6,7 @@ import scrollRightToLeft from '../../../helpers/scrollRightToLeft';
 
 const propTypes = {
   onUserInput: PropTypes.func.isRequired,
+  removeQuickReplies: PropTypes.func.isRequired,
   quickReplies: PropTypes.arrayOf(PropTypes.object),
 };
 
@@ -45,12 +46,15 @@ class QuickReplies extends Component {
     }
 
     const elements = this.props.quickReplies.map(quickReply => (
-      <li key={uuid.v1()}>
-        <QuickReply onUserInput={this.props.onUserInput} removeQuickReplies={this.props.removeQuickReplies} {...quickReply} />
-      </li>
+      <QuickReply
+        key={uuid.v1()}
+        onUserInput={this.props.onUserInput}
+        removeQuickReplies={this.props.removeQuickReplies}
+        {...quickReply}
+      />
     ));
 
-    return <ul className="Chat__QuickReplies">{elements}</ul>;
+    return <div className="Chat__QuickReplies">{elements}</div>;
   }
 }
 

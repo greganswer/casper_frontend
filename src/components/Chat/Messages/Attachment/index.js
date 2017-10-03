@@ -18,7 +18,7 @@ const defaultProps = {};
 
 /**
  * Render this component
- * @param {Array} props The properties pass in to this Element
+ * @param {Object} props The properties pass in to this Element
  * @return {React.Element}
  */
 const Attachment = ({ sender, message }) => {
