@@ -15,7 +15,7 @@ const TypingIndicator = ({ visible }) => {
   }
 
   return (
-    <div className="Chat__Message Bot Typing">
+    <div className="Chat__Message--Bot Chat__Message--Typing">
       <span />
       <span />
       <span />
