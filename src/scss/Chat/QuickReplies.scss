@@ -1,7 +1,6 @@
 @import 'index';
 
 .Chat__QuickReplies {
-  margin: 2em 0 0;
   overflow-x: scroll;
   padding: 1em 0;
   text-align: center;
@@ -12,7 +11,7 @@
 }
 
 .Chat__QuickReply {
-  @extend .z-depth-1;
+  box-shadow: $box-shadow-1;
   height: 34px;
   line-height: 30px;
   padding: 0 12px;
@@ -27,21 +26,10 @@
   &:focus {
     background: none;
   }
-  &:disabled {
-    $color: #999;
-    border: 2px solid $color;
-    color: $color;
-    .fa {
-      background: $color;
-      border: 3px solid $color;
-    }
-  }
-
   > img {
     float: left;
     margin: 0 8px 0 -12px;
     border-radius: 50%;
-    border: 3px solid $user-primary-color;
     position: relative;
     top: -1px;
     left: -1px;
@@ -49,15 +37,15 @@
     width: 32px;
   }
   .fa {
-    border-radius: 500px;
-    padding: 4px;
+    border-radius: 50%;
+    padding: 5px;
     position: relative;
-    left: -13px;
+    left: -10px;
     background: $user-primary-color;
     color: white;
     font-size: 1.2em;
     display: inline-block;
-    width: 30px;
-    border: 3px solid $user-primary-color;
+    width: 27px;
+    top: 1px;
   }
 }

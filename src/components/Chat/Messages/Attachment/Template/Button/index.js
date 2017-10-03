@@ -24,11 +24,9 @@ class Button extends Component {
   renderButtons() {
     if (this.props.buttons.length) {
       return (
-        <ul className="collection">
+        <ul className="Chat__Message--Bot Chat__Message__Buttons">
           {this.props.buttons.map(button => (
-            <li key={uuid.v1()} className="collection-item">
-              {this.renderButtonType(button)}
-            </li>
+            <li key={uuid.v1()}>{this.renderButtonType(button)}</li>
           ))}
         </ul>
       );
@@ -67,7 +65,7 @@ class Button extends Component {
    */
   render() {
     return (
-      <div className="Chat__Template__Button">
+      <div>
         <Text sender={{ type: 'bot' }} message={{ text: this.props.text }} />
         {this.renderButtons()}
       </div>

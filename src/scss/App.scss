@@ -1,23 +1,23 @@
 // NOTE: Order is important
 
-@import "Variables";
+@import 'Variables';
 
 /**
  * VENDOR IMPORTS
  */
-@import "~font-awesome/css/font-awesome.css";
-@import "materialize-css/sass/materialize";
-@import "animate.css/animate";
+@import '~font-awesome/css/font-awesome.css';
+@import 'materialize-css/sass/materialize';
+@import 'animate.css/animate';
 
 /**
  * COMPONENTS
  */
-@import "Layout/Header";
-@import "Layout/Footer";
-@import "Chat/index";
-@import "Chat/Cards";
-@import "Chat/Messages";
-@import "Chat/QuickReplies";
+@import 'Layout/Header';
+@import 'Layout/Footer';
+@import 'Chat/index';
+@import 'Chat/Cards';
+@import 'Chat/Messages';
+@import 'Chat/QuickReplies';
 
 /**
  * APP STYLES
@@ -27,6 +27,8 @@ body,
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  padding: 0;
+  margin: 0;
 }
 
 main {

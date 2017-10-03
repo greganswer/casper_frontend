@@ -1,102 +1,91 @@
 @import 'index';
 
-$border-radius-bot-message: 20px 20px 20px 5px;
-$border-radius-user-message: 20px 20px 5px 20px;
-
-.Chat__Template__Button {
-  .collection {
-    width: 80%;
-    text-align: center;
-    border-radius: $border-radius-bot-message;
-  }
-}
-
 .Chat__Messages {
-  padding: 0;
+  li {
+    margin: 0.5em 0;
 
-  > li {
-    clear: both;
-    margin-bottom: 0.7em;
-
+    &.first-from-sender {
+      margin-top: 2em;
+    }
     &:after {
       content: '';
       display: table;
       clear: both;
     }
-
-    &.first-from-sender {
-      margin-top: 2em;
-    }
   }
 }
-
-.Chat__Message {
-  white-space: pre-wrap;
-  padding: 10px;
-  border-radius: $border-radius-bot-message;
-  display: inline-block;
+.Chat__Message,
+.Chat__Message--Bot,
+.Chat__Message--Bot--Typing,
+.Chat__Message--User {
+  background: linear-gradient(lighten($bot-primary-color, 7%), $bot-primary-color);
+  border-radius: 15px;
+  clear: both;
+  color: $bot-secondary-color;
+  display: block;
+  margin: 5px 0;
   max-width: 80%;
+  padding: 0.5em 1em;
+  white-space: pre-line;
   word-wrap: break-word;
+}
+.Chat__Message--Bot {
+  border-bottom-left-radius: 3px;
+  float: left;
+}
+.Chat__Message__Buttons {
+  padding: 0;
+  background: white;
+  width: 100%;
+  border: 1px solid $bot-primary-color;
+  text-align: center;
 
-  &.Bot {
-    background: $bot-primary-color;
-    background: linear-gradient(#eee, #ddd);
-    a {
-      text-decoration: underline;
-    }
-  }
-  &.Image {
-    padding: 0;
-    width: 100%;
+  a {
     display: block;
-    border-radius: $border-radius-bot-message;
-
-    &.User {
-      float: right;
-      clear: both;
-      border-radius: $border-radius-user-message;
-    }
   }
-  &.User {
-    // background: $user-primary-color;
-    background: linear-gradient($user-primary-color, darken($user-primary-color, 10%));
-    color: white;
-    border-radius: $border-radius-user-message;
-    float: right;
-    clear: both;
+  li:not(:last-of-type) {
+    padding: 0 0 15px;
+    border-bottom: 1px solid $bot-primary-color;
   }
-  &.Bot.Typing {
-    will-change: transform;
-    padding: 14px;
-    display: table;
-    animation: 2s bulge infinite ease-out;
+}
+.Chat__Message--Image {
+  padding: 0;
+}
+.Chat__Message--Typing {
+  will-change: transform;
+  padding: 14px;
+  display: table;
+  animation: 2s bulge infinite ease-out;
 
-    span {
-      height: 0.8em;
-      width: 0.8em;
-      float: left;
-      margin: 0 1px;
-      background: #9e9ea1;
-      display: block;
-      border-radius: 50%;
-      opacity: 0.4;
-      @for $i from 1 through 3 {
-        &:nth-of-type(#{$i}) {
-          animation: 1s blink infinite ($i * 0.3333s);
-        }
+  span {
+    height: 0.8em;
+    width: 0.8em;
+    float: left;
+    margin: 0 1px;
+    background: #9e9ea1;
+    display: block;
+    border-radius: 50%;
+    opacity: 0.4;
+    @for $i from 1 through 3 {
+      &:nth-of-type(#{$i}) {
+        animation: 1s blink infinite ($i * 0.3333s);
       }
     }
   }
-
   @keyframes blink {
     50% {
       opacity: 1;
     }
   }
-
   @keyframes bulge {
     50% {
       transform: scale(1.05);
     }
   }
+}
+.Chat__Message--User {
+  background: linear-gradient(lighten($user-primary-color, 10%), $user-primary-color);
+  border-bottom-right-radius: 3px;
+  color: $user-secondary-color;
+  float: right;
 }

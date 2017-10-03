@@ -80,11 +80,11 @@ class Footer extends Component {
           type="text"
         />
         <button
-          className="btn light-blue darken-1 z-depth-0"
+          className="Chat__Send__Button"
           onClick={this.handleInputSubmission}
           disabled={this.state.isSubmiting}
         >
-          <i className="fa fa-paper-plane" /> Send
+          <i className="fa fa-paper-plane" />
         </button>
       </div>
     );

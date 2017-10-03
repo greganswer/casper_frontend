@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import $ from 'jquery/dist/jquery';
 import Attachment from './Attachment/index';
 import Text from './Text';
 
@@ -12,19 +11,6 @@ const defaultProps = { messages: [] };
  * @type {React.Component}
  */
 class Messages extends Component {
-  /**
-   * Scroll to the bottom of the window on update
-   * @return {[type]} [description]
-   */
-  componentDidUpdate() {
-    const $main = $('.Chat__Messages');
-
-    if ($main[0]) {
-      $main.scrollTop($main[0].scrollHeight);
-      $main.animate({ scrollTop: $main[0].scrollHeight }, 500);
-    }
-  }
-
   /**
    * Is this message the first from sender
    * @param  {Object} item The currenet message in the messages array
