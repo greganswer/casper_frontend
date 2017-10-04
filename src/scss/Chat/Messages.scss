@@ -51,6 +51,9 @@
 }
 .Chat__Message--Image {
   padding: 0;
+  min-height: 40px;
+  min-width: 160px;
+  text-align: center;
 }
 .Chat__Message--Typing {
   will-change: transform;
