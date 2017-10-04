@@ -24,28 +24,55 @@ $color-send-button: #039be5;
 }
 .Chat__Footer {
   background: #cfd8dc;
+  // box-shadow: 0px -1px 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -1px 30px 0 rgba(0, 0, 0, 0.1), 0 0px 10px 0 rgba(0, 0, 0, 0.2);
   display: flex;
-  padding: 1em;
+  z-index: 1;
 
+  @media #{$medium-and-up} {
+    padding: 1em;
+  }
   textarea {
     background: white;
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    border-radius: 5px 0 0 5px;
+    border: 0;
+    border-radius: 0;
+    font-size: 16px;
+    height: 44px;
+    outline: none;
+    padding: 8px;
     resize: none;
 
     &:focus {
-      box-shadow: 0 0 5px -1px $color-send-button;
       outline: none;
+    }
+    @media #{$medium-and-up} {
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      border-radius: 5px 0 0 5px;
+
+      &:focus {
+        box-shadow: 0 0 5px -1px $color-send-button;
+        outline: none;
+      }
     }
   }
 }
 .Chat__Header {
   background: #6a1b9a;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.3);
   color: white;
-  padding: 9px;
+  margin-top: -3px;
+  padding: 6px 10px 0;
   position: relative;
   z-index: 1;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.3);
+
+  @media screen and (max-height: 300px) {
+    display: none;
+  }
+  i {
+    font-size: 20px;
+    position: relative;
+    top: 0px;
+  }
 }
 .Chat__Main {
   background: white;
@@ -54,22 +81,31 @@ $color-send-button: #039be5;
   height: 10vh;
   margin-bottom: auto;
   overflow-x: hidden;
-  padding: 1em;
+  padding: 0.5em;
   position: relative;
   white-space: nowrap;
   width: 100%;
+  -webkit-overflow-scrolling: touch;
 
   @media #{$medium-and-up} {
-    max-height: 500px;
     height: 60vh;
+    max-height: 500px;
+    padding: 1em;
   }
 }
 .Chat__Send__Button {
   background: $color-send-button;
   border: 0;
-  border-radius: 0 5px 5px 0;
   color: white;
   padding: 0 1em;
+
+  &:focus {
+    background: lighten($color-send-button, 10%);
+  }
+
+  @media #{$medium-and-up} {
+    border-radius: 0 5px 5px 0;
+  }
 }
 .Chat__Window {
   bottom: 0;
@@ -80,6 +116,7 @@ $color-send-button: #039be5;
   right: 0;
   width: 100%;
   z-index: 997;
+  –webkit-transform: tranzlateZ(0);
 
   @media #{$small-and-down} {
     display: flex;

@@ -19,7 +19,7 @@
 .Chat__Message--Bot--Typing,
 .Chat__Message--User {
   background: linear-gradient(lighten($bot-primary-color, 7%), $bot-primary-color);
-  border-radius: 15px;
+  border-radius: 1em;
   clear: both;
   color: $bot-secondary-color;
   display: block;
@@ -34,17 +34,18 @@
   float: left;
 }
 .Chat__Message__Buttons {
-  padding: 0;
   background: white;
-  width: 100%;
+  border-radius: 1em;
   border: 1px solid $bot-primary-color;
+  padding: 0;
   text-align: center;
+  width: 100%;
 
   a {
     display: block;
   }
   li:not(:last-of-type) {
-    padding: 0 0 15px;
+    padding: 0 0 8px;
     border-bottom: 1px solid $bot-primary-color;
   }
 }

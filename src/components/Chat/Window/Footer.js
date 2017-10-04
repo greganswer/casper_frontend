@@ -36,6 +36,7 @@ class Footer extends Component {
     if (text.length > 0) {
       this.setState({ isSubmiting: true });
       this.props.onUserInput({ text });
+      document.activeElement.blur();
     }
 
     textarea.value = '';
