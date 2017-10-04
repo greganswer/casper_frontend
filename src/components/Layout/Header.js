@@ -72,11 +72,6 @@ export default class Header extends Component {
                 <li>
                   <a href="#">Login</a>
                 </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-shopping-cart" />
-                  </a>
-                </li>
               </ul>
             </div>
           </nav>

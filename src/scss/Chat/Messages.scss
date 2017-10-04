@@ -36,7 +36,7 @@
 .Chat__Message__Buttons {
   background: white;
   border-radius: 1em;
-  border: 1px solid $bot-primary-color;
+  border: 1px solid $card-border-color;
   padding: 0;
   text-align: center;
   width: 100%;
@@ -50,6 +50,7 @@
   }
 }
 .Chat__Message--Image {
+  border: 1px solid $card-border-color;
   padding: 0;
   min-height: 40px;
   min-width: 160px;
