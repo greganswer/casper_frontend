@@ -1,0 +1,15 @@
+@import 'Variables';
+
+ul.side-nav {
+  background: desaturate($primary-color, 30%);
+  color: white;
+
+  li > a {
+    color: white;
+
+    > i {
+      color: white;
+      margin: 0;
+    }
+  }
+}

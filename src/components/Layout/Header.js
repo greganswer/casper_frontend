@@ -28,12 +28,11 @@ export default class Header extends Component {
               <a href="#" className="brand-logo hide-on-large-only">
                 Casper
               </a>
-              <a
-                className="button-collapse jsButtonCollapse"
-                data-activates="menu-mobile-side"
-                href="#"
-              >
+              <a className="button-collapse jsButtonCollapse" data-activates="SideNav" href="#">
                 <i className="material-icons">menu</i>
+              </a>
+              <a href="#" className="ShoppingCart--MobileHeader">
+                <i className="fa fa-shopping-cart" />
               </a>
               <ul className="hide-on-med-and-down">
                 <li>

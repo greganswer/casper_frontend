@@ -4,6 +4,7 @@ import '../libs/materialize';
 
 import Header from './Layout/Header';
 import Footer from './Layout/Footer';
+import SideNav from './Layout/SideNav';
 import HomePage from './Pages/Home';
 import Chat from './Chat';
 
@@ -34,6 +35,7 @@ class App extends Component {
           <HomePage />
           <Chat />
         </main>
+        <SideNav />
         <Footer />
       </div>
     );
