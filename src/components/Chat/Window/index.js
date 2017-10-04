@@ -44,23 +44,17 @@ class Window extends Component {
   }
 
   /**
-   * When the window is first open, if there are no messages, send a "Get Started" user message.
-   * @return {Promise} [description]
-   */
-  async componentDidMount() {
-    if (!this.state.messages.length) {
-      await Utils.wait(3000);
-      await this.addBotResponses(formatChatMessage('user', { text: 'Get Started' }));
-    }
-  }
-
-  /**
    * Check if the window is open
    * @param  {Object} newProps The new properties being passed in
    * @return {void}
    */
-  componentWillReceiveProps(newProps) {
+  async componentWillReceiveProps(newProps) {
     this.setState({ isVisible: newProps.isOpen });
+
+    if (newProps.isOpen && !this.state.messages.length) {
+      await Utils.wait(3000);
+      await this.addBotResponses(formatChatMessage('user', { text: 'Get Started' }));
+    }
   }
 
   /**
