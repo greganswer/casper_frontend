@@ -59,6 +59,10 @@ This app is for the Casper Sleep marketing and engineering team.
 
 - Show Casper Sleep Inc. the benefits of having a robust chatbot interface
 
+### TODO
+
+1. Change chat input to only unfocus when on a screen width less than 400px (or something similar)
+
 ### Requirements
 
 - A chat interface with a chatbot that can answer any question that is referenced in [Casper's FAQ](https://casper.com/ca/en/faqs)
