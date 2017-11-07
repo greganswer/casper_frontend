@@ -19,12 +19,12 @@ You can view a live sample of this app at https://casperchatbotexample.herokuapp
     - [Additional resources](#additional-resources)
 - [The Project](#the-project)
     - [Proposal](#proposal)
-    - [Target](#target)
+    - [Target audience](#target-audience)
     - [Goals](#goals)
     - [Requirements](#requirements)
     - [Design considerations](#design-considerations)
 - [Contributions](#contributions)
-    - [Style guides](#style-guide)
+    - [Style guides](#style-guides)
 
 ## Getting started
 
@@ -34,7 +34,7 @@ You can view a live sample of this app at https://casperchatbotexample.herokuapp
 - Unix like operating system (OS X, Ubuntu, Debian, etc.)
 - Not yet tested on Windows
 
-### Development Installation
+### Installation
 
 **Note:** The back end API was created using Node.js and will remain in a private repository for the moment. The back end was mainly designed based on Facebook's Messenger API to make it compatible with Facebook Messenger. Feel free to design your own API and run it with code from this repository.
 
@@ -61,7 +61,7 @@ There are currently no tests, but they will be added in the near future once I l
 
 I propose that I create a fully featured chatbot interface for Casper's website. This app is a demonstration of what that experience would be like for the end user.
 
-### Target audiences
+### Target audience
 
 This app is for the Casper Sleep marketing and engineering team.
 
