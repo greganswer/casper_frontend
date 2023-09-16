@@ -2,8 +2,6 @@
 
 > Casper is a mattress manufacturer. This project is an attempt to showcase how they could benefit from a chatbot.
 
-You can view a live sample of this app at https://casperchatbotexample.herokuapp.com. 
-
 **NOTE:** The web app and the chat interface may freeze for the first 30 seconds as the front end and back end Heroku dynos "wake up".
 
 ![Main tablet screenshot](public/images/samples/chat_sample_1.png)
